@@ -1,0 +1,724 @@
+@prefix : <http://mssn.sigappfr.org/mssn/> .
+@prefix p: <http://www.ontology.org/product/> .
+@prefix q: <http://www.ontology.org/q/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix approva: <http://ontologies.org/approva/> .
+@base <http://mssn.sigappfr.org/mssn/> .
+
+<http://mssn.sigappfr.org/mssn/> rdf:type owl:Ontology ;
+                                  owl:versionIRI : ;
+                                  owl:imports <http://www.w3.org/ns/sosa/> ,
+                                              <http://www.w3.org/ns/ssn/> ;
+                                  rdfs:comment "MSSN-Ontology Updated,  August 2017" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/domainIncludes
+<http://schema.org/domainIncludes> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+<http://www.w3.org/2004/02/skos/core#note> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://mssn.sigappfr.org/mssn/above
+:above rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf :directionalRelation ;
+       rdfs:comment "A directional relation for indicating a location is located above another location" .
+
+
+###  http://mssn.sigappfr.org/mssn/below
+:below rdf:type owl:ObjectProperty ;
+       rdfs:subPropertyOf :directionalRelation ;
+       rdfs:comment "A directional relation for indicating a location is located below another location" .
+
+
+###  http://mssn.sigappfr.org/mssn/closeTo
+:closeTo rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :distanceRelation ;
+         rdfs:comment "A distance relation for indicating a location is located closed to another location" .
+
+
+###  http://mssn.sigappfr.org/mssn/contains
+:contains rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :topologicalRelation ;
+          rdfs:comment "A topological relation for indicating that a location contains an another location (e.g. Room1 contains Table1)" .
+
+
+###  http://mssn.sigappfr.org/mssn/covers
+:covers rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :topologicalRelation ;
+        rdfs:comment "an extended definition of \"contains\" for indicating all spatial area of a given location lies completely within another location. For example, A covers B means all the area of B lies totally within an area of A." .
+
+
+###  http://mssn.sigappfr.org/mssn/crosses
+:crosses rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :topologicalRelation ;
+         rdfs:comment "A topological relation for indicating that and area of a given location crosses with an area of another location" .
+
+
+###  http://mssn.sigappfr.org/mssn/directionalRelation
+:directionalRelation rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :locationRelation ;
+                     <http://purl.org/vocab/vann/preferredNamespaceUri> "An abstract relation for directional location relations" .
+
+
+###  http://mssn.sigappfr.org/mssn/disjoint
+:disjoint rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :topologicalRelation ;
+          rdfs:comment "A topological relation for indicating that two locations are disjoint with each other." .
+
+
+###  http://mssn.sigappfr.org/mssn/distanceRelation
+:distanceRelation rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :locationRelation ;
+                  <http://purl.org/vocab/vann/preferredNamespaceUri> "An abstract relation for distance relations" .
+
+
+###  http://mssn.sigappfr.org/mssn/equals
+:equals rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :topologicalRelation ;
+        rdfs:comment "A topological relation for indicating that two locations are exactly the same." .
+
+
+###  http://mssn.sigappfr.org/mssn/farFrom
+:farFrom rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :distanceRelation ;
+         rdfs:comment "A directional relation for indicating that a location is far from another location" .
+
+
+###  http://mssn.sigappfr.org/mssn/hasCoverageArea
+:hasCoverageArea rdf:type owl:ObjectProperty ;
+                 rdfs:comment "A relation between a sensor and a coverage area. It uses for indicating coverage areas for a sensor" ;
+                 rdfs:label "has coverage area" .
+
+
+###  http://mssn.sigappfr.org/mssn/hasLocation
+:hasLocation rdf:type owl:ObjectProperty ;
+             rdfs:comment "A relation between LocationMap and Location for indicating that a given location map contains which locations" ;
+             rdfs:label "has location" .
+
+
+###  http://mssn.sigappfr.org/mssn/hasMediaConcerned
+:hasMediaConcerned rdf:type owl:ObjectProperty ;
+                   rdfs:comment "A relation between a mediasensor and mediaconcerned concepts" .
+
+
+###  http://mssn.sigappfr.org/mssn/hasMediaDescriptor
+:hasMediaDescriptor rdf:type owl:ObjectProperty ;
+                    rdfs:comment "A relation between a media segment and a media descriptor" .
+
+
+###  http://mssn.sigappfr.org/mssn/hasMediaSegment
+:hasMediaSegment rdf:type owl:ObjectProperty ;
+                 rdfs:comment "A relation between MultimediaData and MediaSegment concept" .
+
+
+###  http://mssn.sigappfr.org/mssn/hasObeservationValue
+:hasObeservationValue rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf owl:topObjectProperty ;
+                      rdfs:comment "A relation between an atomic event occurrence and an observation value for indicating that a given atomic event occurrence is related to such an observation value." .
+
+
+###  http://mssn.sigappfr.org/mssn/leftOf
+:leftOf rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :directionalRelation ;
+        rdfs:comment "A directional relation for indicating a location is located on the left of location" .
+
+
+###  http://mssn.sigappfr.org/mssn/locationRelation
+:locationRelation rdf:type owl:ObjectProperty ;
+                  rdfs:comment """A location relation describes a relation between a pair of locations e.g. \"Table1\" opposite \"Table2\".   
+
+A location relation can be either topological relation, directional relation or distance relation.
+
+This relation intends to be use as an abstract relation for other location relations.   Hence, it may not be used directly.    Only sub-relations of this relation should be used""" ;
+                  rdfs:label "Location Relation" .
+
+
+###  http://mssn.sigappfr.org/mssn/operand
+:operand rdf:type owl:ObjectProperty ;
+         rdfs:comment "A relation from an event operator to an event occurrence" .
+
+
+###  http://mssn.sigappfr.org/mssn/operator
+:operator rdf:type owl:ObjectProperty ;
+          rdfs:comment "A relation from an event occurrence to an event operator" .
+
+
+###  http://mssn.sigappfr.org/mssn/opposite
+:opposite rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :directionalRelation ;
+          rdfs:comment "A directional relation for indicating a location is opposite another location" .
+
+
+###  http://mssn.sigappfr.org/mssn/overlaps
+:overlaps rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :topologicalRelation ;
+          rdfs:comment "A location relation for indicating that two locations are overlapped with each other." .
+
+
+###  http://mssn.sigappfr.org/mssn/produceOccurrence
+:produceOccurrence rdf:type owl:ObjectProperty ;
+                   rdfs:comment "A relation between an atomic event statement and an event occurrence" .
+
+
+###  http://mssn.sigappfr.org/mssn/rightOf
+:rightOf rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :directionalRelation ;
+         rdfs:comment "A directional relation for indicating a location is located on the right of another location" .
+
+
+###  http://mssn.sigappfr.org/mssn/topologicalRelation
+:topologicalRelation rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf :locationRelation ;
+                     <http://purl.org/vocab/vann/preferredNamespaceUri> "An abstract relation for topological location relations" .
+
+
+###  http://mssn.sigappfr.org/mssn/touches
+:touches rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :topologicalRelation ;
+         rdfs:comment "A topological relation for indicating that boundary of two locations touch each other" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://mssn.sigappfr.org/mssn/hasAdditionalParams
+:hasAdditionalParams rdf:type owl:DatatypeProperty ;
+                     rdfs:comment "A data property for specifying additional parameters for AtomicEventCondition" ;
+                     rdfs:label "has additional params" .
+
+
+###  http://mssn.sigappfr.org/mssn/hasIRI
+:hasIRI rdf:type owl:DatatypeProperty ;
+        rdfs:comment "A data property for attaching an IRI literal to a concept.  It is mostly used for attaching an IRI to AtomicEventCondition" ;
+        rdfs:label "has IRI" .
+
+
+###  http://mssn.sigappfr.org/mssn/hasOperatorName
+:hasOperatorName rdf:type owl:DatatypeProperty ;
+                 rdfs:comment "A data property for indicating an operator name for a spatial operator" ;
+                 rdfs:label "has operator name" .
+
+
+###  http://mssn.sigappfr.org/mssn/statement
+:statement rdf:type owl:DatatypeProperty ;
+           rdfs:comment "A data property for specifying a statement for an EventStatement" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://mssn.sigappfr.org/mssn/AnnotationDescriptor
+:AnnotationDescriptor rdf:type owl:Class ;
+                      rdfs:subClassOf :MediaDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/AtomicEventCondition
+:AtomicEventCondition rdf:type owl:Class ;
+                      rdfs:subClassOf <http://www.w3.org/ns/sosa/Process> ;
+                      rdfs:comment "An atomic event condition is a preprogrammed black-box function that is used for detecting an atomic event" .
+
+
+###  http://mssn.sigappfr.org/mssn/AtomicEventOccurrence
+:AtomicEventOccurrence rdf:type owl:Class ;
+                       rdfs:subClassOf :EventOccurrence .
+
+
+###  http://mssn.sigappfr.org/mssn/Audio
+:Audio rdf:type owl:Class ;
+       rdfs:subClassOf :MediaConcerned .
+
+
+###  http://mssn.sigappfr.org/mssn/AudioDescriptor
+:AudioDescriptor rdf:type owl:Class ;
+                 rdfs:subClassOf :MediaDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/AudioSegment
+:AudioSegment rdf:type owl:Class ;
+              rdfs:subClassOf :MediaSegment ;
+              rdfs:comment "An audio segment is a segment for modeling audio data of MultimediaData" .
+
+
+###  http://mssn.sigappfr.org/mssn/BoundingBoxDescriptor
+:BoundingBoxDescriptor rdf:type owl:Class ;
+                       rdfs:subClassOf :SpatialDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/CONTAINS
+:CONTAINS rdf:type owl:Class ;
+          rdfs:subClassOf :TemporalOperator .
+
+
+###  http://mssn.sigappfr.org/mssn/CameraMotionDescriptor
+:CameraMotionDescriptor rdf:type owl:Class ;
+                        rdfs:subClassOf :MotionDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/ColorLayoutDescriptor
+:ColorLayoutDescriptor rdf:type owl:Class ;
+                       rdfs:subClassOf :VisualDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/ColorStructureDescriptor
+:ColorStructureDescriptor rdf:type owl:Class ;
+                          rdfs:subClassOf :VisualDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/ComplexEventOccurrence
+:ComplexEventOccurrence rdf:type owl:Class ;
+                        rdfs:subClassOf :EventOccurrence .
+
+
+###  http://mssn.sigappfr.org/mssn/ContourShapeDescriptor
+:ContourShapeDescriptor rdf:type owl:Class ;
+                        rdfs:subClassOf :VisualDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/CoverageArea
+:CoverageArea rdf:type owl:Class ;
+              owl:equivalentClass :Location ;
+              <http://schema.org/domainIncludes> "Coverage Area" .
+
+
+###  http://mssn.sigappfr.org/mssn/DURING
+:DURING rdf:type owl:Class ;
+        rdfs:subClassOf :TemporalOperator .
+
+
+###  http://mssn.sigappfr.org/mssn/DominatColorDescriptor
+:DominatColorDescriptor rdf:type owl:Class ;
+                        rdfs:subClassOf :VisualDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/EQUALS
+:EQUALS rdf:type owl:Class ;
+        rdfs:subClassOf :TemporalOperator .
+
+
+###  http://mssn.sigappfr.org/mssn/EdgeHistogramDescriptor
+:EdgeHistogramDescriptor rdf:type owl:Class ;
+                         rdfs:subClassOf :VisualDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/EventOccurrence
+:EventOccurrence rdf:type owl:Class ;
+                 rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event> ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :operator ;
+                                   owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onClass :EventOperator
+                                 ] .
+
+
+###  http://mssn.sigappfr.org/mssn/EventOperator
+:EventOperator rdf:type owl:Class ;
+               rdfs:subClassOf <http://www.w3.org/ns/sosa/Process> ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :operand ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass :EventOccurrence
+                               ] ;
+               rdfs:comment "An event operator is a binary operator that is described the relation between a pair of event occurrences.   An operator can be either spatial or temporal" .
+
+
+###  http://mssn.sigappfr.org/mssn/EventStatement
+:EventStatement rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.w3.org/ns/sosa/Process> ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :produceOccurrence ;
+                                  owl:someValuesFrom :EventOccurrence
+                                ] ;
+                rdfs:comment "An event state is a user-defined statement that is used for producing an event occurrence.   An event statement is modeled by using the CEMiD Language" .
+
+
+###  http://mssn.sigappfr.org/mssn/FINISHEDBY
+:FINISHEDBY rdf:type owl:Class ;
+            rdfs:subClassOf :TemporalOperator .
+
+
+###  http://mssn.sigappfr.org/mssn/FINISHES
+:FINISHES rdf:type owl:Class ;
+          rdfs:subClassOf :TemporalOperator .
+
+
+###  http://mssn.sigappfr.org/mssn/FaceRecognitionDescriptor
+:FaceRecognitionDescriptor rdf:type owl:Class ;
+                           rdfs:subClassOf :VisualDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/FundamentalFrequency
+:FundamentalFrequency rdf:type owl:Class ;
+                      rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/HarmonicDescriptor
+:HarmonicDescriptor rdf:type owl:Class ;
+                    rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/HarmonicSpectralCentroid
+:HarmonicSpectralCentroid rdf:type owl:Class ;
+                          rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/HarmonicSpectralDeviation
+:HarmonicSpectralDeviation rdf:type owl:Class ;
+                           rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/HarmonicSpectralSpread
+:HarmonicSpectralSpread rdf:type owl:Class ;
+                        rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/HarmonicSpectralVariation
+:HarmonicSpectralVariation rdf:type owl:Class ;
+                           rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/Image
+:Image rdf:type owl:Class ;
+       rdfs:subClassOf :MediaConcerned .
+
+
+###  http://mssn.sigappfr.org/mssn/Location
+:Location rdf:type owl:Class ;
+          rdfs:subClassOf :LocationMap .
+
+
+###  http://mssn.sigappfr.org/mssn/LocationMap
+:LocationMap rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.w3.org/ns/sosa/Platform> ;
+             rdfs:comment "A location map is a map of all the locations that are used within the sensor network.  A location within the map can be either a possible installation location of a sensor or a coverage are that a sensor can covered." ;
+             rdfs:label "Location Map" .
+
+
+###  http://mssn.sigappfr.org/mssn/LogAttackTime
+:LogAttackTime rdf:type owl:Class ;
+               rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/MEETS
+:MEETS rdf:type owl:Class ;
+       rdfs:subClassOf :TemporalOperator .
+
+
+###  http://mssn.sigappfr.org/mssn/METBY
+:METBY rdf:type owl:Class ;
+       rdfs:subClassOf :TemporalOperator .
+
+
+###  http://mssn.sigappfr.org/mssn/MediaConcerned
+:MediaConcerned rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.w3.org/ns/sosa/Property> ;
+                rdfs:comment """MediaConcerned is a concept that is used as a property of a media sensor for indicating a kind of multimedia data that can be produce by a given media sensor.
+For example, a video camera which capture audio and video has \"Audio\" and \"Video\" as its media concerned""" .
+
+
+###  http://mssn.sigappfr.org/mssn/MediaDescriptor
+:MediaDescriptor rdf:type owl:Class ;
+                 rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservationValue> .
+
+
+###  http://mssn.sigappfr.org/mssn/MediaDurationDescriptor
+:MediaDurationDescriptor rdf:type owl:Class ;
+                         rdfs:subClassOf :TemporalDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/MediaSegment
+:MediaSegment rdf:type owl:Class ;
+              rdfs:subClassOf :MultimediaData ;
+              rdfs:comment "A media segment is a part of a multimedia data.  It is used for represent a segment or a track of a multimedia data.  For example,  a video file can have one video track, one audio track and one subtitle track.  This can be represented by modeling a \"MultimediaData\" concept with three MediaSegment concepts." .
+
+
+###  http://mssn.sigappfr.org/mssn/MediaSensingDevice
+:MediaSensingDevice rdf:type owl:Class ;
+                    rdfs:subClassOf :MediaSensor ,
+                                    <http://purl.oclc.org/NET/ssnx/ssn#Device> .
+
+
+###  http://mssn.sigappfr.org/mssn/MediaSensor
+:MediaSensor rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.w3.org/ns/sosa/Sensor> ;
+             rdfs:comment "A MediaSensor is a sensor that can produce one of more kind of output where as at least one of its output type are either \"Video\", \"Audio\" or \"Image\"" .
+
+
+###  http://mssn.sigappfr.org/mssn/MediaTimePointDescriptor
+:MediaTimePointDescriptor rdf:type owl:Class ;
+                          rdfs:subClassOf :TemporalDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/MotionActivityDescriptor
+:MotionActivityDescriptor rdf:type owl:Class ;
+                          rdfs:subClassOf :MotionDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/MotionDescriptor
+:MotionDescriptor rdf:type owl:Class ;
+                  rdfs:subClassOf :MediaDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/MultimediaData
+:MultimediaData rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservationValue> ;
+                rdfs:comment "A multimedia data is an observation value of a media sensor. A multimedia data can contains multiple media segment where each segment can be decomposed into multiple sub-mediasegments" .
+
+
+###  http://mssn.sigappfr.org/mssn/OVERLAPS
+:OVERLAPS rdf:type owl:Class ;
+          rdfs:subClassOf :TemporalOperator ;
+          rdfs:comment "An event operator that is used for expressing that two event occurrences are temporally overlapped with each other." .
+
+
+###  http://mssn.sigappfr.org/mssn/ParametricMotionDescriptor
+:ParametricMotionDescriptor rdf:type owl:Class ;
+                            rdfs:subClassOf :MotionDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/PointDescriptor
+:PointDescriptor rdf:type owl:Class ;
+                 rdfs:subClassOf :SpatialDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/PowerDescriptor
+:PowerDescriptor rdf:type owl:Class ;
+                 rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/SEQ
+:SEQ rdf:type owl:Class ;
+     rdfs:subClassOf :TemporalOperator ;
+     rdfs:comment "An event operator that is used for expressing that two event occurrences are followed each other." .
+
+
+###  http://mssn.sigappfr.org/mssn/STARTEDBY
+:STARTEDBY rdf:type owl:Class ;
+           rdfs:subClassOf :TemporalOperator .
+
+
+###  http://mssn.sigappfr.org/mssn/STARTS
+:STARTS rdf:type owl:Class ;
+        rdfs:subClassOf :TemporalOperator .
+
+
+###  http://mssn.sigappfr.org/mssn/ScalableColorDescriptor
+:ScalableColorDescriptor rdf:type owl:Class ;
+                         rdfs:subClassOf :VisualDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/SpatialDescriptor
+:SpatialDescriptor rdf:type owl:Class ;
+                   rdfs:subClassOf :MediaDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/SpatialOperator
+:SpatialOperator rdf:type owl:Class ;
+                 rdfs:subClassOf :EventOperator .
+
+
+###  http://mssn.sigappfr.org/mssn/SpectralCentroid
+:SpectralCentroid rdf:type owl:Class ;
+                  rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/SpectrumBasis
+:SpectrumBasis rdf:type owl:Class ;
+               rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/SpectrumCentroid
+:SpectrumCentroid rdf:type owl:Class ;
+                  rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/SpectrumEnvelop
+:SpectrumEnvelop rdf:type owl:Class ;
+                 rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/SpectrumFlatness
+:SpectrumFlatness rdf:type owl:Class ;
+                  rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/SpectrumProjection
+:SpectrumProjection rdf:type owl:Class ;
+                    rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/SpectrumSpread
+:SpectrumSpread rdf:type owl:Class ;
+                rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/TemporalCentroid
+:TemporalCentroid rdf:type owl:Class ;
+                  rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/TemporalDescriptor
+:TemporalDescriptor rdf:type owl:Class ;
+                    rdfs:subClassOf :MediaDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/TemporalOperator
+:TemporalOperator rdf:type owl:Class ;
+                  rdfs:subClassOf :EventOperator .
+
+
+###  http://mssn.sigappfr.org/mssn/TextAnnotationDescriptor
+:TextAnnotationDescriptor rdf:type owl:Class ;
+                          rdfs:subClassOf :AnnotationDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/TrajectoryDescriptor
+:TrajectoryDescriptor rdf:type owl:Class ;
+                      rdfs:subClassOf :MotionDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/Video
+:Video rdf:type owl:Class ;
+       rdfs:subClassOf :MediaConcerned .
+
+
+###  http://mssn.sigappfr.org/mssn/VisualDescriptor
+:VisualDescriptor rdf:type owl:Class ;
+                  rdfs:subClassOf :MediaDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/VisualSegment
+:VisualSegment rdf:type owl:Class ;
+               rdfs:subClassOf :MediaSegment ;
+               rdfs:comment "A visual segment is a media segment for modeling visual data (e.g. video segment, image segment)" .
+
+
+###  http://mssn.sigappfr.org/mssn/WarpingParameters
+:WarpingParameters rdf:type owl:Class ;
+                   rdfs:subClassOf :MotionDescriptor .
+
+
+###  http://mssn.sigappfr.org/mssn/Waveform
+:Waveform rdf:type owl:Class ;
+          rdfs:subClassOf :AudioDescriptor .
+
+
+###  http://purl.oclc.org/NET/ssnx/ssn#Device
+<http://purl.oclc.org/NET/ssnx/ssn#Device> rdf:type owl:Class .
+
+
+###  http://webprotege.stanford.edu/RlJGhAvVxuyfFRdLK5eIIG
+<http://webprotege.stanford.edu/RlJGhAvVxuyfFRdLK5eIIG> rdf:type owl:Class ;
+                                                        rdfs:subClassOf :MediaConcerned ;
+                                                        rdfs:label "Misc" .
+
+
+###  http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event
+<http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/ObservationValue
+<http://www.w3.org/ns/sosa/ObservationValue> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Platform
+<http://www.w3.org/ns/sosa/Platform> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Process
+<http://www.w3.org/ns/sosa/Process> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Property
+<http://www.w3.org/ns/sosa/Property> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Sensor
+<http://www.w3.org/ns/sosa/Sensor> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://webprotege.stanford.edu/R8Ne7rQb1y4AMDYPu9CJm50
+<http://webprotege.stanford.edu/R8Ne7rQb1y4AMDYPu9CJm50> rdf:type owl:NamedIndividual ,
+                                                                  :Location ;
+                                                         :below <http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d> ;
+                                                         :rightOf <http://webprotege.stanford.edu/R9gfBSuBtiWb8Q13syuMOqs> ;
+                                                         rdfs:label "Area de descanso" .
+
+
+###  http://webprotege.stanford.edu/R9FzI3wKhXcoIHGrD7D8vAx
+<http://webprotege.stanford.edu/R9FzI3wKhXcoIHGrD7D8vAx> rdf:type owl:NamedIndividual ,
+                                                                  <http://www.w3.org/ns/ssn/System> ;
+                                                         rdfs:label "Office" .
+
+
+###  http://webprotege.stanford.edu/R9gfBSuBtiWb8Q13syuMOqs
+<http://webprotege.stanford.edu/R9gfBSuBtiWb8Q13syuMOqs> rdf:type owl:NamedIndividual ,
+                                                                  :Location ;
+                                                         :below <http://webprotege.stanford.edu/RDR57nfiaf98gaq7DJtpWqi> ;
+                                                         :leftOf <http://webprotege.stanford.edu/R8Ne7rQb1y4AMDYPu9CJm50> ;
+                                                         rdfs:label "Sala de reuniones" .
+
+
+###  http://webprotege.stanford.edu/RDR57nfiaf98gaq7DJtpWqi
+<http://webprotege.stanford.edu/RDR57nfiaf98gaq7DJtpWqi> rdf:type owl:NamedIndividual ,
+                                                                  :Location ;
+                                                         :above <http://webprotege.stanford.edu/R9gfBSuBtiWb8Q13syuMOqs> ;
+                                                         :leftOf <http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d> ;
+                                                         rdfs:label "Entrada" .
+
+
+###  http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d
+<http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d> rdf:type owl:NamedIndividual ,
+                                                                  :Location ;
+                                                         :above <http://webprotege.stanford.edu/R8Ne7rQb1y4AMDYPu9CJm50> ;
+                                                         :rightOf <http://webprotege.stanford.edu/RDR57nfiaf98gaq7DJtpWqi> ;
+                                                         rdfs:label "Area de trabajo" .
+
+
+###  http://webprotege.stanford.edu/RQDbe0LjRwaHUiu5CORsl1
+<http://webprotege.stanford.edu/RQDbe0LjRwaHUiu5CORsl1> rdf:type owl:NamedIndividual ,
+                                                                 :LocationMap ;
+                                                        rdfs:label "Oficina" .
+
+
+###  http://webprotege.stanford.edu/RUXMHQBCIMBACckcIYVGUC
+<http://webprotege.stanford.edu/RUXMHQBCIMBACckcIYVGUC> rdf:type owl:NamedIndividual ,
+                                                                 :MediaSensingDevice ,
+                                                                 <http://www.w3.org/ns/sosa/Actuator> ,
+                                                                 <http://www.w3.org/ns/sosa/Sampler> ,
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasMediaConcerned ;
+                                                                   owl:someValuesFrom <http://webprotege.stanford.edu/RlJGhAvVxuyfFRdLK5eIIG>
+                                                                 ] ;
+                                                        rdfs:label "Cellphone" .
+
+
+###  http://webprotege.stanford.edu/RhTDjZfgpDut8cyFtNfMYH
+<http://webprotege.stanford.edu/RhTDjZfgpDut8cyFtNfMYH> rdf:type owl:NamedIndividual ,
+                                                                 :AtomicEventOccurrence ;
+                                                        rdfs:label "Emergency" .
+
+
+###  Generated by the OWL API (version 4.5.1) https://github.com/owlcs/owlapi
