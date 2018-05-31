@@ -1,1 +1,1 @@
-default_app_config = 'rdf_manager.apps.RdfManagerConfig'
+#default_app_config = 'rdf_manager.apps.RdfManagerConfig'

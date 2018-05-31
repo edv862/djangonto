@@ -2,6 +2,8 @@ from os import environ
 
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Ontology
 
 from .rdf_functions import GraphOntology
 
@@ -38,3 +40,7 @@ def load_hardcoded_onto(request):
     print(graph.graph)
 
     return HttpResponse(graph.graph.serialize(format='n3'))
+
+def load_graph(request):
+	g = Ontology.objects.all()[0].load_graph().serialize(format='n3').decode('utf')
+	return render(request, 'graph.html', {'graph': g})

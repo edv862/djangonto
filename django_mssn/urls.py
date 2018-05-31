@@ -13,10 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 from django.contrib import admin
 
+app_name = 'urls'
 urlpatterns = [
-    url(r'^', admin.site.urls),
-    url(r'^rdf_manager/', include('apps.rdf_manager.urls')),
-]
+    path('', include('apps.rdf_manager.urls', namespace='rdf_manager')),
+    path('admin/', admin.site.urls),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
