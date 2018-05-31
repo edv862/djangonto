@@ -39,11 +39,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'django_extensions',
-
-    'apps.rdf_manager',
 ]
+
+THIRD_PARTY_APPS = [
+    'django_extensions',
+    'rdflib',
+    'rdflib_sqlalchemy',
+]
+
+APPS = [
+]
+
+INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APPS + APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,8 +88,12 @@ WSGI_APPLICATION = 'django_mssn.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('RDF_DB'),
+        'USER': os.environ.get('RDF_USER'),
+        'PASSWORD': os.environ.get('RDF_PASSWORD'),
+        'HOST': os.environ.get('RDF_HOST'),
+        'PORT': '',
     }
 }
 

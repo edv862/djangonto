@@ -8,7 +8,6 @@ from rdflib.store import Store, NO_STORE, VALID_STORE
 from rdflib.namespace import Namespace
 from rdflib.term import Literal
 from rdflib.term import URIRef
-from tempfile import mkdtemp
 
 em_onto = Namespace('http://webprotege.stanford.edu/')
 db_type = 'PostgreSQL'
