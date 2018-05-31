@@ -5,14 +5,14 @@ import pprint
 
 graph = rdflib.Graph()
 
-graph.parse('/home/edgar/Tesis/django-onto/django_mssn/912-onto-ontologies/912-onto/root-ontology.owl')
-
+graph.parse('912-onto-ontologies/912-onto/root-ontology.owl')
+#graph.parse('n3-ontology.rdf', format='n3')
 # aux = graph.subject_objects(
 # 	predicate=rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label')
 # )
 
-# for s,p,o in graph:
-# 	print(s,p,o)
+#for s,p,o in graph:
+#	print(s,p,o)
 
 # Adding custom namespaces for imported ontologies.
 # TODO: Generalize to allow registering them from a py file.
@@ -30,13 +30,12 @@ graph.bind('911-onto', emergency_namespace)
 # for x in all_ns:
 #  	print(x)
 
-aux = graph.value(
-	subject=rdflib.term.URIRef('http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d'),
-	predicate=rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/above'),
-)
+#aux = graph.value(
+#	subject=rdflib.term.URIRef('http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d'),
+#	predicate=rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/above'),
+#)
 
 # print(graph.namespace_manager.normalizeUri(aux))
-
 # Normalizing data.
 # for x in graph.objects():
 # 	try:
@@ -44,7 +43,8 @@ aux = graph.value(
 # 	except:
 # 		print("No se pudo normalizar.")
 
-aux = graph.value(
-	subject=rdflib.term.URIRef('http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d'),
-	predicate=rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/above'),
-)
+#aux = graph.value(
+#	subject=rdflib.term.URIRef('http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d'),
+#	predicate=rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/above'),
+#)
+print(graph.serialize(format='xml').decode('utf8'))
