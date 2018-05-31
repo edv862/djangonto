@@ -1,1 +1,951 @@
-None
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ColorStructureDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/opposite'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RlJGhAvVxuyfFRdLK5eIIG'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaConcerned'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasCoverageArea'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('has coverage area'))
+(rdflib.term.URIRef('http://www.w3.org/ns/sosa/ObservationValue'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R9gfBSuBtiWb8Q13syuMOqs'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/leftOf'),
+ rdflib.term.URIRef('http://webprotege.stanford.edu/R8Ne7rQb1y4AMDYPu9CJm50'))
+(rdflib.term.BNode('Na6e1f961f21b4c858608b7ab599d5d7f'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#maxQualifiedCardinality'),
+ rdflib.term.Literal('1', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#nonNegativeInteger')))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RUXMHQBCIMBACckcIYVGUC'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#NamedIndividual'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/leftOf'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/directionalRelation'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RDR57nfiaf98gaq7DJtpWqi'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/leftOf'),
+ rdflib.term.URIRef('http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/closeTo'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/PointDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#versionIRI'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/1.0.1'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOperator'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.BNode('Ne1cacf0621fc45b3aae9dcba8a01e015'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasIRI'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A data property for attaching an IRI literal to a concept.  It is mostly used for attaching an IRI to AtomicEventCondition'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/WarpingParameters'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MotionDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaDescriptor'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RQDbe0LjRwaHUiu5CORsl1'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/LocationMap'))
+(rdflib.term.URIRef('http://www.w3.org/ns/sosa/Sensor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/covers'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('an extended definition of "contains" for indicating all spatial area of a given location lies completely within another location. For example, A covers B means all the area of B lies totally within an area of A.'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RlJGhAvVxuyfFRdLK5eIIG'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('Misc'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumEnvelop'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RDR57nfiaf98gaq7DJtpWqi'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('Entrada'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/locationRelation'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A location relation describes a relation between a pair of locations e.g. "Table1" opposite "Table2".   \n\nA location relation can be either topological relation, directional relation or distance relation.\n\nThis relation intends to be use as an abstract relation for other location relations.   Hence, it may not be used directly.    Only sub-relations of this relation should be used'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RUXMHQBCIMBACckcIYVGUC'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('Cellphone'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasMediaSegment'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A relation between MultimediaData and MediaSegment concept'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOccurrence'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.BNode('Na6e1f961f21b4c858608b7ab599d5d7f'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#imports'),
+ rdflib.term.URIRef('http://www.w3.org/ns/ssn/'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R8Ne7rQb1y4AMDYPu9CJm50'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('Area de descanso'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ContourShapeDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Location'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/STARTEDBY'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/operand'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A relation from an event operator to an event occurrence'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RUXMHQBCIMBACckcIYVGUC'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/ns/sosa/Sampler'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/FaceRecognitionDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/HarmonicSpectralSpread'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/closeTo'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/distanceRelation'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumProjection'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasAdditionalParams'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#DatatypeProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MultimediaData'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://www.w3.org/ns/sosa/ObservationValue'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/statement'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A data property for specifying a statement for an EventStatement'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/HarmonicSpectralCentroid'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AtomicEventCondition'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('An atomic event condition is a preprogrammed black-box function that is used for detecting an atomic event'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/CONTAINS'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSensor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://www.w3.org/ns/sosa/Sensor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/opposite'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/directionalRelation'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/HarmonicSpectralDeviation'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/CameraMotionDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AtomicEventCondition'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Audio'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioSegment'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.BNode('N0a97dfa76b1a40838a3a6f1757033467'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Restriction'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/FINISHEDBY'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalCentroid'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MultimediaData'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaConcerned'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AnnotationDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/disjoint'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A topological relation for indicating that two locations are disjoint with each other.'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumProjection'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventStatement'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://www.w3.org/ns/sosa/Process'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RQDbe0LjRwaHUiu5CORsl1'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('Oficina'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/directionalRelation'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/locationRelation'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R8Ne7rQb1y4AMDYPu9CJm50'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Location'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/rightOf'),
+ rdflib.term.URIRef('http://webprotege.stanford.edu/RDR57nfiaf98gaq7DJtpWqi'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/crosses'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A topological relation for indicating that and area of a given location crosses with an area of another location'))
+(rdflib.term.BNode('N0a97dfa76b1a40838a3a6f1757033467'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#someValuesFrom'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOccurrence'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/STARTS'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/directionalRelation'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MotionDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/CoverageArea'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasLocation'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MEETS'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/METBY'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumSpread'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/contains'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A topological relation for indicating that a location contains an another location (e.g. Room1 contains Table1)'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/contains'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/FINISHEDBY'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSegment'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A media segment is a part of a multimedia data.  It is used for represent a segment or a track of a multimedia data.  For example,  a video file can have one video track, one audio track and one subtitle track.  This can be represented by modeling a "MultimediaData" concept with three MediaSegment concepts.'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpatialOperator'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ColorStructureDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/directionalRelation'),
+ rdflib.term.URIRef('http://purl.org/vocab/vann/preferredNamespaceUri'),
+ rdflib.term.Literal('An abstract relation for directional location relations'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumFlatness'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasAdditionalParams'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A data property for specifying additional parameters for AtomicEventCondition'))
+(rdflib.term.BNode('Ne1cacf0621fc45b3aae9dcba8a01e015'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Restriction'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/CoverageArea'),
+ rdflib.term.URIRef('http://schema.org/domainIncludes'),
+ rdflib.term.Literal('Coverage Area'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/touches'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R9gfBSuBtiWb8Q13syuMOqs'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Location'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasLocation'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A relation between LocationMap and Location for indicating that a given location map contains which locations'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/BoundingBoxDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpatialDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/touches'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/topologicalRelation'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ParametricMotionDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RlJGhAvVxuyfFRdLK5eIIG'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('Area de trabajo'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TextAnnotationDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AnnotationDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/DominatColorDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualSegment'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A visual segment is a media segment for modeling visual data (e.g. video segment, image segment)'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/crosses'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/topologicalRelation'))
+(rdflib.term.URIRef('http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaConcerned'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://www.w3.org/ns/sosa/Property'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SEQ'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('An event operator that is used for expressing that two event occurrences are followed each other.'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaTimePointDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/distanceRelation'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/overlaps'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RUXMHQBCIMBACckcIYVGUC'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.BNode('N3b3b51dbbbf44a078c99ca2dc22145e2'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/leftOf'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A directional relation for indicating a location is located on the left of location'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/farFrom'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/distanceRelation'))
+(rdflib.term.BNode('Na6e1f961f21b4c858608b7ab599d5d7f'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Restriction'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventStatement'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RDR57nfiaf98gaq7DJtpWqi'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#NamedIndividual'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/topologicalRelation'),
+ rdflib.term.URIRef('http://purl.org/vocab/vann/preferredNamespaceUri'),
+ rdflib.term.Literal('An abstract relation for topological location relations'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpatialDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/HarmonicSpectralVariation'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R9FzI3wKhXcoIHGrD7D8vAx'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#NamedIndividual'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualSegment'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/HarmonicSpectralSpread'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumFlatness'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AtomicEventOccurrence'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOccurrence'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/crosses'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MotionDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://www.w3.org/2004/02/skos/core#note'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#AnnotationProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/PowerDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://www.w3.org/ns/sosa/Process'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/CONTAINS'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/FINISHES'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Video'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/distanceRelation'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/locationRelation'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaDurationDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/operand'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/topologicalRelation'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/LocationMap'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('Location Map'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumEnvelop'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.BNode('Na6e1f961f21b4c858608b7ab599d5d7f'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#onProperty'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/operator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasAdditionalParams'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('has additional params'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/overlaps'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A location relation for indicating that two locations are overlapped with each other.'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventStatement'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.BNode('N0a97dfa76b1a40838a3a6f1757033467'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/equals'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/leftOf'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://www.w3.org/ns/sosa/ObservationValue'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSegment'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MultimediaData'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/below'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/directionalRelation'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#NamedIndividual'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/HarmonicSpectralDeviation'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R8Ne7rQb1y4AMDYPu9CJm50'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/below'),
+ rdflib.term.URIRef('http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/above'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/overlaps'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/topologicalRelation'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R9gfBSuBtiWb8Q13syuMOqs'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/below'),
+ rdflib.term.URIRef('http://webprotege.stanford.edu/RDR57nfiaf98gaq7DJtpWqi'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Ontology'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MultimediaData'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A multimedia data is an observation value of a media sensor. A multimedia data can contains multiple media segment where each segment can be decomposed into multiple sub-mediasegments'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ParametricMotionDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MotionDescriptor'))
+(rdflib.term.URIRef('http://www.w3.org/ns/sosa/Platform'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasMediaConcerned'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A relation between a mediasensor and mediaconcerned concepts'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RDR57nfiaf98gaq7DJtpWqi'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Location'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/rightOf'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EQUALS'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/locationRelation'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/below'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/LocationMap'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasObeservationValue'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A relation between an atomic event occurrence and an observation value for indicating that a given atomic event occurrence is related to such an observation value.'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/produceOccurrence'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A relation between an atomic event statement and an event occurrence'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/closeTo'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A distance relation for indicating a location is located closed to another location'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ScalableColorDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualDescriptor'))
+(rdflib.term.BNode('N3b3b51dbbbf44a078c99ca2dc22145e2'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#someValuesFrom'),
+ rdflib.term.URIRef('http://webprotege.stanford.edu/RlJGhAvVxuyfFRdLK5eIIG'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/HarmonicDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioSegment'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('An audio segment is a segment for modeling audio data of MultimediaData'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RhTDjZfgpDut8cyFtNfMYH'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('Emergency'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasMediaConcerned'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaDurationDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Image'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualSegment'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSegment'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R9FzI3wKhXcoIHGrD7D8vAx'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('Office'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasCoverageArea'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A relation between a sensor and a coverage area. It uses for indicating coverage areas for a sensor'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RUXMHQBCIMBACckcIYVGUC'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/ns/sosa/Actuator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/produceOccurrence'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/rightOf'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A directional relation for indicating a location is located on the right of another location'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/rightOf'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/directionalRelation'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/DominatColorDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Waveform'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RhTDjZfgpDut8cyFtNfMYH'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#NamedIndividual'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSensingDevice'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSensor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/operator'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/OVERLAPS'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('An event operator that is used for expressing that two event occurrences are temporally overlapped with each other.'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumBasis'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TextAnnotationDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaDescriptor'))
+(rdflib.term.URIRef('http://purl.org/vocab/vann/preferredNamespaceUri'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#AnnotationProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TrajectoryDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#imports'),
+ rdflib.term.URIRef('http://www.w3.org/ns/sosa/'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasOperatorName'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A data property for indicating an operator name for a spatial operator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EdgeHistogramDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/OVERLAPS'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/CoverageArea'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#equivalentClass'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Location'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/DURING'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSensor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A MediaSensor is a sensor that can produce one of more kind of output where as at least one of its output type are either "Video", "Audio" or "Image"'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ColorLayoutDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOperator'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('An event operator is a binary operator that is described the relation between a pair of event occurrences.   An operator can be either spatial or temporal'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RDR57nfiaf98gaq7DJtpWqi'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/above'),
+ rdflib.term.URIRef('http://webprotege.stanford.edu/R9gfBSuBtiWb8Q13syuMOqs'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/HarmonicSpectralVariation'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/below'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A directional relation for indicating a location is located below another location'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R9gfBSuBtiWb8Q13syuMOqs'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('Sala de reuniones'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasCoverageArea'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MEETS'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOperator'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://www.w3.org/ns/sosa/Process'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/farFrom'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A directional relation for indicating that a location is far from another location'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/disjoint'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Video'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaConcerned'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasMediaSegment'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/equals'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/topologicalRelation'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventStatement'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('An event state is a user-defined statement that is used for producing an event occurrence.   An event statement is modeled by using the CEMiD Language'))
+(rdflib.term.BNode('Ne1cacf0621fc45b3aae9dcba8a01e015'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#onClass'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOccurrence'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/FaceRecognitionDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualDescriptor'))
+(rdflib.term.BNode('Ne1cacf0621fc45b3aae9dcba8a01e015'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#qualifiedCardinality'),
+ rdflib.term.Literal('1', datatype=rdflib.term.URIRef('http://www.w3.org/2001/XMLSchema#nonNegativeInteger')))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/LogAttackTime'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSensingDevice'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/HarmonicSpectralCentroid'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasMediaDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A relation between a media segment and a media descriptor'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/above'),
+ rdflib.term.URIRef('http://webprotege.stanford.edu/R8Ne7rQb1y4AMDYPu9CJm50'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Waveform'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/HarmonicDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioSegment'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSegment'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EdgeHistogramDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/above'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A directional relation for indicating a location is located above another location'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/PointDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpatialDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/topologicalRelation'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/locationRelation'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ColorLayoutDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSensingDevice'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://purl.oclc.org/NET/ssnx/ssn#Device'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/PowerDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasLocation'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('has location'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AtomicEventCondition'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://www.w3.org/ns/sosa/Process'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/BoundingBoxDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/covers'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/topologicalRelation'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/disjoint'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/topologicalRelation'))
+(rdflib.term.BNode('Ne1cacf0621fc45b3aae9dcba8a01e015'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#onProperty'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/operand'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/LocationMap'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://www.w3.org/ns/sosa/Platform'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/DURING'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectralCentroid'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/STARTS'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('MSSN-Ontology Updated,  August 2017'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AtomicEventOccurrence'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/STARTEDBY'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Image'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaConcerned'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MotionActivityDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R9gfBSuBtiWb8Q13syuMOqs'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#NamedIndividual'))
+(rdflib.term.BNode('N3b3b51dbbbf44a078c99ca2dc22145e2'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Restriction'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalCentroid'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpatialOperator'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOccurrence'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOperator'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumCentroid'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ComplexEventOccurrence'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumCentroid'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/WarpingParameters'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSensor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/touches'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A topological relation for indicating that boundary of two locations touch each other'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MotionActivityDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MotionDescriptor'))
+(rdflib.term.BNode('N3b3b51dbbbf44a078c99ca2dc22145e2'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#onProperty'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasMediaConcerned'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/OVERLAPS'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/VisualDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasIRI'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('has IRI'))
+(rdflib.term.BNode('N0a97dfa76b1a40838a3a6f1757033467'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#onProperty'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/produceOccurrence'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasOperatorName'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#DatatypeProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AnnotationDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectralCentroid'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/METBY'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TrajectoryDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MotionDescriptor'))
+(rdflib.term.BNode('Na6e1f961f21b4c858608b7ab599d5d7f'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#onClass'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaConcerned'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('MediaConcerned is a concept that is used as a property of a media sensor for indicating a kind of multimedia data that can be produce by a given media sensor.\nFor example, a video camera which capture audio and video has "Audio" and "Video" as its media concerned'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SEQ'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ComplexEventOccurrence'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOccurrence'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R8Ne7rQb1y4AMDYPu9CJm50'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#NamedIndividual'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R8Ne7rQb1y4AMDYPu9CJm50'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/rightOf'),
+ rdflib.term.URIRef('http://webprotege.stanford.edu/R9gfBSuBtiWb8Q13syuMOqs'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/operator'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A relation from an event occurrence to an event operator'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RUXMHQBCIMBACckcIYVGUC'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSensingDevice'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RhTDjZfgpDut8cyFtNfMYH'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AtomicEventOccurrence'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/FundamentalFrequency'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://schema.org/domainIncludes'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#AnnotationProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/locationRelation'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('Location Relation'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RDWcD1WossrmXH0BeGQAE8d'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Location'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasObeservationValue'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasIRI'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#DatatypeProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasOperatorName'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#label'),
+ rdflib.term.Literal('has operator name'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumSpread'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/R9FzI3wKhXcoIHGrD7D8vAx'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/ns/ssn/System'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaTimePointDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EventOccurrence'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/distanceRelation'),
+ rdflib.term.URIRef('http://purl.org/vocab/vann/preferredNamespaceUri'),
+ rdflib.term.Literal('An abstract relation for distance relations'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaSegment'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://purl.oclc.org/NET/ssnx/ssn#Device'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasObeservationValue'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#topObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Location'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/LocationMap'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/covers'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/Audio'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MediaConcerned'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpectrumBasis'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/EQUALS'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/equals'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A topological relation for indicating that two locations are exactly the same.'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ContourShapeDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SpatialDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/LogAttackTime'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/farFrom'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/hasMediaDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#ObjectProperty'))
+(rdflib.term.URIRef('http://www.w3.org/ns/sosa/Property'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/contains'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/topologicalRelation'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/ScalableColorDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/FINISHES'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/TemporalOperator'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/above'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subPropertyOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/directionalRelation'))
+(rdflib.term.URIRef('http://webprotege.stanford.edu/RQDbe0LjRwaHUiu5CORsl1'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#NamedIndividual'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/FundamentalFrequency'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/AudioDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/CameraMotionDescriptor'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#subClassOf'),
+ rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/MotionDescriptor'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/LocationMap'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A location map is a map of all the locations that are used within the sensor network.  A location within the map can be either a possible installation location of a sensor or a coverage are that a sensor can covered.'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/statement'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#DatatypeProperty'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/opposite'),
+ rdflib.term.URIRef('http://www.w3.org/2000/01/rdf-schema#comment'),
+ rdflib.term.Literal('A directional relation for indicating a location is opposite another location'))
+(rdflib.term.URIRef('http://mssn.sigappfr.org/mssn/SEQ'),
+ rdflib.term.URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+ rdflib.term.URIRef('http://www.w3.org/2002/07/owl#Class'))
