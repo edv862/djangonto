@@ -7,6 +7,9 @@ class NameSpace(models.Model):
 	name = models.CharField(max_length=30)
 	uri = models.CharField(max_length=50)
 
+	class Meta:
+		unique_together = ('name', 'uri')
+
 	def __str__(self):
 		return self.name
 
