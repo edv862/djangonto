@@ -1,0 +1,5 @@
+truncate table kb_dc931b1ebf_asserted_statements;
+truncate table kb_dc931b1ebf_literal_statements;
+truncate table kb_dc931b1ebf_namespace_binds;
+truncate table kb_dc931b1ebf_quoted_statements;
+truncate table kb_dc931b1ebf_type_statements;
