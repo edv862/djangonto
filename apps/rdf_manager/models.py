@@ -15,7 +15,10 @@ class Ontology(NameSpace):
 		related_name='ontology_namespaces',
 		blank=True,
 	)
-	ontology_files = models.ManyToManyField('OntoFile', blank=True)
+	ontology_files = models.ManyToManyField(
+		'OntoFile',
+		blank=True,
+	)
 
 	class Meta:
 		verbose_name_plural = "Ontologies"
@@ -23,5 +26,3 @@ class Ontology(NameSpace):
 
 class OntoFile(models.Model):
 	file = models.FileField()
-
-
