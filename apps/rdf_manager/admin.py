@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import NameSpace, Ontology, OntoFile
+
+admin.site.register(NameSpace)
+admin.site.register(Ontology)
+admin.site.register(OntoFile)
