@@ -7,13 +7,15 @@ from .models import Ontology
 
 from .rdf_functions import GraphOntology
 
+from django.conf import settings
+
 def load_hardcoded_onto(request):
     graph = GraphOntology(
         namespace='http://dbpedia.org/',
-        db_user=environ.get('RDF_USER'),
-        db_password=environ.get('RDF_PASSWORD'),
-        db_name=environ.get('RDF_DB'),
-        db_host=environ.get('RDF_HOST')
+        db_user=settings.DATABASES['default']['USER'],
+        db_password=settings.DATABASES['default']['PASSWORD'],
+        db_name=settings.DATABASES['default']['NAME'],
+        db_host=settings.DATABASES['default']['HOST']
     )
 
     onto_file = '/home/edgar/Tesis/django-onto/django_mssn/912-onto-ontologies/912-onto/root-ontology.owl'
@@ -37,10 +39,10 @@ def load_hardcoded_onto(request):
     #     file_name=onto_file
     # )
 
-    print(graph.graph)
-
     return HttpResponse(graph.graph.serialize(format='n3'))
 
 def load_graph(request):
-	g = Ontology.objects.all()[0].load_graph().serialize(format='n3').decode('utf')
-	return render(request, 'graph.html', {'graph': g})
+    g = Ontology.objects.all()[0].load_graph()
+    graph = g.serialize(format='n3').decode('utf')
+    g.close()
+    return render(request, 'graph.html', {'graph': graph})

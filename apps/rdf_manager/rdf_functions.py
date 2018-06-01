@@ -85,3 +85,9 @@ class GraphOntology():
             print("Triples added to graph: ", len(self.graph))
         except Exception as e:
             print("There was an error: ", str(e))
+
+    def serialize(self, format):
+        return self.graph.serialize(format=format)
+
+    def close(self):
+        self.graph.close()

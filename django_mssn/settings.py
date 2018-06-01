@@ -89,11 +89,11 @@ WSGI_APPLICATION = 'django_mssn.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('RDF_DB'),
-        'USER': os.environ.get('RDF_USER'),
-        'PASSWORD': os.environ.get('RDF_PASSWORD'),
-        'HOST': os.environ.get('RDF_HOST'),
-        'PORT': '',
+        'NAME': 'tesis_djonto',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
