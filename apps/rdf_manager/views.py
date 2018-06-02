@@ -44,10 +44,10 @@ def load_hardcoded_onto(request):
 def load_graph(request):
     g = Ontology.objects.all()[0]
     if g:
-        #if g.loaded_graph:
-        #    g = g.get_graph()
-        #else:
-        g = g.load_graph()
+        if g.loaded_graph:
+            g = g.get_graph()
+        else:
+            g = g.load_graph()
         graph = g.serialize(format='n3').decode('utf')
-        g.destroy()
+        g.close()
     return render(request, 'graph.html', {'graph': graph})

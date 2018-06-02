@@ -60,13 +60,11 @@ class Ontology(NameSpace):
 
 	def bind_namespaces(self, graph):
 		for namespace in self.namespaces.all():
-			print(graph.namespaces())
 			# Define & Bind custom ontologies namespaces to the graph
-			if namespace not in graph.namespaces():
-				graph.add_namespace(
-			        name=namespace.name,
-			        uri=namespace.uri,
-			    )
+			graph.add_namespace(
+		        name=namespace.name,
+		        uri=namespace.uri,
+		    )
 		return graph
 
 	def get_graph(self):

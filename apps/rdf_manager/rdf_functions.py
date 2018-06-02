@@ -40,7 +40,6 @@ class GraphOntology():
         onto_uri = URIRef(namespace)
         store = plugin.get('SQLAlchemy', Store)(identifier=onto_uri)
         self.graph = Graph(store, onto_uri)
-        print(self.graph)
         try:
             uri = 'postgres+psycopg2://'+db_user+':'+db_password+'@'+db_host+':' + db_port + '/'+db_name
             db_uri = URIRef(uri)
