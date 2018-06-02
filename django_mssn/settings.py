@@ -48,7 +48,8 @@ THIRD_PARTY_APPS = [
 ]
 
 APPS = [
-    'apps.rdf_manager'
+    'apps.rdf_manager',
+    'apps.sensor_network',
 ]
 
 INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APPS + APPS
