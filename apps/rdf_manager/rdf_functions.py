@@ -1,6 +1,6 @@
 import rdflib_sqlalchemy
 
-from rdflib import plugin
+from rdflib import plugin, URIRef
 from rdflib.graph import ConjunctiveGraph as Graph
 from rdflib.store import Store, NO_STORE, VALID_STORE
 from rdflib.term import Literal, URIRef
@@ -11,7 +11,7 @@ from rdflib.namespace import Namespace, NamespaceManager
 
 class GraphOntology():
     db_type = ['PostgreSQL'] # TODO: add more bd support.
-    onto_namespace = None
+    onto_uri = None
     database_uri = None
 
     graph = None
@@ -20,8 +20,8 @@ class GraphOntology():
     namespaces = []
 
     def __init__(
-        self, namespace, db_user, db_password, db_name,
-        db_type='PostgreSQL', db_host='localhost', onto_file=None
+        self, namespace, db_user, db_password, db_name, create=True,
+        db_type='PostgreSQL', db_host='localhost', db_port='5432', onto_file=None
     ):
         '''
         Args:
@@ -37,34 +37,28 @@ class GraphOntology():
         # Registering plugins for database supports.
         rdflib_sqlalchemy.registerplugins()
 
-        onto_namespace = Namespace(namespace)
-        ident = onto_namespace.rdfgraph
-        store = plugin.get('SQLAlchemy', Store)(identifier=ident)
-        self.graph = Graph(store, ident)
-
+        onto_uri = URIRef(namespace)
+        store = plugin.get('SQLAlchemy', Store)(identifier=onto_uri)
+        self.graph = Graph(store, onto_uri)
+        print(self.graph)
         try:
-            uri = 'postgres+psycopg2://'+db_user+':'+db_password+'@'+db_host+'/'+db_name
+            uri = 'postgres+psycopg2://'+db_user+':'+db_password+'@'+db_host+':' + db_port + '/'+db_name
             db_uri = URIRef(uri)
 
             # Open database to store graph.
-            rt = self.graph.open(db_uri, create=True)
-
+            rt = self.graph.open(db_uri, create=create)
             # Check if database is ok.
             assert rt == VALID_STORE, "The underlying store is corrupt"
 
-            print("Graph created correctly.")
+            if create:
+                print("Graph created correctly.")
+            else:
+                print("Graph loaded correctly.")
+        
         except Exception as e:
             # Restore graph None value.
             self.graph = None
             print(e)
-
-        if onto_file is not None:
-            try:
-                self.graph.parse(onto_file)
-                self.graph.commit()
-                print("Triples added to graph: ", len(self.graph))
-            except Exception as e:
-                print("There was an error: "+str(e))
 
     def add_namespace(self, name, uri):
         '''
@@ -91,3 +85,10 @@ class GraphOntology():
 
     def close(self):
         self.graph.close()
+
+    def destroy(self):
+        self.graph.destroy(self.onto_uri)
+        try:
+            self.graph.close()
+        except:
+            pass

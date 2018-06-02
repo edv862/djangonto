@@ -35,7 +35,7 @@ class Ontology(NameSpace):
 
 		# Create dbtables to save the Graph
 		graph = GraphOntology(
-			namespace='http://dbpedia.org/',
+			namespace=self.uri, create=True,
 			db_user=settings.DATABASES['default']['USER'],
 			db_password=settings.DATABASES['default']['PASSWORD'],
 			db_name=settings.DATABASES['default']['NAME'],
@@ -46,7 +46,7 @@ class Ontology(NameSpace):
 		for f in self.ontology_files.all():
 			#graph.parse(f.file.url[1:])
 			graph.load_triples_from_file(
-			file_name=f.file.url[1:]
+				file_name=f.file.url[1:]
 			)
 
 		# Bind the ontologies Namespaces to the Ontologies on the Graph
@@ -60,11 +60,23 @@ class Ontology(NameSpace):
 
 	def bind_namespaces(self, graph):
 		for namespace in self.namespaces.all():
+			print(graph.namespaces())
 			# Define & Bind custom ontologies namespaces to the graph
-			graph.add_namespace(
-		        name=namespace.name,
-		        uri=namespace.uri,
-		    )
+			if namespace not in graph.namespaces():
+				graph.add_namespace(
+			        name=namespace.name,
+			        uri=namespace.uri,
+			    )
+		return graph
+
+	def get_graph(self):
+		graph = GraphOntology(
+			namespace=self.uri, create=False,
+			db_user=settings.DATABASES['default']['USER'],
+			db_password=settings.DATABASES['default']['PASSWORD'],
+			db_name=settings.DATABASES['default']['NAME'],
+			db_host=settings.DATABASES['default']['HOST'],
+		)
 		return graph
 
 	class Meta:

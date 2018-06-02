@@ -42,7 +42,12 @@ def load_hardcoded_onto(request):
     return HttpResponse(graph.graph.serialize(format='n3'))
 
 def load_graph(request):
-    g = Ontology.objects.all()[0].load_graph()
-    graph = g.serialize(format='n3').decode('utf')
-    g.close()
+    g = Ontology.objects.all()[0]
+    if g:
+        #if g.loaded_graph:
+        #    g = g.get_graph()
+        #else:
+        g = g.load_graph()
+        graph = g.serialize(format='n3').decode('utf')
+        g.destroy()
     return render(request, 'graph.html', {'graph': graph})
