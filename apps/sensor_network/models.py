@@ -28,7 +28,7 @@ class Sensor(models.Model):
 	name = models.CharField(max_length=25)
 	measure_type = models.CharField(choices=MEASEURE_CHOICES, max_length=6)
 	location = models.ForeignKey(Location, on_delete=models.CASCADE)
-	measures = models.ManyToManyField('Measure', on_delete=models.CASCADE)
+	measures = models.ManyToManyField('Measure')
 
 
 class Measure(TimeStampedModel):

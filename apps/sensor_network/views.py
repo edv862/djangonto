@@ -42,7 +42,7 @@ class SensorPipeline(View):
         else:
             return JsonResponse(status=204)
 
-    def post(request, sn_id, sensor_iri)
+    def post(request, sn_id, sensor_iri):
        measure = Measure(value=request.POST.get('measure'))
        measure.save()
        self.sensor.measures.add(measure)
