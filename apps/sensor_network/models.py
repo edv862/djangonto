@@ -1,4 +1,5 @@
 from django.db import models
+from model_utils.models import TimeStampedModel
 
 
 class LocationMap(models.Model):
@@ -27,7 +28,11 @@ class Sensor(models.Model):
 	name = models.CharField(max_length=25)
 	measure_type = models.CharField(choices=MEASEURE_CHOICES, max_length=6)
 	location = models.ForeignKey(Location, on_delete=models.CASCADE)
-	measure = models.CharField(max_length=40)
+	measures = models.ManyToManyField('Measure', on_delete=models.CASCADE)
+
+
+class Measure(TimeStampedModel):
+	value = models.CharField(max_length=25)
 
 
 class Event(models.Model):
