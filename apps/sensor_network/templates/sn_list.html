@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content">
+	{% if sns %}
+		{% for sn in sns %}
+			{{ sn.name }}
+		{% endfor %}
+	{% else %}
+		No hay SNs creadas =(.
+	{% endif %}
+</div>
+{% endblock %}
