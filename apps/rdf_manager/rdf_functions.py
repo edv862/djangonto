@@ -58,7 +58,10 @@ class GraphOntology():
         store = plugin.get('SQLAlchemy', Store)(identifier=self.onto_uri)
         self.graph = Graph(store, self.onto_uri)
         try:
-            uri = 'postgres+psycopg2://'+self.db_user+':'+self.db_password+'@'+self.db_host+':' + self.db_port + '/'+self.db_name
+            uri = 'postgres+psycopg2://' + self.db_user + ':' + \
+            self.db_password + '@' + self.db_host + ':' + \
+            self.db_port + '/' + self.db_name
+
             self.db_uri = URIRef(uri)
 
             # Open database to store graph.
