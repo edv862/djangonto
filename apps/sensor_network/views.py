@@ -29,7 +29,6 @@ class SNDetails(LoginRequiredMixin, ListView):
 
 @method_decorator(csrf_exempt, name='dispatch')
 class SensorPipeline(View):
-
     def dispatch(self, request, *args, **kwargs):
         self.sensor = get_object_or_404(Sensor, id=sensor_iri)
         return super(SensorPipeline, self).dispatch(request, *args, **kwargs)
@@ -43,7 +42,12 @@ class SensorPipeline(View):
             return JsonResponse(status=204)
 
     def post(request, sn_id, sensor_iri):
-       measure = Measure(value=request.POST.get('measure'))
-       measure.save()
-       self.sensor.measures.add(measure)
-       return HttpResponse(status=200)
+        measure = {}
+        for key in request.POST:
+            if 'csrf' not in key:
+                measure[key] = request.POST.get(key)
+
+        measure = Measure(value=str(measure))
+        measure.save()
+        self.sensor.measures.add(measure)
+        return HttpResponse(status=200)

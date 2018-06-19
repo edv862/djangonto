@@ -23,7 +23,9 @@ class Sensor(models.Model):
 	MEASEURE_CHOICES = (
         ('S', 'Scalar'),
         ('B', 'Binary'),
-        ('T', 'Text')
+        ('T', 'Text'),
+        ('M', 'Misc')
+        # Multimedia
     )
 	name = models.CharField(max_length=25)
 	measure_type = models.CharField(choices=MEASEURE_CHOICES, max_length=6)
