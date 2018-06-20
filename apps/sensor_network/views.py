@@ -30,7 +30,7 @@ class SensorPipeline(View):
     def dispatch(self, request, *args, **kwargs):
         self.sensor = get_object_or_404(
             Sensor,
-            id=self.kwargs['sensor_iri']
+            id=self.kwargs.get('sensor_iri')
         )
         return super(SensorPipeline, self).dispatch(request, *args, **kwargs)
 
@@ -38,12 +38,20 @@ class SensorPipeline(View):
     def get(self, request, sn_id, sensor_iri):
         measures = self.sensor.measures.all()
         if measures:
-            return JsonResponse({'status': 'ok'}, status=200)
+            return JsonResponse(status=200)
         else:
             return JsonResponse(status=204)
 
     def post(self, request, sn_id, sensor_iri):
-        measure = Measure(value=1)
+        measure = ''
+        if self.sensor.measure_type == 'M':
+            for key in request.POST.keys():
+                if 'csrf' not in key:
+                    measure += request.POST.get(key) + ', '
+        else:
+            measure += request.POST.get('measure')
+
+        measure = Measure(value=measure)
         measure.save()
         self.sensor.measures.add(measure)
         return HttpResponse(status=200)

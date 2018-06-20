@@ -20,7 +20,7 @@ from django.contrib import admin
 
 app_name = 'urls'
 urlpatterns = [
-    re_path(r'^', include('apps.sensor_network.urls', namespace='sensor_network')),
-    # re_path(r'^', include('apps.rdf_manager.urls', namespace='rdf_manager')),
+    re_path(r'^sn/', include('apps.sensor_network.urls', namespace='sensor_network')),
+    re_path(r'^rdf/', include('apps.rdf_manager.urls', namespace='rdf_manager')),
     re_path(r'^admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

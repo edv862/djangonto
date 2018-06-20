@@ -4,31 +4,45 @@ from model_utils.models import TimeStampedModel
 
 class LocationMap(models.Model):
     name = models.CharField(max_length=25)
-    locations = models.ManyToManyField('Location')
+    locations = models.ManyToManyField('Location', blank=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Location(models.Model):
     name = models.CharField(max_length=25)
-    coordinates = models.CharField(max_length=40)
-    extra_info = models.CharField(max_length=100)
+    coordinates = models.CharField(max_length=40, blank=True)
+    extra_info = models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.name
 
 
 class SensorNetwork(models.Model):
     name = models.CharField(max_length=25)
-    sensors = models.ManyToManyField('Sensor')
-    events = models.ManyToManyField('Event')
+    sensors = models.ManyToManyField('Sensor', blank=True)
+    events = models.ManyToManyField('Event', blank=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Sensor(models.Model):
-    MEASEURE_CHOICES = (
+    MEASURE_CHOICES = (
         ('S', 'Scalar'),
         ('B', 'Binary'),
-        ('T', 'Text')
+        ('T', 'Text'),
+        ('M', 'Misc'),
+        # Multimedia data to go
     )
     name = models.CharField(max_length=25)
-    measure_type = models.CharField(choices=MEASEURE_CHOICES, max_length=6)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE)
-    measures = models.ManyToManyField('Measure')
+    measure_type = models.CharField(choices=MEASURE_CHOICES, max_length=6)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True)
+    measures = models.ManyToManyField('Measure', blank=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Measure(TimeStampedModel):
@@ -37,6 +51,9 @@ class Measure(TimeStampedModel):
 
 class Event(models.Model):
     name = models.CharField(max_length=25)
+
+    def __str__(self):
+        return self.name
 
 
 class AtomicEvent(Event):
