@@ -15,7 +15,8 @@ from unipath import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).ancestor(3)
-PROJECT_ROOT = BASE_DIR.child('djangonto')
+# PROJECT_ROOT = BASE_DIR.child(os.environ.get('ROOT_DIR'))
+PROJECT_ROOT = BASE_DIR.child('django_mssn')
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +28,10 @@ SECRET_KEY = '!l&7p$mp4!cb%l2u&k8f4lcf1@-&208i%hwy0%esfqkx*+ec+z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*',
+    'http://*.ngrok.io'
+]
 
 
 # Application definition
@@ -42,6 +46,7 @@ INSTALLED_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'corsheaders',
     'django_extensions',
     'rdflib',
     'rdflib_sqlalchemy',
@@ -58,6 +63,7 @@ INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APPS + APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -146,3 +152,5 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
     os.path.join(PROJECT_ROOT, 'static'),
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True

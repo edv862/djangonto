@@ -75,9 +75,7 @@ class Ontology(NameSpace):
             db_name=settings.DATABASES['default']['NAME'],
             db_host=settings.DATABASES['default']['HOST'],
         )
-
-        print(graph)
-
+        
         return graph
 
     class Meta:
