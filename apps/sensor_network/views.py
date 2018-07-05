@@ -26,10 +26,8 @@ class SNDetails(LoginRequiredMixin, ListView):
     template_name = 'sn_list.html'
 
 
-
 @method_decorator(csrf_exempt, name='dispatch')
 class SensorPipeline(View):
-
     def dispatch(self, request, *args, **kwargs):
         self.sensor = get_object_or_404(Sensor, id=sensor_iri)
         return super(SensorPipeline, self).dispatch(request, *args, **kwargs)

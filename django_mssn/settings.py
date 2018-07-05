@@ -45,6 +45,7 @@ THIRD_PARTY_APPS = [
     'django_extensions',
     'rdflib',
     'rdflib_sqlalchemy',
+    'model_utils',
 ]
 
 APPS = [
