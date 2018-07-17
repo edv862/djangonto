@@ -37,19 +37,65 @@ class Sensor(models.Model):
         ('B', 'Binary'),
         ('T', 'Text'),
         ('M', 'Misc'),
+        ('C', 'Coord'),
         # Multimedia data to go
     )
+    iri = models.CharField(max_length=25, unique=True)
     name = models.CharField(max_length=25)
     measure_type = models.CharField(choices=MEASURE_CHOICES, max_length=6)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True)
-    measures = models.ManyToManyField('Measure', blank=True)
+
+    def validate_input(self, sensor_input):
+        """
+        Sends input to validate with events.
+        So far validates only scalar values (integer),and text.
+        """
+        result = []
+        events = self.events.all()
+        for event in events:
+            if event.validate(sensor_input):
+                result.append(event)
+
+        return result
+
+    def get_measure_type(self):
+        return self.measure_type
 
     def __str__(self):
         return self.name
 
 
-class Measure(TimeStampedModel):
-    value = models.CharField(max_length=25)
+class MeasureLog(TimeStampedModel):
+    sensor = models.ForeignKey(
+        Sensor,
+        on_delete=models.CASCADE,
+        related_name='measure_log'
+    )
+    # interest = models.BooleanField(default=False)
+    value = models.CharField(max_length=100)
+
+    def coordenate(self):
+        """
+        Returns value as tuple (lat,lon).
+        """
+        aux = self.value.split(',')
+        lat = aux[0]
+        lon = aux[1]
+        return (lat, lon)
+
+    def integer(self):
+        """
+        Returns value as integer
+        """
+        return int(self.value)
+
+    def get_value(self):
+        if self.sensor.get_measure_type() == 'C':
+            return self.coordenate()
+        elif self.sensor.get_measure_type() == 'S':
+            return self.integer()
+        else:
+            return self.integer()
 
 
 class Event(models.Model):
@@ -77,6 +123,33 @@ class Event(models.Model):
     def less_than(self, op1, op2):
         return (op1 < op2)
 
+    def great_than(self, op1, op2):
+        return (op1 > op2)
+
+    def less_than_equal(self, op1, op2):
+        return (op1 <= op2)
+
+    def great_than_equal(self, op1, op2):
+        return (op1 >= op2)
+
+    def not_less_than(self, op1, op2):
+        return (op1 >= op2)
+
+    def not_great_than(self, op1, op2):
+        return (op1 <= op2)
+
+    def not_less_than_equal(self, op1, op2):
+        return (op1 > op2)
+
+    def not_great_than_equal(self, op1, op2):
+        return (op1 < op2)
+
+    def equal(self, op1, op2):
+        return (op1 == op2)
+
+    def not_equal(self, op1, op2):
+        return (op1 != op2)
+
     def get_function(self):
         try:
             function = getattr(self, self.function)
@@ -92,17 +165,20 @@ class Event(models.Model):
 
 
 class AtomicEvent(Event):
-    cause = models.ForeignKey('Sensor', on_delete=models.CASCADE)
+    cause = models.ForeignKey(
+        'Sensor',
+        on_delete=models.CASCADE,
+        related_name='events'
+    )
     measure_limit = models.IntegerField(null=True, blank=True)
 
     def validate(self, sensor_input):
+        """
+        Applies designated event function to the value given
+        by the sensor and the measure_limit.
+        """
         function = self.get_function()
         result = function(sensor_input, self.measure_limit)
-
-        if result:
-            print("huehue")
-        else:
-            print("not hueheuhe")
 
         return result
 

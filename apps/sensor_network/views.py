@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import authenticate, login
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from .models import SensorNetwork, Sensor, Measure, AtomicEvent, Event
+from .models import SensorNetwork, Sensor, MeasureLog, AtomicEvent, Event
 
 
 class SNList(LoginRequiredMixin, ListView):
@@ -30,31 +30,53 @@ class SensorPipeline(View):
     def dispatch(self, request, *args, **kwargs):
         self.sensor = get_object_or_404(
             Sensor,
-            id=self.kwargs.get('sensor_iri')
+            iri=self.kwargs.get('sensor_iri')
         )
         return super(SensorPipeline, self).dispatch(request, *args, **kwargs)
 
     # All the secure request and that not ready
     def get(self, request, sn_id, sensor_iri):
-        measures = self.sensor.measures.all()
+        measures = self.sensor.measure_log
+
+        response = {
+            'measures': list(measures.values_list("value", flat=True)),
+        }
         if measures:
-            return JsonResponse(status=200)
+            return JsonResponse(data=response, status=200)
         else:
-            return JsonResponse(status=204)
+            return JsonResponse(data=response, status=204)
 
     def post(self, request, sn_id, sensor_iri):
         measure = ''
-        if self.sensor.measure_type == 'M':
+        if self.sensor.measure_type == 'C':
             for key in request.POST.keys():
                 if 'csrf' not in key:
-                    measure += request.POST.get(key) + ', '
+                    measure += request.POST.get(key)
         else:
             measure += request.POST.get('measure')
 
-        measure = Measure(value=measure)
+        measure = MeasureLog(
+            sensor=self.sensor,
+            value=measure,
+        )
         measure.save()
-        self.sensor.measures.add(measure)
-        return HttpResponse(status=200)
+
+        validate = self.sensor.validate_input(
+            measure.get_value()
+        )
+        response = {
+            'response': ''
+        }
+
+        if validate:
+            response['response'] = "Ocurrio evento."
+        else:
+            response['response'] = "No ocurrio evento."
+
+        return JsonResponse(
+            data=response,
+            status=200
+        )
 
 
 class SensorStimulusView(TemplateView):
