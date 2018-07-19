@@ -70,6 +70,10 @@ class SensorPipeline(View):
 
         if validate:
             response['response'] = "Ocurrio evento."
+            # Agregar aca logica de pilas complejas y atomicas
+            # 1 Verificar si cumple condicion
+            # 2 agregar evento a su pila correspondiente
+            # 3 Chequear si trigerea algun evento complejo ya sea con Seq u Overlaps
         else:
             response['response'] = "No ocurrio evento."
 

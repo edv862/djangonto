@@ -98,7 +98,16 @@ class MeasureLog(TimeStampedModel):
             return self.integer()
 
 
-class Event(models.Model):
+class Event(TimeStampedModel):
+    name = models.CharField(max_length=25)
+    time_end = models.DateTimeField(blank=True)
+    is_complex = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+
+class AtomicEvent(Event):
     FUNCTIONS = Choices(
         "less_than",
         "great_than",
@@ -112,8 +121,12 @@ class Event(models.Model):
         "not_equal",
     )
 
-    name = models.CharField(max_length=25)
-
+    cause = models.ForeignKey(
+        'Sensor',
+        on_delete=models.CASCADE,
+        related_name='events'
+    )
+    measure_limit = models.IntegerField(null=True, blank=True)
     function = models.CharField(
         max_length=25,
         choices=FUNCTIONS,
@@ -160,18 +173,6 @@ class Event(models.Model):
     def get_function_name(self):
         return self.function
 
-    def __str__(self):
-        return self.name + " - " + self.function
-
-
-class AtomicEvent(Event):
-    cause = models.ForeignKey(
-        'Sensor',
-        on_delete=models.CASCADE,
-        related_name='events'
-    )
-    measure_limit = models.IntegerField(null=True, blank=True)
-
     def validate(self, sensor_input):
         """
         Applies designated event function to the value given
@@ -184,4 +185,28 @@ class AtomicEvent(Event):
 
 
 class ComplexEvent(Event):
-    events = models.ManyToManyField('Event', related_name='complex_event_events')
+    OPERATORS = Choices(
+        "Seq",
+        "Overlaps",
+        "Both"
+    )
+
+    first_event = models.ForeignKey(
+        'Event',
+        on_delete=models.CASCADE,
+        related_name="first_ev"
+    )
+    second_event = models.ForeignKey(
+        'Event',
+        on_delete=models.CASCADE,
+        related_name="second_ev"
+    )
+    function = models.CharField(
+        max_length=10,
+        choices=OPERATORS,
+        default=OPERATORS.Seq
+    )
+
+    def save(self, *args, **kwargs):
+        self.is_complex = True
+        return super(ComplexEvent ,self).save(*args, **kwargs)
