@@ -87,10 +87,15 @@ class Sensor(models.Model):
         if first_save:
             if self.is_multimedia:
                 sensor = MultimediaSensor()
-                print(sensor._meta.__dict__)
+                for field in sensor._meta.fields:
+                    if hasattr(sensor, field.name):
+                        setattr(sensor, field.name, getattr(self, field.name))
                 return super(MultimediaSensor, sensor).save(*args, first_save=False, **kwargs)
             elif self.is_moveable:
                 sensor = MoveableSensor()
+                for field in sensor._meta.fields:
+                    if hasattr(sensor, field.name):
+                        setattr(sensor, field.name, getattr(self, field.name))
                 return super(MoveableSensor, sensor).save(*args, first_save=False, **kwargs)
             else:
                 return super(Sensor, self).save(first_save=False)
