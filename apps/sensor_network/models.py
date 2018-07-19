@@ -26,6 +26,15 @@ class SensorNetwork(models.Model):
     name = models.CharField(max_length=25)
     sensors = models.ManyToManyField('Sensor', blank=True)
     events = models.ManyToManyField('Event', blank=True)
+    location_map = models.ForeignKey(
+        'LocationMap',
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
+    )
+
+    def get_location(self, sensor):
+        return self
 
     def __str__(self):
         return self.name
@@ -43,7 +52,14 @@ class Sensor(models.Model):
     iri = models.CharField(max_length=25, unique=True)
     name = models.CharField(max_length=25)
     measure_type = models.CharField(choices=MEASURE_CHOICES, max_length=6)
-    location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True)
+    location = models.ForeignKey(
+        Location,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+    )
+    is_multimedia = models.BooleanField(default=False)
+    is_moveable = models.BooleanField(default=False)
 
     def validate_input(self, sensor_input):
         """
@@ -61,8 +77,36 @@ class Sensor(models.Model):
     def get_measure_type(self):
         return self.measure_type
 
+    def get_location(self):
+        return self.location
+
     def __str__(self):
         return self.name
+
+    def save(self, *args, first_save=True, **kwargs):
+        if first_save:
+            if self.is_multimedia:
+                sensor = MultimediaSensor()
+                print(sensor._meta.__dict__)
+                return super(MultimediaSensor, sensor).save(*args, first_save=False, **kwargs)
+            elif self.is_moveable:
+                sensor = MoveableSensor()
+                return super(MoveableSensor, sensor).save(*args, first_save=False, **kwargs)
+            else:
+                return super(Sensor, self).save(first_save=False)
+        else:
+            return super(Sensor, self).save(*args, first_save, **kwargs)
+
+class MoveableSensor(Sensor):
+    def save(self, *args, first_save=False, **kwargs):
+        self.is_moveable = True
+        return super(MoveableSensor, self).save(*args, first_save, **kwargs)
+
+
+class MultimediaSensor(Sensor):
+    def save(self, *args, first_save=False, **kwargs):
+        self.is_multimedia = True
+        return super(MultimediaSensor, self).save(*args, first_save, **kwargs)
 
 
 class MeasureLog(TimeStampedModel):
