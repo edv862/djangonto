@@ -15,8 +15,7 @@ from unipath import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).ancestor(3)
-# PROJECT_ROOT = BASE_DIR.child(os.environ.get('ROOT_DIR'))
-PROJECT_ROOT = BASE_DIR.child('django_mssn')
+PROJECT_ROOT = BASE_DIR.child(os.environ.get('ROOT_DIR'))
 
 
 # Quick-start development settings - unsuitable for production

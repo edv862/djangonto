@@ -1,4 +1,5 @@
 import functools
+import math
 from django.db import models
 
 from model_utils import Choices
@@ -12,6 +13,38 @@ class LocationMap(models.Model):
     def __str__(self):
         return self.name
 
+    def get_location(self, sensor=None, measure=None):
+        if sensor and not measure:
+            if sensor.is_moveable:
+                measure = MeasureLog.objects.filter(sensor=sensor).last()
+                if measure:
+                    measure = measure.get_coordinates()
+            else:
+                measure = sensor.location.get_coordinates()
+        elif not measure and not sensor:
+            return None
+
+        loc = []
+        min_dist = 0
+        for location in self.locations.all():
+            coord1 = location.get_coordinates()
+            coord2 = measure.get_coordinates()
+            distance = math.sqrt(
+                math.pow(coord1[0] - coord2[0], 2) +
+                math.pow(coord1[1] - coord2[1], 2)
+            )
+            if loc:
+                if distance < min_dist:
+                    loc = [location]
+                    min_dist = distance
+                elif distance == min_dist:
+                    loc.append(location)
+            else:
+                loc = location
+                min_dist = distance
+
+        return (loc, min_dist)
+
 
 class Location(models.Model):
     name = models.CharField(max_length=25)
@@ -20,6 +53,15 @@ class Location(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_coordinates(self):
+        """
+        Returns value as tuple (lat,lon).
+        """
+        aux = self.value.split(',')
+        lat = aux[0]
+        lon = aux[1]
+        return (lat, lon)
 
 
 class SensorNetwork(models.Model):
@@ -33,8 +75,8 @@ class SensorNetwork(models.Model):
         on_delete=models.CASCADE,
     )
 
-    def get_location(self, sensor):
-        return self
+    def get_location(self, sensor=None, measure=None):
+        return self.location_map.get_location(self, sensor, measure)
 
     def __str__(self):
         return self.name
@@ -84,28 +126,22 @@ class Sensor(models.Model):
         return self.name
 
     def save(self, *args, first_save=True, **kwargs):
+        if args:
+            first_save = args[0]
+
         if first_save:
             if self.is_multimedia:
                 sensor = MultimediaSensor()
-                for field in sensor._meta.fields:
-                    if hasattr(sensor, field.name):
-                        setattr(sensor, field.name, getattr(self, field.name))
-                return super(MultimediaSensor, sensor).save(*args, first_save=False, **kwargs)
-            elif self.is_moveable:
-                sensor = MoveableSensor()
-                for field in sensor._meta.fields:
-                    if hasattr(sensor, field.name):
-                        setattr(sensor, field.name, getattr(self, field.name))
-                return super(MoveableSensor, sensor).save(*args, first_save=False, **kwargs)
             else:
-                return super(Sensor, self).save(first_save=False)
-        else:
-            return super(Sensor, self).save(*args, first_save, **kwargs)
+                return super(Sensor, self).save(*args, **kwargs)
 
-class MoveableSensor(Sensor):
-    def save(self, *args, first_save=False, **kwargs):
-        self.is_moveable = True
-        return super(MoveableSensor, self).save(*args, first_save, **kwargs)
+            for field in sensor._meta.fields:
+                if hasattr(sensor, field.name):
+                    setattr(sensor, field.name, getattr(self, field.name))
+            
+            return sensor.save(first_save=False)
+        else:
+            return super(Sensor, self).save(*args, **kwargs)
 
 
 class MultimediaSensor(Sensor):
@@ -123,7 +159,7 @@ class MeasureLog(TimeStampedModel):
     # interest = models.BooleanField(default=False)
     value = models.CharField(max_length=100)
 
-    def coordenate(self):
+    def get_coordinates(self):
         """
         Returns value as tuple (lat,lon).
         """
