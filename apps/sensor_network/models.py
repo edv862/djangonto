@@ -191,6 +191,9 @@ class Event(TimeStampedModel):
     def __str__(self):
         return self.name
 
+    def add_to_qeue(self):
+        return "do this"
+
 
 class AtomicEvent(Event):
     FUNCTIONS = Choices(
@@ -273,7 +276,7 @@ class ComplexEvent(Event):
     OPERATORS = Choices(
         "Seq",
         "Overlaps",
-        "Both"
+        "Any"
     )
 
     first_event = models.ForeignKey(
