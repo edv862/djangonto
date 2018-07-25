@@ -23,9 +23,13 @@ class LocationMap(models.Model):
                 measure = MeasureLog.objects.filter(sensor=sensor).first()
                 if measure:
                     measure = measure.get_coordinates()
+                else:
+                    return None
             else:
-                measure = sensor.location.get_coordinates()
-        elif not measure and not sensor:
+                return ([sensor.location], 0)
+        elif measure:
+            measure = measure.get_coordinates()
+        else:
             return None
 
         loc = []
@@ -43,7 +47,7 @@ class LocationMap(models.Model):
                 elif distance == min_dist:
                     loc.append(location)
             else:
-                loc = location
+                loc = [location]
                 min_dist = distance
 
         return (loc, min_dist)

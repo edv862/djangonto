@@ -57,7 +57,6 @@ class SensorPipeline(View):
             sensor=self.sensor,
             value=measure,
         )
-        measure.save()
 
         if hasattr(self.sensor, 'multimediasensor'):
             self.sensor = self.sensor.multimediasensor
@@ -69,16 +68,25 @@ class SensorPipeline(View):
         validate = self.sensor.validate_input(
             measure.get_value()
         )
+
+        location = self.sensor.sn.get_location(sensor=self.sensor, measure=measure)
+        if location:
+            location = str(location[0][0])
+        else:
+            location = ''
+
         response = {
-            'response': ''
+            'response':'location: ' + location
         }
 
         if validate:
-            response['response'] = "Ocurrio evento."
+            measure.save()
+            response['response'] += ". Ocurrio evento: "
             for event in validate:
                 event.add_to_queue()
+                response['response'] += event.name + ', '
         else:
-            response['response'] = "No ocurrio evento."
+            response['response'] += ". No ocurrio evento."
 
         return JsonResponse(
             data=response,
