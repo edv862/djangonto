@@ -296,14 +296,13 @@ class AtomicEvent(Event):
         by the sensor and the measure_limit.
         """
         function = self.get_function()
-        result = function(sensor_input, self.measure_limit)
-
-        return result
+        return function(sensor_input, self.measure_limit)
 
 
 class ComplexEvent(Event):
     OPERATORS = Choices(
         "seq",
+        "seq_any"
         "overlaps",
         "any"
     )
@@ -330,9 +329,14 @@ class ComplexEvent(Event):
 
     def is_happening(self):
         if self.function == self.OPERATORS.overlaps:
-            if cache.get(self.first_event.name) and cache.get(self.second_event.name):
-                return True
-        elif self.function == self.OPERATORS.seq or self.OPERATORS.any:
-            if cache.get(self.first_event.name + '_seq') and cache.get(self.second_event.name + '_seq'):
-                return True
+            return cache.get(self.first_event.name) and cache.get(self.second_event.name)
+        elif self.function == self.OPERATORS.seq:
+            return cache.get(self.first_event.name + '_seq') and cache.get(self.second_event.name)
+        elif self.function == self.OPERATORS.seq_any:
+            return (
+                cache.get(self.first_event.name + '_seq') and cache.get(self.second_event.name) or
+                cache.get(self.first_event.name) and cache.get(self.second_event.name + '_seq')
+            )
+        elif self.function == self.OPERATORS.any:
+            return cache.get(self.first_event.name + '_seq') and cache.get(self.second_event.name + '_seq')
         return False
