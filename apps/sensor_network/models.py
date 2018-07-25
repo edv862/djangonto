@@ -1,5 +1,7 @@
 import functools
 import math
+
+from django.core.cache import cache
 from django.db import models
 
 from model_utils import Choices
@@ -66,8 +68,6 @@ class Location(models.Model):
 
 class SensorNetwork(models.Model):
     name = models.CharField(max_length=25)
-    sensors = models.ManyToManyField('Sensor', blank=True)
-    events = models.ManyToManyField('Event', blank=True)
     location_map = models.ForeignKey(
         'LocationMap',
         blank=True,
@@ -78,11 +78,25 @@ class SensorNetwork(models.Model):
     def get_location(self, sensor=None, measure=None):
         return self.location_map.get_location(self, sensor, measure)
 
+    def check_complex_queue(self):
+        l = []
+        for cpx_event in self.event_set.filter(is_complex=True):
+            if cache.get(cpx_event.name):
+                l.append(cpx_event)
+
+        return l
+
+    def update_compleX_queue(self):
+        for cpx_event in self.event_set.filter(is_complex=True):
+            if cpx_event.is_happening():
+                cache.set(cpx_event.name + '_seq', True, cpx_event.duration + 10)
+                cache.set(cpx_event.name, True, cpx_event.duration)
+
     def __str__(self):
         return self.name
 
 
-class Sensor(models.Model):
+class BaseSensor(models.Model):
     MEASURE_CHOICES = (
         ('S', 'Scalar'),
         ('B', 'Binary'),
@@ -91,6 +105,7 @@ class Sensor(models.Model):
         ('C', 'Coord'),
         # Multimedia data to go
     )
+    sn = models.ForeignKey('SensorNetwork', on_delete=models.CASCADE)
     iri = models.CharField(max_length=25, unique=True)
     name = models.CharField(max_length=25)
     measure_type = models.CharField(choices=MEASURE_CHOICES, max_length=6)
@@ -100,7 +115,6 @@ class Sensor(models.Model):
         blank=True,
         null=True,
     )
-    is_multimedia = models.BooleanField(default=False)
     is_moveable = models.BooleanField(default=False)
 
     def validate_input(self, sensor_input):
@@ -109,8 +123,13 @@ class Sensor(models.Model):
         So far validates only scalar values (integer),and text.
         """
         result = []
-        events = self.events.all()
+        events = self.event_set.all(is_complex=False)
         for event in events:
+            if hasattr(event, 'complexevent'):
+                event = event.complexevent
+            else:
+                event = event.atomicevent
+
             if event.validate(sensor_input):
                 result.append(event)
 
@@ -122,37 +141,32 @@ class Sensor(models.Model):
     def get_location(self):
         return self.location
 
+    def is_multimedia(self):
+        return False
+
+    def get_measure(self):
+        return 'base'
+
     def __str__(self):
         return self.name
 
-    def save(self, *args, first_save=True, **kwargs):
-        if args:
-            first_save = args[0]
 
-        if first_save:
-            if self.is_multimedia:
-                sensor = MultimediaSensor()
-            else:
-                return super(Sensor, self).save(*args, **kwargs)
-
-            for field in sensor._meta.fields:
-                if hasattr(sensor, field.name):
-                    setattr(sensor, field.name, getattr(self, field.name))
-            
-            return sensor.save(first_save=False)
-        else:
-            return super(Sensor, self).save(*args, **kwargs)
+class Sensor(BaseSensor):
+    def get_measure(self):
+        return 'sensor'
 
 
-class MultimediaSensor(Sensor):
-    def save(self, *args, first_save=False, **kwargs):
-        self.is_multimedia = True
-        return super(MultimediaSensor, self).save(*args, first_save, **kwargs)
+class MultimediaSensor(BaseSensor):
+    def get_measure(self):
+        return 'multi'
+
+    def is_multimedia(self):
+        return True
 
 
 class MeasureLog(TimeStampedModel):
     sensor = models.ForeignKey(
-        Sensor,
+        BaseSensor,
         on_delete=models.CASCADE,
         related_name='measure_log'
     )
@@ -184,16 +198,24 @@ class MeasureLog(TimeStampedModel):
 
 
 class Event(TimeStampedModel):
+    sn = models.ForeignKey('SensorNetwork', on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
-    time_end = models.DateTimeField(blank=True)
+    duration = models.IntegerField(blank=True)
     is_complex = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ('sn', 'name')
 
     def __str__(self):
         return self.name
 
-    def add_to_qeue(self):
-        return "do this"
+    def add_to_queue(self):
+        cache.set(str(self.name) + '_seq', True, ttl=self.duration + 5)
+        cache.set(str(self.name), True, ttl=self.duration)
+        return True
 
+    def check_queue(self):
+        return cache.get(str(self.name))
 
 class AtomicEvent(Event):
     FUNCTIONS = Choices(
@@ -207,12 +229,15 @@ class AtomicEvent(Event):
         "not_great_than_equal",
         "equal",
         "not_equal",
+        "true"
     )
 
     cause = models.ForeignKey(
-        'Sensor',
+        'BaseSensor',
         on_delete=models.CASCADE,
-        related_name='events'
+        blank=True,
+        null=True,
+        related_name='cause_sensor'
     )
     measure_limit = models.IntegerField(null=True, blank=True)
     function = models.CharField(
@@ -220,6 +245,7 @@ class AtomicEvent(Event):
         choices=FUNCTIONS,
         default=FUNCTIONS.less_than
     )
+    sensors = models.ManyToManyField('BaseSensor', blank=True)
 
     def less_than(self, op1, op2):
         return (op1 < op2)
@@ -251,6 +277,9 @@ class AtomicEvent(Event):
     def not_equal(self, op1, op2):
         return (op1 != op2)
 
+    def true(self, op1, op2):
+        return True
+
     def get_function(self):
         try:
             function = getattr(self, self.function)
@@ -274,9 +303,9 @@ class AtomicEvent(Event):
 
 class ComplexEvent(Event):
     OPERATORS = Choices(
-        "Seq",
-        "Overlaps",
-        "Any"
+        "seq",
+        "overlaps",
+        "any"
     )
 
     first_event = models.ForeignKey(
@@ -292,9 +321,18 @@ class ComplexEvent(Event):
     function = models.CharField(
         max_length=10,
         choices=OPERATORS,
-        default=OPERATORS.Seq
+        default=OPERATORS.seq
     )
 
     def save(self, *args, **kwargs):
         self.is_complex = True
         return super(ComplexEvent ,self).save(*args, **kwargs)
+
+    def is_happening(self):
+        if self.function == self.OPERATORS.overlaps:
+            if cache.get(self.first_event.name) and cache.get(self.second_event.name):
+                return True
+        elif self.function == self.OPERATORS.seq or self.OPERATORS.any:
+            if cache.get(self.first_event.name + '_seq') and cache.get(self.second_event.name + '_seq'):
+                return True
+        return False

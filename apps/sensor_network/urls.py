@@ -1,6 +1,6 @@
 from django.urls import re_path
 
-from .views import SNDetails, SensorPipeline, SNList, SensorStimulusView
+from .views import SNDetails, SensorPipeline, SNList, SensorStimulusView, SensorNetworkComplexEvents
 
 app_name = 'rdf_manager'
 urlpatterns = [
@@ -15,5 +15,10 @@ urlpatterns = [
         r'^event/(?P<event_iri>\w+)/(?P<value>\w+)/$',
         SensorStimulusView.as_view(),
         name='sensor_pipeline'
-    )
+    ),
+    re_path(
+        r'^(?P<sn_id>\w+)/complex_events/$',
+        SensorNetworkComplexEvents.as_view(),
+        name='complex_events'
+    ),
 ]

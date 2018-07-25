@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import authenticate, login
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from .models import SensorNetwork, Sensor, MeasureLog, AtomicEvent, Event
+from .models import SensorNetwork, BaseSensor, MeasureLog, AtomicEvent, Event
 
 
 class SNList(LoginRequiredMixin, ListView):
@@ -29,7 +29,7 @@ class SNDetails(LoginRequiredMixin, ListView):
 class SensorPipeline(View):
     def dispatch(self, request, *args, **kwargs):
         self.sensor = get_object_or_404(
-            Sensor,
+            BaseSensor,
             iri=self.kwargs.get('sensor_iri')
         )
         return super(SensorPipeline, self).dispatch(request, *args, **kwargs)
@@ -61,6 +61,13 @@ class SensorPipeline(View):
         )
         measure.save()
 
+        if hasattr(self.sensor, 'multimediasensor'):
+            self.sensor = self.sensor.multimediasensor
+        else:
+            self.sensor = self.sensor.sensor
+
+
+        # Here it checks if any atomic event condition is met by this measure
         validate = self.sensor.validate_input(
             measure.get_value()
         )
@@ -70,10 +77,8 @@ class SensorPipeline(View):
 
         if validate:
             response['response'] = "Ocurrio evento."
-            # Agregar aca logica de pilas complejas y atomicas
-            # 1 Verificar si cumple condicion
-            # 2 agregar evento a su pila correspondiente
-            # 3 Chequear si trigerea algun evento complejo ya sea con Seq u Overlaps
+            for event in validate:
+                event.add_to_queue()
         else:
             response['response'] = "No ocurrio evento."
 
@@ -97,4 +102,10 @@ class SensorStimulusView(TemplateView):
 
         context['result'] = result
 
+        return self.render_to_response(context)
+
+
+class SensorNetworkComplexEvents(TemplateView):
+    def post(self, request, sn_id):
+        sn = get_object_or_404(SensorNetwork, id=sn_id)
         return self.render_to_response(context)
