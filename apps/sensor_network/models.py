@@ -89,7 +89,7 @@ class SensorNetwork(models.Model):
     def update_compleX_queue(self):
         for cpx_event in self.event_set.filter(is_complex=True):
             if cpx_event.is_happening():
-                cache.set(cpx_event.name + '_seq', True, cpx_event.duration + 10)
+                cache.set(cpx_event.name + '_seq', True, cpx_event.duration + 8)
                 cache.set(cpx_event.name, True, cpx_event.duration)
 
     def __str__(self):
@@ -210,7 +210,7 @@ class Event(TimeStampedModel):
         return self.name
 
     def add_to_queue(self):
-        cache.set(str(self.name) + '_seq', True, ttl=self.duration + 5)
+        cache.set(str(self.name) + '_seq', True, ttl=self.duration + 8)
         cache.set(str(self.name), True, ttl=self.duration)
         return True
 
@@ -302,7 +302,7 @@ class AtomicEvent(Event):
 class ComplexEvent(Event):
     OPERATORS = Choices(
         "seq",
-        "seq_any"
+        "seq_any",
         "overlaps",
         "any"
     )
