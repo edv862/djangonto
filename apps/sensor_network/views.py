@@ -49,9 +49,7 @@ class SensorPipeline(View):
     def post(self, request, sn_id, sensor_iri):
         measure = ''
         if self.sensor.measure_type == 'C':
-            for key in request.POST.keys():
-                if 'csrf' not in key:
-                    measure += request.POST.get(key)
+            measure = request.POST.get('lat') + ',' + request.POST.get('lon')
         else:
             measure += request.POST.get('measure')
 

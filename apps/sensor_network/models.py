@@ -16,9 +16,11 @@ class LocationMap(models.Model):
         return self.name
 
     def get_location(self, sensor=None, measure=None):
-        if sensor and not measure:
+        if sensor and measure:
+            measure = measure.get_coordinates()
+        elif sensor and not measure:
             if sensor.is_moveable:
-                measure = MeasureLog.objects.filter(sensor=sensor).last()
+                measure = MeasureLog.objects.filter(sensor=sensor).first()
                 if measure:
                     measure = measure.get_coordinates()
             else:
@@ -30,10 +32,9 @@ class LocationMap(models.Model):
         min_dist = 0
         for location in self.locations.all():
             coord1 = location.get_coordinates()
-            coord2 = measure.get_coordinates()
             distance = math.sqrt(
-                math.pow(coord1[0] - coord2[0], 2) +
-                math.pow(coord1[1] - coord2[1], 2)
+                math.pow(coord1[0] - measure[0], 2) +
+                math.pow(coord1[1] - measure[1], 2)
             )
             if loc:
                 if distance < min_dist:
@@ -60,9 +61,9 @@ class Location(models.Model):
         """
         Returns value as tuple (lat,lon).
         """
-        aux = self.value.split(',')
-        lat = aux[0]
-        lon = aux[1]
+        aux = self.coordinates.replace(" ", "").split(',')
+        lat = float(aux[0])
+        lon = float(aux[1])
         return (lat, lon)
 
 
@@ -76,7 +77,7 @@ class SensorNetwork(models.Model):
     )
 
     def get_location(self, sensor=None, measure=None):
-        return self.location_map.get_location(self, sensor, measure)
+        return self.location_map.get_location(sensor=sensor, measure=measure)
 
     def check_complex_queue(self):
         l = []
@@ -123,13 +124,8 @@ class BaseSensor(models.Model):
         So far validates only scalar values (integer),and text.
         """
         result = []
-        events = self.event_set.all(is_complex=False)
+        events = self.atomicevent_set.all()
         for event in events:
-            if hasattr(event, 'complexevent'):
-                event = event.complexevent
-            else:
-                event = event.atomicevent
-
             if event.validate(sensor_input):
                 result.append(event)
 
@@ -177,9 +173,9 @@ class MeasureLog(TimeStampedModel):
         """
         Returns value as tuple (lat,lon).
         """
-        aux = self.value.split(',')
-        lat = aux[0]
-        lon = aux[1]
+        aux = self.value.replace(" ", "").split(',')
+        lat = float(aux[0])
+        lon = float(aux[1])
         return (lat, lon)
 
     def integer(self):
@@ -190,7 +186,7 @@ class MeasureLog(TimeStampedModel):
 
     def get_value(self):
         if self.sensor.get_measure_type() == 'C':
-            return self.coordenate()
+            return self.get_coordinates()
         elif self.sensor.get_measure_type() == 'S':
             return self.integer()
         else:
@@ -210,8 +206,8 @@ class Event(TimeStampedModel):
         return self.name
 
     def add_to_queue(self):
-        cache.set(str(self.name) + '_seq', True, ttl=self.duration + 8)
-        cache.set(str(self.name), True, ttl=self.duration)
+        cache.set(str(self.name) + '_seq', True, timeout=self.duration + 8)
+        cache.set(str(self.name), True, timeout=self.duration)
         return True
 
     def check_queue(self):
