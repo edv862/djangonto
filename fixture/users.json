@@ -3,16 +3,16 @@
   "model": "auth.user",
   "pk": 1,
   "fields": {
-    "password": "pbkdf2_sha256$100000$KUW3Xkthglgl$PGbBFH5jS9EB9mwVX+LdHPfJE+g/HkWhTaMv9AjZMIw=",
-    "last_login": "2018-06-01T18:52:24.827Z",
+    "password": "pbkdf2_sha256$100000$9aFSRt8mI6OS$HvaaqB47/57EpAKyR3unRSJ34S7jXXfI+GmLwQdCjwM=",
+    "last_login": "2018-07-25T00:28:36.747Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
     "last_name": "",
-    "email": "a@gmail.com",
+    "email": "gabohd@gmail.com",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2018-06-01T18:52:00.845Z",
+    "date_joined": "2018-07-25T00:28:23.356Z",
     "groups": [],
     "user_permissions": []
   }

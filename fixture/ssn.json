@@ -1,1 +1,142 @@
-[{"model": "sensor_network.locationmap", "pk": 1, "fields": {"name": "Casa", "locations": [1, 2]}}, {"model": "sensor_network.location", "pk": 1, "fields": {"name": "Cuarto", "coordinates": "", "extra_info": "Mi cuarto"}}, {"model": "sensor_network.location", "pk": 2, "fields": {"name": "Sala", "coordinates": "", "extra_info": "Mi Sala"}}, {"model": "sensor_network.sensornetwork", "pk": 1, "fields": {"name": "Test SSN", "location_map": 1}}, {"model": "sensor_network.basesensor", "pk": 1, "fields": {"sn": 1, "iri": "gabo_temp", "name": "TempSensor", "measure_type": "S", "location": 2, "is_moveable": false}}, {"model": "sensor_network.basesensor", "pk": 2, "fields": {"sn": 1, "iri": "gabo_phone", "name": "Cellphone", "measure_type": "C", "location": null, "is_moveable": true}}, {"model": "sensor_network.sensor", "pk": 1, "fields": {}}, {"model": "sensor_network.multimediasensor", "pk": 2, "fields": {}}, {"model": "sensor_network.event", "pk": 1, "fields": {"created": "2018-07-25T00:30:19.649Z", "modified": "2018-07-25T00:30:19.660Z", "sn": 1, "name": "High_temperature", "duration": 5, "is_complex": false}}, {"model": "sensor_network.event", "pk": 2, "fields": {"created": "2018-07-25T00:30:40.450Z", "modified": "2018-07-25T00:30:40.463Z", "sn": 1, "name": "Emergency_call", "duration": 5, "is_complex": false}}, {"model": "sensor_network.event", "pk": 3, "fields": {"created": "2018-07-25T00:31:29.151Z", "modified": "2018-07-25T00:31:29.162Z", "sn": 1, "name": "Fire", "duration": 5, "is_complex": true}}, {"model": "sensor_network.atomicevent", "pk": 1, "fields": {"cause": 1, "measure_limit": 25, "function": "great_than", "sensors": [1]}}, {"model": "sensor_network.atomicevent", "pk": 2, "fields": {"cause": 2, "measure_limit": null, "function": "less_than", "sensors": [2]}}, {"model": "sensor_network.complexevent", "pk": 3, "fields": {"first_event": 1, "second_event": 2, "function": "any"}}]
+[
+{
+  "model": "sensor_network.locationmap",
+  "pk": 1,
+  "fields": {
+    "name": "Casa",
+    "locations": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "sensor_network.location",
+  "pk": 1,
+  "fields": {
+    "name": "Cuarto",
+    "coordinates": "",
+    "extra_info": "Mi cuarto"
+  }
+},
+{
+  "model": "sensor_network.location",
+  "pk": 2,
+  "fields": {
+    "name": "Sala",
+    "coordinates": "",
+    "extra_info": "Mi Sala"
+  }
+},
+{
+  "model": "sensor_network.sensornetwork",
+  "pk": 1,
+  "fields": {
+    "name": "Test SSN",
+    "location_map": 1
+  }
+},
+{
+  "model": "sensor_network.basesensor",
+  "pk": 1,
+  "fields": {
+    "sn": 1,
+    "iri": "gabo_temp",
+    "name": "TempSensor",
+    "measure_type": "S",
+    "location": 2,
+    "is_moveable": false
+  }
+},
+{
+  "model": "sensor_network.basesensor",
+  "pk": 2,
+  "fields": {
+    "sn": 1,
+    "iri": "gabo_phone",
+    "name": "Cellphone",
+    "measure_type": "C",
+    "location": null,
+    "is_moveable": true
+  }
+},
+{
+  "model": "sensor_network.sensor",
+  "pk": 1,
+  "fields": {}
+},
+{
+  "model": "sensor_network.multimediasensor",
+  "pk": 2,
+  "fields": {}
+},
+{
+  "model": "sensor_network.event",
+  "pk": 1,
+  "fields": {
+    "created": "2018-07-25T00:30:19.649Z",
+    "modified": "2018-07-25T00:30:19.660Z",
+    "sn": 1,
+    "name": "High_temperature",
+    "duration": 5,
+    "is_complex": false
+  }
+},
+{
+  "model": "sensor_network.event",
+  "pk": 2,
+  "fields": {
+    "created": "2018-07-25T00:30:40.450Z",
+    "modified": "2018-07-25T00:30:40.463Z",
+    "sn": 1,
+    "name": "Emergency_call",
+    "duration": 5,
+    "is_complex": false
+  }
+},
+{
+  "model": "sensor_network.event",
+  "pk": 3,
+  "fields": {
+    "created": "2018-07-25T00:31:29.151Z",
+    "modified": "2018-07-25T00:31:29.162Z",
+    "sn": 1,
+    "name": "Fire",
+    "duration": 5,
+    "is_complex": true
+  }
+},
+{
+  "model": "sensor_network.atomicevent",
+  "pk": 1,
+  "fields": {
+    "cause": 1,
+    "measure_limit": 25,
+    "function": "great_than",
+    "sensors": [
+      1
+    ]
+  }
+},
+{
+  "model": "sensor_network.atomicevent",
+  "pk": 2,
+  "fields": {
+    "cause": 2,
+    "measure_limit": null,
+    "function": "less_than",
+    "sensors": [
+      2
+    ]
+  }
+},
+{
+  "model": "sensor_network.complexevent",
+  "pk": 3,
+  "fields": {
+    "first_event": 1,
+    "second_event": 2,
+    "function": "any"
+  }
+}
+]
