@@ -85,17 +85,20 @@ class SensorNetwork(models.Model):
 
     def check_complex_queue(self):
         l = []
-        for cpx_event in self.event_set.filter(is_complex=True):
+        for cpx_event in self.complexevent_set.filter(is_complex=True):
             if cache.get(cpx_event.name):
                 l.append(cpx_event)
 
         return l
 
     def update_compleX_queue(self):
-        for cpx_event in self.event_set.filter(is_complex=True):
-            if cpx_event.is_happening():
+        l = []
+        for cpx_event in self.complexevent_set.filter(is_complex=True):
+            if cpx_event.complexevent.is_happening():
                 cache.set(cpx_event.name + '_seq', True, cpx_event.duration + 8)
                 cache.set(cpx_event.name, True, cpx_event.duration)
+                l.append(cpx_event.name)
+        return l
 
     def __str__(self):
         return self.name
@@ -328,6 +331,17 @@ class ComplexEvent(Event):
         return super(ComplexEvent ,self).save(*args, **kwargs)
 
     def is_happening(self):
+        # Check if any complex event its happening
+        if self.first_event.is_complex:
+            if self.first_event.complexevent.is_happening():
+                cache.set(str(self.first_event.name) + '_seq', True, timeout=self.duration + 8)
+                cache.set(str(self.first_event.name), True, timeout=self.duration)
+
+        if self.second_event.is_complex:
+            if self.second_event.complexevent.is_happening():
+                cache.set(str(self.second_event.name) + '_seq', True, timeout=self.duration + 8)
+                cache.set(str(self.second_event.name), True, timeout=self.duration)
+
         if self.function == self.OPERATORS.overlaps:
             return cache.get(self.first_event.name) and cache.get(self.second_event.name)
         elif self.function == self.OPERATORS.seq:
