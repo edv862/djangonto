@@ -332,15 +332,18 @@ class ComplexEvent(Event):
 
     def is_happening(self):
         # Check if any complex event its happening
-        if self.first_event.is_complex:
-            if self.first_event.complexevent.is_happening():
-                cache.set(str(self.first_event.name) + '_seq', True, timeout=self.duration + 8)
-                cache.set(str(self.first_event.name), True, timeout=self.duration)
+        if not cache.get(self.first_event.name):
+            if self.first_event.is_complex:
+                if self.first_event.complexevent.is_happening():
+                    cache.set(str(self.first_event.name) + '_seq', True, timeout=self.duration + 8)
+                    cache.set(str(self.first_event.name), True, timeout=self.duration)
 
-        if self.second_event.is_complex:
-            if self.second_event.complexevent.is_happening():
-                cache.set(str(self.second_event.name) + '_seq', True, timeout=self.duration + 8)
-                cache.set(str(self.second_event.name), True, timeout=self.duration)
+
+        if not cache.get(self.second_event.name):
+            if self.second_event.is_complex:
+                if self.second_event.complexevent.is_happening():
+                    cache.set(str(self.second_event.name) + '_seq', True, timeout=self.duration + 8)
+                    cache.set(str(self.second_event.name), True, timeout=self.duration)
 
         if self.function == self.OPERATORS.overlaps:
             return cache.get(self.first_event.name) and cache.get(self.second_event.name)
