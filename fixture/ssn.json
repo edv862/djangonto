@@ -15,7 +15,7 @@
   "pk": 1,
   "fields": {
     "name": "Cuarto",
-    "coordinates": "",
+    "coordinates": "10.48385389, -66.87702245",
     "extra_info": "Mi cuarto"
   }
 },
@@ -24,7 +24,7 @@
   "pk": 2,
   "fields": {
     "name": "Sala",
-    "coordinates": "",
+    "coordinates": "10.48385474, -66.87702811",
     "extra_info": "Mi Sala"
   }
 },
@@ -71,6 +71,56 @@
   "fields": {}
 },
 {
+  "model": "sensor_network.measurelog",
+  "pk": 66,
+  "fields": {
+    "created": "2018-07-25T04:29:00.242Z",
+    "modified": "2018-07-25T04:29:00.252Z",
+    "sensor": 2,
+    "value": "10.48384443,-66.87700692"
+  }
+},
+{
+  "model": "sensor_network.measurelog",
+  "pk": 67,
+  "fields": {
+    "created": "2018-07-25T04:29:01.237Z",
+    "modified": "2018-07-25T04:29:01.246Z",
+    "sensor": 2,
+    "value": "10.48392628,-66.87703459"
+  }
+},
+{
+  "model": "sensor_network.measurelog",
+  "pk": 68,
+  "fields": {
+    "created": "2018-07-25T04:29:02.251Z",
+    "modified": "2018-07-25T04:29:02.260Z",
+    "sensor": 2,
+    "value": "10.48395685,-66.87703963"
+  }
+},
+{
+  "model": "sensor_network.measurelog",
+  "pk": 69,
+  "fields": {
+    "created": "2018-07-25T04:29:51.440Z",
+    "modified": "2018-07-25T04:29:51.455Z",
+    "sensor": 2,
+    "value": "10.48381121,-66.87699138"
+  }
+},
+{
+  "model": "sensor_network.measurelog",
+  "pk": 70,
+  "fields": {
+    "created": "2018-07-25T04:29:52.281Z",
+    "modified": "2018-07-25T04:29:52.293Z",
+    "sensor": 2,
+    "value": "10.48381156,-66.87699152"
+  }
+},
+{
   "model": "sensor_network.event",
   "pk": 1,
   "fields": {
@@ -87,7 +137,7 @@
   "pk": 2,
   "fields": {
     "created": "2018-07-25T00:30:40.450Z",
-    "modified": "2018-07-25T00:30:40.463Z",
+    "modified": "2018-07-25T03:11:04.203Z",
     "sn": 1,
     "name": "Emergency_call",
     "duration": 5,
@@ -124,7 +174,7 @@
   "fields": {
     "cause": 2,
     "measure_limit": null,
-    "function": "less_than",
+    "function": "true",
     "sensors": [
       2
     ]
