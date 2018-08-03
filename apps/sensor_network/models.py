@@ -85,19 +85,18 @@ class SensorNetwork(models.Model):
 
     def check_complex_queue(self):
         l = []
-        for cpx_event in self.complexevent_set.filter(is_complex=True):
+        for cpx_event in self.event_set.filter(is_complex=True):
             if cache.get(cpx_event.name):
                 l.append(cpx_event)
-
         return l
 
-    def update_compleX_queue(self):
+    def update_complex_queue(self):
         l = []
-        for cpx_event in self.complexevent_set.filter(is_complex=True):
+        for cpx_event in self.event_set.filter(is_complex=True):
             if cpx_event.complexevent.is_happening():
                 cache.set(cpx_event.name + '_seq', True, cpx_event.duration + 8)
                 cache.set(cpx_event.name, True, cpx_event.duration)
-                l.append(cpx_event.name)
+                l.append(cpx_event)
         return l
 
     def __str__(self):
