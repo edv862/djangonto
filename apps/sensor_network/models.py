@@ -16,21 +16,22 @@ class LocationMap(models.Model):
         return self.name
 
     def get_location(self, sensor=None, measure=None):
-        if sensor and measure:
-            measure = measure.get_coordinates()
-        elif sensor and not measure:
-            if sensor.is_moveable:
-                measure = MeasureLog.objects.filter(sensor=sensor).first()
-                if measure:
-                    measure = measure.get_coordinates()
-                else:
-                    return None
-            else:
-                return ([sensor.location], 0)
-        elif measure:
-            measure = measure.get_coordinates()
+        if sensor.is_moveable:
+            if sensor and measure:
+                measure = measure.get_coordinates()
+            elif sensor and not measure:
+                    measure = MeasureLog.objects.filter(sensor=sensor).first()
+                    if measure:
+                        measure = measure.get_coordinates()
+                    else:
+                        return None
+            elif measure:
+                measure = measure.get_coordinates()
         else:
-            return None
+            if sensor.location:
+                return ([sensor.location], 0)
+            else:
+                return None
 
         loc = []
         min_dist = 0

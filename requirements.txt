@@ -1,5 +1,7 @@
 alembic==0.9.9
 arrow==0.12.1
+certifi==2018.4.16
+chardet==3.0.4
 Django==2.0.5
 django-cors-headers==2.2.0
 django-extensions==2.0.7
@@ -23,8 +25,10 @@ rdflib==4.2.2
 rdflib-django==0.3
 rdflib-sqlalchemy==0.3.8
 redis==2.10.6
+requests==2.19.1
 six==1.11.0
 SPARQLWrapper==1.8.2
 SQLAlchemy==1.2.8
 SuRF==1.1.9
 Unipath==1.1
+urllib3==1.23
