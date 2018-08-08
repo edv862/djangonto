@@ -15,8 +15,7 @@ from unipath import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).ancestor(3)
-# PROJECT_ROOT = BASE_DIR.child(os.environ.get('ROOT_DIR'))
-PROJECT_ROOT = BASE_DIR.child('django_mssn')
+PROJECT_ROOT = BASE_DIR.child(os.environ.get('ROOT_DIR'))
 
 
 # Quick-start development settings - unsuitable for production
@@ -105,6 +104,18 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators

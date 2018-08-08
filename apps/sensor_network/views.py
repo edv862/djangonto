@@ -1,4 +1,7 @@
+import json
+
 from django.shortcuts import render
+from django.core.serializers import serialize
 from django.http import JsonResponse, HttpResponse
 from django.contrib.auth.models import User
 from django.views.generic import View, CreateView, FormView, ListView, UpdateView, TemplateView
@@ -7,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import authenticate, login
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from .models import SensorNetwork, Sensor, MeasureLog, AtomicEvent, Event
+from .models import SensorNetwork, BaseSensor, MeasureLog, AtomicEvent, Event
 
 
 class SNList(LoginRequiredMixin, ListView):
@@ -29,7 +32,7 @@ class SNDetails(LoginRequiredMixin, ListView):
 class SensorPipeline(View):
     def dispatch(self, request, *args, **kwargs):
         self.sensor = get_object_or_404(
-            Sensor,
+            BaseSensor,
             iri=self.kwargs.get('sensor_iri')
         )
         return super(SensorPipeline, self).dispatch(request, *args, **kwargs)
@@ -49,9 +52,7 @@ class SensorPipeline(View):
     def post(self, request, sn_id, sensor_iri):
         measure = ''
         if self.sensor.measure_type == 'C':
-            for key in request.POST.keys():
-                if 'csrf' not in key:
-                    measure += request.POST.get(key)
+            measure = request.POST.get('lat') + ',' + request.POST.get('lon')
         else:
             measure += request.POST.get('measure')
 
@@ -59,20 +60,41 @@ class SensorPipeline(View):
             sensor=self.sensor,
             value=measure,
         )
-        measure.save()
 
+        if hasattr(self.sensor, 'multimediasensor'):
+            self.sensor = self.sensor.multimediasensor
+        else:
+            self.sensor = self.sensor.sensor
+
+
+        # Here it checks if any atomic event condition is met by this measure
         validate = self.sensor.validate_input(
             measure.get_value()
         )
+
+        location = self.sensor.sn.get_location(sensor=self.sensor, measure=measure)
+        if location:
+            location = str(location[0][0])
+        else:
+            location = ''
+
         response = {
-            'response': ''
+            'response':'location: ' + location
         }
 
         if validate:
-            response['response'] = "Ocurrio evento."
-        else:
-            response['response'] = "No ocurrio evento."
+            measure.save()
+            response['response'] += ". Ocurrio evento: "
+            for event in validate:
+                event.add_to_queue()
+                response['response'] += event.name + ', '
 
+            complex_events = self.sensor.sn.update_complex_queue()
+        else:
+            response['response'] += ". No ocurrio evento."
+            complex_events = self.sensor.sn.check_complex_queue()
+
+        response['response'] += 'Complex: ' + str([e.name for e in complex_events])
         return JsonResponse(
             data=response,
             status=200
@@ -94,3 +116,14 @@ class SensorStimulusView(TemplateView):
         context['result'] = result
 
         return self.render_to_response(context)
+
+
+class SensorNetworkComplexEvents(TemplateView):
+    def post(self, request, sn_id):
+        # Add some sort of cache here
+        sn = get_object_or_404(SensorNetwork, id=sn_id)
+        complex_events = sn.update_complex_queue()
+        return JsonResponse(
+            data=serialize('json', complex_events, fields={'name'}),
+            status=200
+        )
