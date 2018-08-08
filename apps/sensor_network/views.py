@@ -1,4 +1,7 @@
+import json
+
 from django.shortcuts import render
+from django.core.serializers import serialize
 from django.http import JsonResponse, HttpResponse
 from django.contrib.auth.models import User
 from django.views.generic import View, CreateView, FormView, ListView, UpdateView, TemplateView
@@ -85,9 +88,13 @@ class SensorPipeline(View):
             for event in validate:
                 event.add_to_queue()
                 response['response'] += event.name + ', '
+
+            complex_events = self.sensor.sn.update_complex_queue()
         else:
             response['response'] += ". No ocurrio evento."
+            complex_events = self.sensor.sn.check_complex_queue()
 
+        response['response'] += 'Complex: ' + str([e.name for e in complex_events])
         return JsonResponse(
             data=response,
             status=200
@@ -113,5 +120,10 @@ class SensorStimulusView(TemplateView):
 
 class SensorNetworkComplexEvents(TemplateView):
     def post(self, request, sn_id):
+        # Add some sort of cache here
         sn = get_object_or_404(SensorNetwork, id=sn_id)
-        return self.render_to_response(context)
+        complex_events = sn.update_complex_queue()
+        return JsonResponse(
+            data=serialize('json', complex_events, fields={'name'}),
+            status=200
+        )
