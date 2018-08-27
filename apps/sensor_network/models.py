@@ -248,7 +248,6 @@ class AtomicEvent(Event):
         choices=FUNCTIONS,
         default=FUNCTIONS.less_than
     )
-    sensors = models.ManyToManyField('BaseSensor', blank=True)
 
     def less_than(self, op1, op2):
         return (op1 < op2)
