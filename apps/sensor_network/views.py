@@ -10,13 +10,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import authenticate, login
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from .models import SensorNetwork, BaseSensor, MeasureLog, AtomicEvent, Event
+from .models import Platform, BaseSensor, MeasureLog, AtomicEvent, Event
 
 
 class SNList(LoginRequiredMixin, ListView):
     permission_required = 'is_staff'
     login_url = '/admin/login/'
-    model = SensorNetwork
+    model = Platform
     template_name = 'sn_list.html'
     context_object_name = 'sns'
 
@@ -24,7 +24,7 @@ class SNList(LoginRequiredMixin, ListView):
 class SNDetails(LoginRequiredMixin, ListView):
     permission_required = 'is_staff'
     login_url = '/admin/login/'
-    model = SensorNetwork
+    model = Platform
     template_name = 'sn_list.html'
 
 
@@ -118,10 +118,10 @@ class SensorStimulusView(TemplateView):
         return self.render_to_response(context)
 
 
-class SensorNetworkComplexEvents(TemplateView):
+class PlatformComplexEvents(TemplateView):
     def post(self, request, sn_id):
         # Add some sort of cache here
-        sn = get_object_or_404(SensorNetwork, id=sn_id)
+        sn = get_object_or_404(Platform, id=sn_id)
         complex_events = sn.update_complex_queue()
         return JsonResponse(
             data=serialize('json', complex_events, fields={'name'}),

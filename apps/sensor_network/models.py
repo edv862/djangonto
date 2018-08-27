@@ -1,4 +1,3 @@
-import functools
 import math
 
 from django.core.cache import cache
@@ -6,6 +5,8 @@ from django.db import models
 
 from model_utils import Choices
 from model_utils.models import TimeStampedModel
+
+from apps.rdf_manager.models import Ontology
 
 
 class LocationMap(models.Model):
@@ -72,8 +73,20 @@ class Location(models.Model):
         return (lat, lon)
 
 
-class SensorNetwork(models.Model):
+class Platform(models.Model):
+    """
+        Sensor Network has a reverse relation in Event model.
+        ComplexEvent extends Event class.
+        Platform can have an event list (event_set, from the reverse
+        relation) and check if they are complex with is_complex
+        field in Event.
+    """
     name = models.CharField(max_length=25)
+    ontology = models.ForeignKey(
+        Ontology,
+        related_name='sensor_network',
+        on_delete=models.CASCADE
+    )
     location_map = models.ForeignKey(
         'LocationMap',
         blank=True,
@@ -82,23 +95,32 @@ class SensorNetwork(models.Model):
     )
 
     def get_location(self, sensor=None, measure=None):
+        """ Returns sensor location on LocationMap. """
         return self.location_map.get_location(sensor=sensor, measure=measure)
 
     def check_complex_queue(self):
-        l = []
+        """ Returns complex event list stored in cache queue. """
+        cpx_event_list = []
         for cpx_event in self.event_set.filter(is_complex=True):
             if cache.get(cpx_event.name):
-                l.append(cpx_event)
-        return l
+                cpx_event_list.append(cpx_event)
+        return cpx_event_list
 
     def update_complex_queue(self):
-        l = []
+        cpx_event_list = []
+
         for cpx_event in self.event_set.filter(is_complex=True):
+            # Explicit call for is_happening from ComplexEvent.
             if cpx_event.complexevent.is_happening():
-                cache.set(cpx_event.name + '_seq', True, cpx_event.duration + 8)
+                # TODO: que co;o significa el +8
+                cache.set(
+                    cpx_event.name + '_seq',
+                    True,
+                    cpx_event.duration + 8
+                )
                 cache.set(cpx_event.name, True, cpx_event.duration)
-                l.append(cpx_event)
-        return l
+                cpx_event_list.append(cpx_event)
+        return cpx_event_list
 
     def __str__(self):
         return self.name
@@ -113,7 +135,7 @@ class BaseSensor(models.Model):
         ('C', 'Coord'),
         # Multimedia data to go
     )
-    sn = models.ForeignKey('SensorNetwork', on_delete=models.CASCADE)
+    sn = models.ForeignKey('Platform', on_delete=models.CASCADE)
     iri = models.CharField(max_length=25, unique=True)
     name = models.CharField(max_length=25)
     measure_type = models.CharField(choices=MEASURE_CHOICES, max_length=6)
@@ -124,6 +146,9 @@ class BaseSensor(models.Model):
         null=True,
     )
     is_moveable = models.BooleanField(default=False)
+
+    class Meta:
+        abstract = True
 
     def validate_input(self, sensor_input):
         """
@@ -201,11 +226,12 @@ class MeasureLog(TimeStampedModel):
 
 
 class Event(TimeStampedModel):
-    sn = models.ForeignKey('SensorNetwork', on_delete=models.CASCADE)
+    sn = models.ForeignKey('Platform', on_delete=models.CASCADE)
     name = models.CharField(max_length=25)
     duration = models.IntegerField(blank=True)
     is_complex = models.BooleanField(default=False)
 
+    # ComplexEvent is an instance of Event.
     class Meta:
         unique_together = ('sn', 'name')
 
@@ -219,6 +245,7 @@ class Event(TimeStampedModel):
 
     def check_queue(self):
         return cache.get(str(self.name))
+
 
 class AtomicEvent(Event):
     FUNCTIONS = Choices(
@@ -328,32 +355,52 @@ class ComplexEvent(Event):
 
     def save(self, *args, **kwargs):
         self.is_complex = True
-        return super(ComplexEvent ,self).save(*args, **kwargs)
+        return super(ComplexEvent, self).save(*args, **kwargs)
 
     def is_happening(self):
         # Check if any complex event its happening
         if not cache.get(self.first_event.name):
             if self.first_event.is_complex:
                 if self.first_event.complexevent.is_happening():
-                    cache.set(str(self.first_event.name) + '_seq', True, timeout=self.duration + 8)
-                    cache.set(str(self.first_event.name), True, timeout=self.duration)
-
+                    cache.set(
+                        str(self.first_event.name) + '_seq',
+                        True,
+                        timeout=self.duration + 8
+                    )
+                    cache.set(
+                        str(self.first_event.name),
+                        True,
+                        timeout=self.duration
+                    )
 
         if not cache.get(self.second_event.name):
             if self.second_event.is_complex:
                 if self.second_event.complexevent.is_happening():
-                    cache.set(str(self.second_event.name) + '_seq', True, timeout=self.duration + 8)
-                    cache.set(str(self.second_event.name), True, timeout=self.duration)
+                    cache.set(
+                        str(self.second_event.name) + '_seq',
+                        True,
+                        timeout=self.duration + 8
+                    )
+                    cache.set(
+                        str(self.second_event.name),
+                        True,
+                        timeout=self.duration
+                    )
 
         if self.function == self.OPERATORS.overlaps:
-            return cache.get(self.first_event.name) and cache.get(self.second_event.name)
+            return (cache.get(self.first_event.name) and
+                    cache.get(self.second_event.name))
         elif self.function == self.OPERATORS.seq:
-            return cache.get(self.first_event.name + '_seq') and cache.get(self.second_event.name)
+            return (cache.get(self.first_event.name + '_seq') and
+                    cache.get(self.second_event.name))
         elif self.function == self.OPERATORS.seq_any:
             return (
-                cache.get(self.first_event.name + '_seq') and cache.get(self.second_event.name) or
-                cache.get(self.first_event.name) and cache.get(self.second_event.name + '_seq')
+                cache.get(self.first_event.name + '_seq') and
+                cache.get(self.second_event.name) or
+                cache.get(self.first_event.name) and
+                cache.get(self.second_event.name + '_seq')
             )
         elif self.function == self.OPERATORS.any:
-            return cache.get(self.first_event.name + '_seq') and cache.get(self.second_event.name + '_seq')
+            return (cache.get(self.first_event.name + '_seq') and
+                    cache.get(self.second_event.name + '_seq'))
         return False

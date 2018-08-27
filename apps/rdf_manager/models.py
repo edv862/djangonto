@@ -15,7 +15,7 @@ class NameSpace(models.Model):
         return self.name
 
 
-class Ontology(NameSpace):
+class Ontology(models.Model):
     namespaces = models.ManyToManyField(
         'Namespace',
         related_name='ontology_namespaces',
@@ -75,7 +75,7 @@ class Ontology(NameSpace):
             db_name=settings.DATABASES['default']['NAME'],
             db_host=settings.DATABASES['default']['HOST'],
         )
-        
+
         return graph
 
     class Meta:
