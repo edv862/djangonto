@@ -1,0 +1,30 @@
+MultimediaSensor
+str_to_class(class_label)
+'apps.sensor_network.models'
+AtomicEvent
+str_to_class(class_label)
+'apps.sensor_network.models'
+Event
+str_to_class(class_label)
+'apps.sensor_network.models'
+Sensor
+str_to_class(class_label)
+'apps.sensor_network.models'
+ComplexEvent
+str_to_class(class_label)
+'apps.sensor_network.models'
+MeasureLog
+str_to_class(class_label)
+'apps.sensor_network.models'
+Location
+str_to_class(class_label)
+'apps.sensor_network.models'
+Mobile Sensor
+str_to_class(class_label)
+'apps.sensor_network.models'
+LocationMap
+str_to_class(class_label)
+'apps.sensor_network.models'
+Base Sensor
+str_to_class(class_label)
+'apps.sensor_network.models'

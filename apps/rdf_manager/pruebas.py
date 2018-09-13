@@ -1,45 +1,37 @@
+import apps.sensor_network.models as models
 from rdflib import Graph, URIRef, Literal, RDFS
 
-is_type = URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type')
-is_label = URIRef('http://www.w3.org/2000/01/rdf-schema#label')
+ONTO_FILE = '/home/edgar/Tesis/django-onto/django_mssn/mssn-lite.owl'
 
-# location = URIRef('http://mssn.sigappfr.org/mssn/Location')
-# location_map = URIRef('http://mssn.sigappfr.org/mssn/LocationMap')
-g = Graph()
-g.parse('/home/edgar/Tesis/django-onto/django_mssn/mssn-lite.owl')
+IS_TYPE = URIRef('http://www.w3.org/1999/02/22-rdf-syntax-ns#type')
+IS_LABEL = URIRef('http://www.w3.org/2000/01/rdf-schema#label')
+IS_CLASS = URIRef('http://www.w3.org/2002/07/owl#Class')
 
-# Gets location and location Map IRI.
-try:
-    location_map_triple = next(
-        g.triples((None, is_label, Literal('LocationMap')))
-    )
-    location_map = URIRef(location_map_triple[0])
-    location_triple = next(
-        g.triples((None, is_label, Literal('Location')))
-    )
-    location = URIRef(location_triple[0])
-except Exception as e:
-    raise(e)
-
-# Get location Maps.
-# Returns an array just in case there are several location maps
-# with the same name.
-location_map_names = []
-for triple in g.triples((None, is_type, location_map)):
-    label = g.triples((triple[0], is_label, None))
-    for names in label.__iter__():
-        location_map_names += [names[2].__str__()]
-
-print(location_map_names)
+THING = URIRef('http://www.w3.org/2002/07/owl#Thing')
 
 
-# Get locations.
-# Returns an array just in case there are several locations
-# with the same name.
-location_names = []
-for triple in g.triples((None, is_type, location)):
-    label = g.triples((triple[0], is_label, None))
-    for names in label.__iter__():
-        location_names += [names[2].__str__()]
+def str_to_class(str):
+    for x in models.__dict__:
+        print(x)
 
-print(location_names)
+
+def prueba():
+    g = Graph()
+    g.parse('/home/edgar/Tesis/django-onto/django_mssn/mssn-lite.owl')
+
+    try:
+        classes = []
+        classes_ref = g.triples((None, None, IS_CLASS))
+        for class_ref in classes_ref:
+            reference = class_ref[0]
+            class_label = g.label(reference)
+
+            print(class_label)
+            try:
+                # Make that string a class
+                print("str_to_class(class_label)")
+                print(str_to_class(class_label))
+            except Exception as e:
+                print(e)
+    except Exception as e:
+        raise e

@@ -1,6 +1,7 @@
 import rdflib
 from django.db import models
 from django.conf import settings
+from .ref_definitions import *
 from .rdf_functions import GraphOntology
 
 
@@ -23,7 +24,6 @@ class Ontology(models.Model):
     )
     ontology_files = models.ManyToManyField(
         'OntoFile',
-        blank=True,
     )
     loaded_graph = models.BooleanField(default=False)
     loaded_ontologies = models.IntegerField(default=0)
@@ -77,6 +77,24 @@ class Ontology(models.Model):
         )
 
         return graph
+
+    # Functions to load an ontology into the system from a rdf file.
+    def open_file(self):
+        g = Graph()
+        g.parse('/home/edgar/Tesis/django-onto/django_mssn/mssn-lite.owl')
+        return g
+
+    def get_classes(self):
+        g = open_file()
+        try:
+            classes = []
+            classes_ref = g.triples((None, None, IS_CLASS))
+            for class_ref in classes_ref:
+                reference = class_ref[0]
+                class_label = g.label(reference)
+                print(class_label)
+        except Exception as e:
+            raise e
 
     class Meta:
         verbose_name_plural = "Ontologies"

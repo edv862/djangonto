@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Ontology
 
+from .pruebas import prueba
 from .rdf_functions import GraphOntology
 
 from django.conf import settings
@@ -88,3 +89,9 @@ def load_graph(request):
         graph = g.serialize(format='n3').decode('utf')
         g.close()
     return render(request, 'graph.html', {'graph': graph})
+
+
+def prueba_cable(request):
+    prueba()
+
+    return render(request, 'graph.html', {'graph': "huehue"})
