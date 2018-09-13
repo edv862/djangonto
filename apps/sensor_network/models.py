@@ -110,8 +110,8 @@ class Platform(models.Model):
         cpx_event_list = []
 
         for cpx_event in self.event_set.filter(is_complex=True):
-            # Explicit call for is_happening from ComplexEvent.
-            if cpx_event.complexevent.is_happening():
+            # Explicit call for validate from ComplexEvent.
+            if cpx_event.complexevent.validate():
                 # TODO: que co;o significa el +8
                 cache.set(
                     cpx_event.name + '_seq',
@@ -126,7 +126,7 @@ class Platform(models.Model):
         return self.name
 
 
-class BaseSensor(models.Model):
+class Sensor(models.Model):
     MEASURE_CHOICES = (
         ('S', 'Scalar'),
         ('B', 'Binary'),
@@ -146,9 +146,6 @@ class BaseSensor(models.Model):
         null=True,
     )
     is_moveable = models.BooleanField(default=False)
-
-    class Meta:
-        abstract = True
 
     def validate_input(self, sensor_input):
         """
@@ -179,12 +176,7 @@ class BaseSensor(models.Model):
         return self.name
 
 
-class Sensor(BaseSensor):
-    def get_measure(self):
-        return 'sensor'
-
-
-class MultimediaSensor(BaseSensor):
+class MultimediaSensor(Sensor):
     def get_measure(self):
         return 'multi'
 
@@ -194,7 +186,7 @@ class MultimediaSensor(BaseSensor):
 
 class MeasureLog(TimeStampedModel):
     sensor = models.ForeignKey(
-        BaseSensor,
+        Sensor,
         on_delete=models.CASCADE,
         related_name='measure_log'
     )
@@ -230,6 +222,7 @@ class Event(TimeStampedModel):
     name = models.CharField(max_length=25)
     duration = models.IntegerField(blank=True)
     is_complex = models.BooleanField(default=False)
+    action = models.CharField(max_length=25, blank=True)
 
     # ComplexEvent is an instance of Event.
     class Meta:
@@ -263,7 +256,7 @@ class AtomicEvent(Event):
     )
 
     cause = models.ForeignKey(
-        'BaseSensor',
+        Sensor,
         on_delete=models.CASCADE,
         blank=True,
         null=True,
@@ -275,7 +268,6 @@ class AtomicEvent(Event):
         choices=FUNCTIONS,
         default=FUNCTIONS.less_than
     )
-    sensors = models.ManyToManyField('BaseSensor', blank=True)
 
     def less_than(self, op1, op2):
         return (op1 < op2)
@@ -357,11 +349,11 @@ class ComplexEvent(Event):
         self.is_complex = True
         return super(ComplexEvent, self).save(*args, **kwargs)
 
-    def is_happening(self):
+    def validate(self):
         # Check if any complex event its happening
         if not cache.get(self.first_event.name):
             if self.first_event.is_complex:
-                if self.first_event.complexevent.is_happening():
+                if self.first_event.complexevent.validate():
                     cache.set(
                         str(self.first_event.name) + '_seq',
                         True,
@@ -375,7 +367,7 @@ class ComplexEvent(Event):
 
         if not cache.get(self.second_event.name):
             if self.second_event.is_complex:
-                if self.second_event.complexevent.is_happening():
+                if self.second_event.complexevent.validate():
                     cache.set(
                         str(self.second_event.name) + '_seq',
                         True,

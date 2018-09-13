@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import authenticate, login
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from .models import Platform, BaseSensor, MeasureLog, AtomicEvent, Event
+from .models import Platform, Sensor, MeasureLog, AtomicEvent, Event
 
 
 class SNList(LoginRequiredMixin, ListView):
@@ -32,7 +32,7 @@ class SNDetails(LoginRequiredMixin, ListView):
 class SensorPipeline(View):
     def dispatch(self, request, *args, **kwargs):
         self.sensor = get_object_or_404(
-            BaseSensor,
+            Sensor,
             iri=self.kwargs.get('sensor_iri')
         )
         return super(SensorPipeline, self).dispatch(request, *args, **kwargs)
