@@ -2,6 +2,7 @@ alembic==0.9.9
 arrow==0.12.1
 certifi==2018.4.16
 chardet==3.0.4
+cycler==0.10.0
 Django==2.0.5
 django-cors-headers==2.2.0
 django-extensions==2.0.7
@@ -12,8 +13,11 @@ idna==2.6
 isodate==0.6.0
 Jinja2==2.10
 jinja2-time==0.2.0
+kiwisolver==1.0.1
 Mako==1.0.7
 MarkupSafe==1.0
+matplotlib==2.2.3
+numpy==1.15.1
 poyo==0.4.1
 psycopg2==2.7.4
 psycopg2-binary==2.7.4

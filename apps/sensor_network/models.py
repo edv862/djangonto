@@ -1,5 +1,6 @@
 import functools
 import math
+import matplotlib.path as mpltPath
 
 from django.core.cache import cache
 from django.db import models
@@ -15,62 +16,71 @@ class LocationMap(models.Model):
     def __str__(self):
         return self.name
 
+    def location_contains_point(vertices, point):
+        # Check if a coordinate is inside a location
+        if vertices:
+            vertices.append(vertices[0])
+            path = mpltPath.Path(vertices)
+            return path.contains_point(point, radius=-0.1)
+        else:
+            return None
+
     def get_location(self, sensor=None, measure=None):
         if sensor.is_moveable:
             if sensor and measure:
-                measure = measure.get_coordinates()
+                point = measure.get_coordinates()
             elif sensor and not measure:
                     measure = MeasureLog.objects.filter(sensor=sensor).first()
                     if measure:
-                        measure = measure.get_coordinates()
+                        point = measure.get_coordinates()
                     else:
                         return None
             elif measure:
-                measure = measure.get_coordinates()
+                point = measure.get_coordinates()
         else:
             if sensor.location:
-                return ([sensor.location], 0)
+                return sensor.location
             else:
                 return None
 
-        loc = []
-        min_dist = 0
+        loc = None
         for location in self.locations.all():
-            coord1 = location.get_coordinates()
-            distance = math.sqrt(
-                math.pow(coord1[0] - measure[0], 2) +
-                math.pow(coord1[1] - measure[1], 2)
-            )
-            if loc:
-                if distance < min_dist:
-                    loc = [location]
-                    min_dist = distance
-                elif distance == min_dist:
-                    loc.append(location)
-            else:
-                loc = [location]
-                min_dist = distance
+            in_location = location_contains_point(location.get_vertices(), point)
 
-        return (loc, min_dist)
+            if in_location:
+                loc = location
+                break
+
+        return loc
 
 
 class Location(models.Model):
     name = models.CharField(max_length=25)
-    coordinates = models.CharField(max_length=40, blank=True)
+    point_1 = models.CharField(max_length=25)
+    point_2 = models.CharField(max_length=25)
+    point_3 = models.CharField(max_length=25)
+    point_4 = models.CharField(max_length=25)
     extra_info = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return self.name
 
-    def get_coordinates(self):
+    def get_points(self):
         """
         Returns value as tuple (lat,lon).
         """
-        aux = self.coordinates.replace(" ", "").split(',')
+        return [
+            self.get_coordinates(self.point_1),
+            self.get_coordinates(self.point_2),
+            self.get_coordinates(self.point_3),
+            self.get_coordinates(self.point_4)
+        ]
+
+    def get_coordinates(self, point):
+        aux = point.replace(" ", "").split(',')
         lat = float(aux[0])
         lon = float(aux[1])
         return (lat, lon)
-
 
 class SensorNetwork(models.Model):
     name = models.CharField(max_length=25)
