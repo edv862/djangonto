@@ -21,11 +21,38 @@
     
 
 
+    <!-- http://webprotege.stanford.edu/R7mZ0OytLO5pqENksBzTdF0 -->
+
+    <owl:Class rdf:about="http://webprotege.stanford.edu/R7mZ0OytLO5pqENksBzTdF0">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label>Process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://webprotege.stanford.edu/R8HElcb4vnRCEPTwwyvZO17 -->
+
+    <owl:Class rdf:about="http://webprotege.stanford.edu/R8HElcb4vnRCEPTwwyvZO17">
+        <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/R7mZ0OytLO5pqENksBzTdF0"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ComplexEventOperator</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://webprotege.stanford.edu/R9PxMQyD2q1XKtIlF0PXdjh -->
+
+    <owl:Class rdf:about="http://webprotege.stanford.edu/R9PxMQyD2q1XKtIlF0PXdjh">
+        <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/R7mZ0OytLO5pqENksBzTdF0"/>
+        <rdfs:label>AtomicEventCondition</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://webprotege.stanford.edu/R9lAPCJCVExWq7PXoFmM5E3 -->
 
     <owl:Class rdf:about="http://webprotege.stanford.edu/R9lAPCJCVExWq7PXoFmM5E3">
         <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/RlUfPBKzWQZ4fASIO4LmT2"/>
-        <rdfs:label>ComplexEvent</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ComplexEvent</rdfs:label>
     </owl:Class>
     
 
@@ -61,7 +88,16 @@
 
     <owl:Class rdf:about="http://webprotege.stanford.edu/RBKRb3mky5xNIV4PA9oaULT">
         <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/R9xQW7UBY57qp8IsFPQguNR"/>
-        <rdfs:label>Mobile Sensor</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">MobileSensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://webprotege.stanford.edu/RBRRLULvmAC7tvb6QNq1ljZ -->
+
+    <owl:Class rdf:about="http://webprotege.stanford.edu/RBRRLULvmAC7tvb6QNq1ljZ">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label>Platform</rdfs:label>
     </owl:Class>
     
 
@@ -70,7 +106,25 @@
 
     <owl:Class rdf:about="http://webprotege.stanford.edu/RBwVzjaus3jWL3qLKo5q45a">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-        <rdfs:label>Base Sensor</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">BaseSensor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://webprotege.stanford.edu/RC7pOzW54RocHhKj6Fz2ASH -->
+
+    <owl:Class rdf:about="http://webprotege.stanford.edu/RC7pOzW54RocHhKj6Fz2ASH">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label>Observation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://webprotege.stanford.edu/RCudEB4t84Yc2czUdPujs3B -->
+
+    <owl:Class rdf:about="http://webprotege.stanford.edu/RCudEB4t84Yc2czUdPujs3B">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label>Result</rdfs:label>
     </owl:Class>
     
 
@@ -79,7 +133,7 @@
 
     <owl:Class rdf:about="http://webprotege.stanford.edu/RFoSNF5KAiqVJWs4OlKvlk">
         <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/RlUfPBKzWQZ4fASIO4LmT2"/>
-        <rdfs:label>AtomicEvent</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AtomicEvent</rdfs:label>
     </owl:Class>
     
 
@@ -96,7 +150,7 @@
     <!-- http://webprotege.stanford.edu/ROGzvi2DGbmc5Czk51xqHp -->
 
     <owl:Class rdf:about="http://webprotege.stanford.edu/ROGzvi2DGbmc5Czk51xqHp">
-        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf rdf:resource="http://webprotege.stanford.edu/RBRRLULvmAC7tvb6QNq1ljZ"/>
         <rdfs:label>LocationMap</rdfs:label>
     </owl:Class>
     
@@ -119,6 +173,15 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://webprotege.stanford.edu/R4a20jML033230U84eIsHn -->
+
+    <owl:NamedIndividual rdf:about="http://webprotege.stanford.edu/R4a20jML033230U84eIsHn">
+        <rdf:type rdf:resource="http://webprotege.stanford.edu/RBRRLULvmAC7tvb6QNq1ljZ"/>
+        <rdfs:label>MYS</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
@@ -198,7 +261,7 @@
 
     <owl:NamedIndividual rdf:about="http://webprotege.stanford.edu/RBr1wkQEwtSNu9c64WL0VKH">
         <rdf:type rdf:resource="http://webprotege.stanford.edu/ROGzvi2DGbmc5Czk51xqHp"/>
-        <rdfs:label>Piso 2 MYS</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Piso 2</rdfs:label>
     </owl:NamedIndividual>
     
 

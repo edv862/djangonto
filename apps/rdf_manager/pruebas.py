@@ -10,9 +10,12 @@ IS_CLASS = URIRef('http://www.w3.org/2002/07/owl#Class')
 THING = URIRef('http://www.w3.org/2002/07/owl#Thing')
 
 
-def str_to_class(str):
-    for x in models.__dict__:
-        print(x)
+def str_to_class(class_str):
+    try:
+        model = models.__dict__[str(class_str)]
+        return model
+    except Exception as e:
+        return None
 
 
 def prueba():
@@ -25,12 +28,11 @@ def prueba():
         for class_ref in classes_ref:
             reference = class_ref[0]
             class_label = g.label(reference)
-
-            print(class_label)
             try:
                 # Make that string a class
-                print("str_to_class(class_label)")
-                print(str_to_class(class_label))
+                model_class = str_to_class(class_label)
+                print(class_label)
+                print(model_class)
             except Exception as e:
                 print(e)
     except Exception as e:

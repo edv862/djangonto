@@ -9,89 +9,19 @@ from model_utils.models import TimeStampedModel
 from apps.rdf_manager.models import Ontology
 
 
-class LocationMap(models.Model):
-    name = models.CharField(max_length=25)
-    locations = models.ManyToManyField('Location', blank=True)
-
-    def __str__(self):
-        return self.name
-
-    def get_location(self, sensor=None, measure=None):
-        if sensor.is_moveable:
-            if sensor and measure:
-                measure = measure.get_coordinates()
-            elif sensor and not measure:
-                    measure = MeasureLog.objects.filter(sensor=sensor).first()
-                    if measure:
-                        measure = measure.get_coordinates()
-                    else:
-                        return None
-            elif measure:
-                measure = measure.get_coordinates()
-        else:
-            if sensor.location:
-                return ([sensor.location], 0)
-            else:
-                return None
-
-        loc = []
-        min_dist = 0
-        for location in self.locations.all():
-            coord1 = location.get_coordinates()
-            distance = math.sqrt(
-                math.pow(coord1[0] - measure[0], 2) +
-                math.pow(coord1[1] - measure[1], 2)
-            )
-            if loc:
-                if distance < min_dist:
-                    loc = [location]
-                    min_dist = distance
-                elif distance == min_dist:
-                    loc.append(location)
-            else:
-                loc = [location]
-                min_dist = distance
-
-        return (loc, min_dist)
-
-
-class Location(models.Model):
-    name = models.CharField(max_length=25)
-    coordinates = models.CharField(max_length=40, blank=True)
-    extra_info = models.CharField(max_length=100, blank=True)
-
-    def __str__(self):
-        return self.name
-
-    def get_coordinates(self):
-        """
-        Returns value as tuple (lat,lon).
-        """
-        aux = self.coordinates.replace(" ", "").split(',')
-        lat = float(aux[0])
-        lon = float(aux[1])
-        return (lat, lon)
-
-
 class Platform(models.Model):
     """
-        Sensor Network has a reverse relation in Event model.
-        ComplexEvent extends Event class.
-        Platform can have an event list (event_set, from the reverse
-        relation) and check if they are complex with is_complex
-        field in Event.
+    Sensor Network has a reverse relation in Event model.
+    ComplexEvent extends Event class.
+    Platform can have an event list (event_set, from the reverse
+    relation) and check if they are complex with is_complex
+    field in Event.
     """
     name = models.CharField(max_length=25)
     ontology = models.ForeignKey(
         Ontology,
         related_name='sensor_network',
         on_delete=models.CASCADE
-    )
-    location_map = models.ForeignKey(
-        'LocationMap',
-        blank=True,
-        null=True,
-        on_delete=models.CASCADE,
     )
 
     def get_location(self, sensor=None, measure=None):
@@ -126,6 +56,82 @@ class Platform(models.Model):
         return self.name
 
 
+class LocationMap(models.Model):
+    name = models.CharField(max_length=25)
+    platform = models.ForeignKey(
+        Platform,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE,
+        related_name='location_map'
+    )
+
+    def __str__(self):
+        return self.name
+
+    def get_location(self, sensor=None, measure=None):
+        if sensor.is_moveable:
+            if sensor and measure:
+                measure = measure.get_coordinates()
+            elif sensor and not measure:
+                    measure = MeasureLog.objects.filter(sensor=sensor).first()
+                    if measure:
+                        measure = measure.get_coordinates()
+                    else:
+                        return None
+            elif measure:
+                measure = measure.get_coordinates()
+        else:
+            if sensor.location:
+                return ([sensor.location], 0)
+            else:
+                return None
+
+        loc = []
+        min_dist = 0
+        for location in self.location.all():
+            coord1 = location.get_coordinates()
+            distance = math.sqrt(
+                math.pow(coord1[0] - measure[0], 2) +
+                math.pow(coord1[1] - measure[1], 2)
+            )
+            if loc:
+                if distance < min_dist:
+                    loc = [location]
+                    min_dist = distance
+                elif distance == min_dist:
+                    loc.append(location)
+            else:
+                loc = [location]
+                min_dist = distance
+
+        return (loc, min_dist)
+
+
+class Location(models.Model):
+    name = models.CharField(max_length=25)
+    # Coord stored as  a string "lat, long".
+    coordinates = models.CharField(max_length=40, blank=True)
+    extra_info = models.CharField(max_length=100, blank=True)
+    location_map = models.ForeignKey(
+        LocationMap,
+        on_delete=models.CASCADE,
+        related_name='location'
+    )
+
+    def __str__(self):
+        return self.name
+
+    def get_coordinates(self):
+        """
+        Returns value as tuple (lat,lon).
+        """
+        aux = self.coordinates.replace(" ", "").split(',')
+        lat = float(aux[0])
+        lon = float(aux[1])
+        return (lat, lon)
+
+
 class Sensor(models.Model):
     MEASURE_CHOICES = (
         ('S', 'Scalar'),
@@ -135,7 +141,10 @@ class Sensor(models.Model):
         ('C', 'Coord'),
         # Multimedia data to go
     )
-    sn = models.ForeignKey('Platform', on_delete=models.CASCADE)
+    sn = models.ForeignKey(
+        Platform,
+        on_delete=models.CASCADE
+    )
     iri = models.CharField(max_length=25, unique=True)
     name = models.CharField(max_length=25)
     measure_type = models.CharField(choices=MEASURE_CHOICES, max_length=6)
@@ -218,11 +227,20 @@ class MeasureLog(TimeStampedModel):
 
 
 class Event(TimeStampedModel):
-    sn = models.ForeignKey('Platform', on_delete=models.CASCADE)
+    sn = models.ForeignKey(
+        Platform,
+        on_delete=models.CASCADE
+    )
     name = models.CharField(max_length=25)
-    duration = models.IntegerField(blank=True)
+    duration = models.IntegerField(default= 1, blank=True)
     is_complex = models.BooleanField(default=False)
-    action = models.CharField(max_length=25, blank=True)
+
+    # TODO: Define actions on certain events.
+    action = models.CharField(
+        max_length=25,
+        null=True,
+        blank=True
+    )
 
     # ComplexEvent is an instance of Event.
     class Meta:

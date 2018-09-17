@@ -92,6 +92,6 @@ def load_graph(request):
 
 
 def prueba_cable(request):
-    prueba()
-
+    onto = Ontology()
+    onto.prueba_json()
     return render(request, 'graph.html', {'graph': "huehue"})

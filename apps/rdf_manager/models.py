@@ -1,6 +1,9 @@
-import rdflib
+import json
 from django.db import models
 from django.conf import settings
+
+from rdflib import Graph
+
 from .ref_definitions import *
 from .rdf_functions import GraphOntology
 
@@ -81,20 +84,83 @@ class Ontology(models.Model):
     # Functions to load an ontology into the system from a rdf file.
     def open_file(self):
         g = Graph()
-        g.parse('/home/edgar/Tesis/django-onto/django_mssn/mssn-lite.owl')
+        g.parse(ONTO_FILE)
+
         return g
 
-    def get_classes(self):
-        g = open_file()
+    def str_to_class(self, class_str):
+        import apps.sensor_network.models as sn_model
+
+        # TODO: Make separate model for MobileSensor?.
+        if class_str.__str__() == "MobileSensor":
+            class_str = "Sensor"
+
         try:
-            classes = []
+            model = sn_model.__dict__[class_str.__str__()]
+            return model
+        except Exception as e:
+            # print(e)
+            raise(e)
+
+    def get_classes(self):
+        g = self.open_file()
+        classes = []
+
+        # for graphg in g.triples((None, None, None)):
+        #     print(graphg)
+
+        try:
             classes_ref = g.triples((None, None, IS_CLASS))
             for class_ref in classes_ref:
                 reference = class_ref[0]
                 class_label = g.label(reference)
-                print(class_label)
+                try:
+                    # Make that string a class
+                    model_class = self.str_to_class(class_label)
+                    # Get Individuals for that class.
+                    individuals = self.get_individuals(
+                        g,
+                        reference,
+                        model_class
+                    )
+
+                except Exception as e:
+                    # print(e)
+                    pass
         except Exception as e:
             raise e
+
+        return classes
+
+    def get_individuals(self, graph, reference, model):
+        individuals = []
+
+        try:
+            for g in graph.triples((None, IS_TYPE, reference)):
+                type_ref = g[0]
+                instance = model()
+                instance.name = graph.label(type_ref).__str__()
+        except Exception as e:
+            print(e)
+
+        return individuals
+
+    def prueba_json(self):
+        g = self.open_file()
+
+        json_b = g.serialize(format='json-ld', indent=4)
+
+        # Decode UTF-8 bytes to Unicode, and convert single quotes
+        # to double quotes to make it valid JSON
+        json_graph = json_b.decode('utf8').replace("'", '"')
+
+        # Load the JSON to a Python list & dump it back out as formatted JSON
+        data = json.loads(json_graph)
+        s = json.dumps(data, indent=4, sort_keys=True)
+        print(s)
+
+    def save(self):
+        self.get_classes()
 
     class Meta:
         verbose_name_plural = "Ontologies"
