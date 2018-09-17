@@ -366,3 +366,15 @@ class ComplexEvent(Event):
         elif self.function == self.OPERATORS.any:
             return cache.get(self.first_event.name + '_seq') and cache.get(self.second_event.name + '_seq')
         return False
+
+
+class EventAction(models.Model):
+    name = models.CharField(max_length=25)
+    event = models.ForeignKey(
+        'Event',
+        on_delete=models.CASCADE,
+    )
+    iri = models.CharField(max_length=50)
+
+    def action(self):
+        return True
