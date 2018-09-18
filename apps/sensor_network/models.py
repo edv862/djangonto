@@ -369,12 +369,36 @@ class ComplexEvent(Event):
 
 
 class EventAction(models.Model):
+    FUNCTIONS = Choices(
+        "true"
+    )
+
     name = models.CharField(max_length=25)
     event = models.ForeignKey(
         'Event',
         on_delete=models.CASCADE,
     )
     iri = models.CharField(max_length=50)
+    function = models.CharField(
+        max_length=25,
+        choices=FUNCTIONS,
+        default=FUNCTIONS.true
+    )
 
-    def action(self):
-        return True
+    def get_function(self):
+        try:
+            function = getattr(self, self.function)
+            return function
+        except Exception as e:
+            raise e
+
+    def get_function_name(self):
+        return self.function
+
+    def execute(self):
+        """
+        Applies designated event function to the value given
+        by the sensor and the measure_limit.
+        """
+        function = self.get_function()
+        return function()
