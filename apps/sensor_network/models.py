@@ -56,10 +56,10 @@ class LocationMap(models.Model):
 
 class Location(models.Model):
     name = models.CharField(max_length=25)
-    point_1 = models.CharField(max_length=25)
-    point_2 = models.CharField(max_length=25)
-    point_3 = models.CharField(max_length=25)
-    point_4 = models.CharField(max_length=25)
+    point_1 = models.CharField(blank=True, max_length=25)
+    point_2 = models.CharField(blank=True, max_length=25)
+    point_3 = models.CharField(blank=True, max_length=25)
+    point_4 = models.CharField(blank=True, max_length=25)
     extra_info = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
@@ -391,6 +391,9 @@ class EventAction(models.Model):
             return function
         except Exception as e:
             raise e
+
+    def true(self, op1, op2):
+        return True
 
     def get_function_name(self):
         return self.function
