@@ -1,0 +1,368 @@
+[
+{
+    "model": "sensor_network.locationmap",
+    "pk": 1,
+    "fields": {
+        "name": "Piso 2 MYS",
+        "locations": [
+            3,
+            4,
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "sensor_network.location",
+    "pk": 1,
+    "fields": {
+        "name": "Pasillo 1",
+        "point_1": "10.40904638,-66.8827488",
+        "point_2": "10.40904596,-66.88275018",
+        "point_3": "10.40912903,-66.88272294",
+        "point_4": "10.40904601,-66.88274932",
+        "point_5": "10.40904596,-66.88274947",
+        "point_6": "10.40925013,-66.88345245",
+        "extra_info": "Pasillo de sala de lectura"
+    }
+},
+{
+    "model": "sensor_network.location",
+    "pk": 2,
+    "fields": {
+        "name": "Pasillo 2",
+        "point_1": "10.40912903,-66.88272294",
+        "point_2": "10.40904574,-66.88274954",
+        "point_3": "10.40916313,-66.88322324",
+        "point_4": "10.40925013,-66.88345245",
+        "point_5": "10.40904951,-66.88315433",
+        "point_6": "10.40921527,-66.88343114",
+        "extra_info": "Pasillo de la oficina profesora"
+    }
+},
+{
+    "model": "sensor_network.location",
+    "pk": 3,
+    "fields": {
+        "name": "Oficina Prof. Yudith",
+        "point_1": "1",
+        "point_2": "1",
+        "point_3": "1",
+        "point_4": "1",
+        "point_5": null,
+        "point_6": null,
+        "extra_info": ""
+    }
+},
+{
+    "model": "sensor_network.location",
+    "pk": 4,
+    "fields": {
+        "name": "Sala de Lectura",
+        "point_1": "10.40905711,-66.88276469",
+        "point_2": "10.40896981,-66.88273589",
+        "point_3": "10.40904676,-66.88274567",
+        "point_4": "10.40904609,-66.88275031",
+        "point_5": null,
+        "point_6": null,
+        "extra_info": ""
+    }
+},
+{
+    "model": "sensor_network.sensornetwork",
+    "pk": 1,
+    "fields": {
+        "name": "Sensores de situaciones",
+        "location_map": 1
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 1,
+    "fields": {
+        "sn": 1,
+        "iri": "t1",
+        "name": "Temperatura 1",
+        "measure_type": "S",
+        "location": 4,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 2,
+    "fields": {
+        "sn": 1,
+        "iri": "c1",
+        "name": "Camara 1",
+        "measure_type": "Mu",
+        "location": 4,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 3,
+    "fields": {
+        "sn": 1,
+        "iri": "r1",
+        "name": "Ruido 1",
+        "measure_type": "S",
+        "location": 4,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 4,
+    "fields": {
+        "sn": 1,
+        "iri": "h1",
+        "name": "Humo 1",
+        "measure_type": "S",
+        "location": 4,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 5,
+    "fields": {
+        "sn": 1,
+        "iri": "c2",
+        "name": "Camara 2",
+        "measure_type": "Mu",
+        "location": 1,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 6,
+    "fields": {
+        "sn": 1,
+        "iri": "h2",
+        "name": "Humo 2",
+        "measure_type": "S",
+        "location": 1,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 7,
+    "fields": {
+        "sn": 1,
+        "iri": "t2",
+        "name": "Temperatura 2",
+        "measure_type": "S",
+        "location": 1,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 8,
+    "fields": {
+        "sn": 1,
+        "iri": "h3",
+        "name": "Humo 3",
+        "measure_type": "S",
+        "location": 1,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 9,
+    "fields": {
+        "sn": 1,
+        "iri": "c3",
+        "name": "Camara 3",
+        "measure_type": "Mu",
+        "location": 1,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 10,
+    "fields": {
+        "sn": 1,
+        "iri": "c4",
+        "name": "Camara 4",
+        "measure_type": "Mu",
+        "location": 2,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 11,
+    "fields": {
+        "sn": 1,
+        "iri": "h4",
+        "name": "Humo 4",
+        "measure_type": "S",
+        "location": 2,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 12,
+    "fields": {
+        "sn": 1,
+        "iri": "t3",
+        "name": "Temperatura 3",
+        "measure_type": "S",
+        "location": 2,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 13,
+    "fields": {
+        "sn": 1,
+        "iri": "h5",
+        "name": "Humo 5",
+        "measure_type": "S",
+        "location": 2,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 14,
+    "fields": {
+        "sn": 1,
+        "iri": "c5",
+        "name": "Camara 5",
+        "measure_type": "Mu",
+        "location": 2,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 15,
+    "fields": {
+        "sn": 1,
+        "iri": "cel1",
+        "name": "Celular Estudiante",
+        "measure_type": "C",
+        "location": null,
+        "is_moveable": true
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 16,
+    "fields": {
+        "sn": 1,
+        "iri": "cel2",
+        "name": "Celular Profesora",
+        "measure_type": "C",
+        "location": null,
+        "is_moveable": true
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 17,
+    "fields": {
+        "sn": 1,
+        "iri": "rel1",
+        "name": "Reloj Inteligente",
+        "measure_type": "M",
+        "location": null,
+        "is_moveable": true
+    }
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 1,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 2,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 3,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 4,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 5,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 6,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 7,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 8,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 9,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 10,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 11,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 12,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 13,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 14,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 15,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 16,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 17,
+    "fields": {}
+}
+]
