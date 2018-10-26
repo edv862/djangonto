@@ -5,10 +5,10 @@
     "fields": {
         "name": "Piso 2 MYS",
         "locations": [
-            3,
-            4,
             1,
-            2
+            2,
+            3,
+            4
         ]
     }
 },
@@ -364,5 +364,299 @@
     "model": "sensor_network.sensor",
     "pk": 17,
     "fields": {}
+},
+{
+    "model": "sensor_network.event",
+    "pk": 1,
+    "fields": {
+        "created": "2018-10-26T21:20:47.262Z",
+        "modified": "2018-10-26T21:20:47.272Z",
+        "sn": 1,
+        "name": "Humo1",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 2,
+    "fields": {
+        "created": "2018-10-26T21:21:41.599Z",
+        "modified": "2018-10-26T21:21:41.606Z",
+        "sn": 1,
+        "name": "Face_recognition1",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 3,
+    "fields": {
+        "created": "2018-10-26T21:22:42.658Z",
+        "modified": "2018-10-26T21:22:42.666Z",
+        "sn": 1,
+        "name": "Alta_temperatura1",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 4,
+    "fields": {
+        "created": "2018-10-26T21:26:03.947Z",
+        "modified": "2018-10-26T21:26:03.955Z",
+        "sn": 1,
+        "name": "Ruido1",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 5,
+    "fields": {
+        "created": "2018-10-26T21:26:42.648Z",
+        "modified": "2018-10-26T21:26:42.655Z",
+        "sn": 1,
+        "name": "Face_detection2",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 6,
+    "fields": {
+        "created": "2018-10-26T21:27:08.898Z",
+        "modified": "2018-10-26T21:27:08.904Z",
+        "sn": 1,
+        "name": "Humo2",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 7,
+    "fields": {
+        "created": "2018-10-26T21:27:37.637Z",
+        "modified": "2018-10-26T21:31:08.286Z",
+        "sn": 1,
+        "name": "Alta_temperatura2",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 8,
+    "fields": {
+        "created": "2018-10-26T21:28:00.278Z",
+        "modified": "2018-10-26T21:28:03.941Z",
+        "sn": 1,
+        "name": "Humo3",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 9,
+    "fields": {
+        "created": "2018-10-26T21:28:39.869Z",
+        "modified": "2018-10-26T21:28:39.876Z",
+        "sn": 1,
+        "name": "Face_detection3",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 10,
+    "fields": {
+        "created": "2018-10-26T21:29:19.521Z",
+        "modified": "2018-10-26T21:29:19.528Z",
+        "sn": 1,
+        "name": "Face_detection4",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 11,
+    "fields": {
+        "created": "2018-10-26T21:30:07.049Z",
+        "modified": "2018-10-26T21:30:07.056Z",
+        "sn": 1,
+        "name": "Humo4",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 12,
+    "fields": {
+        "created": "2018-10-26T21:30:28.619Z",
+        "modified": "2018-10-26T21:31:00.806Z",
+        "sn": 1,
+        "name": "Alta_temperatura3",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 13,
+    "fields": {
+        "created": "2018-10-26T21:30:46.312Z",
+        "modified": "2018-10-26T21:31:27.480Z",
+        "sn": 1,
+        "name": "Humo5",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 14,
+    "fields": {
+        "created": "2018-10-26T21:31:40.741Z",
+        "modified": "2018-10-26T21:31:40.748Z",
+        "sn": 1,
+        "name": "Face_detection5",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 1,
+    "fields": {
+        "cause": 4,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 2,
+    "fields": {
+        "cause": 2,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 3,
+    "fields": {
+        "cause": 1,
+        "measure_limit": 40,
+        "function": "great_than_equal"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 4,
+    "fields": {
+        "cause": 3,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 5,
+    "fields": {
+        "cause": 5,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 6,
+    "fields": {
+        "cause": 6,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 7,
+    "fields": {
+        "cause": 7,
+        "measure_limit": 40,
+        "function": "great_than_equal"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 8,
+    "fields": {
+        "cause": 8,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 9,
+    "fields": {
+        "cause": 9,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 10,
+    "fields": {
+        "cause": 10,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 11,
+    "fields": {
+        "cause": 11,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 12,
+    "fields": {
+        "cause": 12,
+        "measure_limit": 40,
+        "function": "great_than_equal"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 13,
+    "fields": {
+        "cause": 13,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 14,
+    "fields": {
+        "cause": 14,
+        "measure_limit": 0,
+        "function": "true"
+    }
 }
 ]

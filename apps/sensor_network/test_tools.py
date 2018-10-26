@@ -16,7 +16,7 @@ def send_measures(url, sn, sensor, measure):
         data=measure
     )
 
-def send_random_measures(url, sn, sensor, times, low_limit=0, high_limit=0, event=None):
+def send_random_measures(url, sn, sensor, times=1, low_limit=0, high_limit=0, event=None):
 	if event:
 		high_limit = event.measure_limit * 2
 
@@ -32,7 +32,13 @@ def send_random_measures(url, sn, sensor, times, low_limit=0, high_limit=0, even
 		send_measures(url, sn, sensor, measure)
 		count += 1
 
-def send_concurrent_requests(urls=[], requests=[]):
+def send_concurrent_requests(sn, sensor, times=1, low_limit=0, high_limit=1):
+	url = 'http://127.0.0.1:8000/sn'
 	with concurrent.futures.ThreadPoolExecutor(max_workers=4) as excecutor:
-		future = excecutor.submit(pow, 123, 123)
+		future = excecutor.submit(
+			send_random_measures, url, sn, sensor, times, low_limit, high_limit
+		)
 		print (future.result())
+
+# for testing import apps.sensor_network.test_tools
+# apps.sensor_network.test_tools.send_concurrent_requests(SensorNetwork.objects.first(), BaseSensor.objects.get(iri='cel2'))
