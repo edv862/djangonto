@@ -1,5 +1,6 @@
 import requests
 import random
+import concurrent.futures
 
 def get_measures(url, sn, sensor):
     return requests.get(
