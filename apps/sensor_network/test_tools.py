@@ -1,5 +1,9 @@
 import requests
 import random
+import concurrent.futures
+from django.shortcuts import get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
+from apps.sensor_network.models import SensorNetwork, BaseSensor, MeasureLog, AtomicEvent, Event
 
 def get_measures(url, sn, sensor):
     return requests.get(
@@ -27,3 +31,8 @@ def send_random_measures(url, sn, sensor, times, low_limit=0, high_limit=0, even
 
 		send_measures(url, sn, sensor, measure)
 		count += 1
+
+def send_concurrent_requests(urls=[], requests=[]):
+	with concurrent.futures.ThreadPoolExecutor(max_workers=4) as excecutor:
+		future = excecutor.submit(pow, 123, 123)
+		print (future.results())
