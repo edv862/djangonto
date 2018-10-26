@@ -60,6 +60,8 @@ class Location(models.Model):
     point_2 = models.CharField(max_length=25)
     point_3 = models.CharField(max_length=25)
     point_4 = models.CharField(max_length=25)
+    point_5 = models.CharField(max_length=25, blank=True, null=True)
+    point_6 = models.CharField(max_length=25, blank=True, null=True)
     extra_info = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
@@ -69,6 +71,25 @@ class Location(models.Model):
         """
         Returns value as tuple (lat,lon).
         """
+        if self.point_6 is not None:
+            return [
+                self.get_coordinates(self.point_1),
+                self.get_coordinates(self.point_2),
+                self.get_coordinates(self.point_3),
+                self.get_coordinates(self.point_4),
+                self.get_coordinates(self.point_5),
+                self.get_coordinates(self.point_6)
+            ]
+        if self.point_6 is None:
+            if self.point_5 is not None:
+                return [
+                    self.get_coordinates(self.point_1),
+                    self.get_coordinates(self.point_2),
+                    self.get_coordinates(self.point_3),
+                    self.get_coordinates(self.point_4),
+                    self.get_coordinates(self.point_5)
+                ]
+
         return [
             self.get_coordinates(self.point_1),
             self.get_coordinates(self.point_2),
@@ -81,6 +102,7 @@ class Location(models.Model):
         lat = float(aux[0])
         lon = float(aux[1])
         return (lat, lon)
+
 
 class SensorNetwork(models.Model):
     name = models.CharField(max_length=25)
@@ -120,6 +142,7 @@ class BaseSensor(models.Model):
         ('B', 'Binary'),
         ('T', 'Text'),
         ('M', 'Misc'),
+        ('Mu', 'Multi'),
         ('C', 'Coord'),
         # Multimedia data to go
     )
