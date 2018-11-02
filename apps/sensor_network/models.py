@@ -16,7 +16,7 @@ class LocationMap(models.Model):
     def __str__(self):
         return self.name
 
-    def location_contains_point(vertices, point):
+    def location_contains_point(self, vertices, point):
         # Check if a coordinate is inside a location
         if vertices:
             vertices.append(vertices[0])
@@ -45,7 +45,7 @@ class LocationMap(models.Model):
 
         loc = None
         for location in self.locations.all():
-            in_location = location_contains_point(location.get_vertices(), point)
+            in_location = self.location_contains_point(location.get_vertices(), point)
 
             if in_location:
                 loc = location
@@ -69,7 +69,7 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
-    def get_points(self):
+    def get_vertices(self):
         """
         Returns value as tuple (lat,lon).
         """
@@ -100,6 +100,8 @@ class Location(models.Model):
         ]
 
     def get_coordinates(self, point):
+        if point == "":
+            return (0, 0)
         aux = point.replace(" ", "").split(',')
         lat = float(aux[0])
         lon = float(aux[1])
@@ -166,7 +168,7 @@ class BaseSensor(models.Model):
         So far validates only scalar values (integer),and text.
         """
         result = []
-        events = self.atomicevent_set.all()
+        events = self.cause_sensor.all()
         for event in events:
             if event.validate(sensor_input):
                 result.append(event)

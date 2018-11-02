@@ -74,12 +74,12 @@ class SensorPipeline(View):
 
         location = self.sensor.sn.get_location(sensor=self.sensor, measure=measure)
         if location:
-            location = str(location[0][0])
+            location = str(location)
         else:
             location = ''
 
         response = {
-            'response':'location: ' + location
+            'response': 'location: ' + location
         }
 
         if validate:
@@ -95,6 +95,7 @@ class SensorPipeline(View):
             complex_events = self.sensor.sn.check_complex_queue()
 
         response['response'] += 'Complex: ' + str([e.name for e in complex_events])
+
         return JsonResponse(
             data=response,
             status=200
