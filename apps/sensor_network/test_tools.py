@@ -62,16 +62,16 @@ def sensorGenerator(sn, sensor_number=0, moveable_number=0, start_index=0):
   while count < limit:
     sensor = Sensor(
         sn = sn,
-        iri = "sensor_" + str(count),
-        name = "s_" + str(count),
+        iri = "s_" + str(count),
+        name = "sensor_" + str(count),
         measure_type = 'S',
         location = sn.location_map.locations.all()[random.randint(0, len(sn.location_map.locations.all()) - 1)]
     )
 
     if(count < start_index + moveable_number):
         sensor.is_moveable = True
-        sensor.iri = "moveable_" + sensor.iri
-        sensor.name = "ms_" + str(count)
+        sensor.iri = "ms_" + sensor.iri
+        sensor.name = "moveable_" + str(count)
 
     sensor.save()
     count += 1;
