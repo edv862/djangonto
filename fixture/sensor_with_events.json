@@ -1,0 +1,4777 @@
+[
+{
+    "model": "sensor_network.locationmap",
+    "pk": 1,
+    "fields": {
+        "name": "Piso 2 MYS",
+        "locations": [
+            1,
+            2,
+            3,
+            4
+        ]
+    }
+},
+{
+    "model": "sensor_network.location",
+    "pk": 1,
+    "fields": {
+        "name": "Pasillo 1",
+        "point_1": "10.40904638,-66.8827488",
+        "point_2": "10.40904596,-66.88275018",
+        "point_3": "10.40912903,-66.88272294",
+        "point_4": "10.40904601,-66.88274932",
+        "point_5": "10.40904596,-66.88274947",
+        "point_6": "10.40925013,-66.88345245",
+        "extra_info": "Pasillo de sala de lectura"
+    }
+},
+{
+    "model": "sensor_network.location",
+    "pk": 2,
+    "fields": {
+        "name": "Pasillo 2",
+        "point_1": "10.40912903,-66.88272294",
+        "point_2": "10.40904574,-66.88274954",
+        "point_3": "10.40916313,-66.88322324",
+        "point_4": "10.40925013,-66.88345245",
+        "point_5": "10.40904951,-66.88315433",
+        "point_6": "10.40921527,-66.88343114",
+        "extra_info": "Pasillo de la oficina profesora"
+    }
+},
+{
+    "model": "sensor_network.location",
+    "pk": 3,
+    "fields": {
+        "name": "Oficina Prof. Yudith",
+        "point_1": "",
+        "point_2": "",
+        "point_3": "",
+        "point_4": "",
+        "point_5": null,
+        "point_6": null,
+        "extra_info": ""
+    }
+},
+{
+    "model": "sensor_network.location",
+    "pk": 4,
+    "fields": {
+        "name": "Sala de Lectura",
+        "point_1": "10.40905711,-66.88276469",
+        "point_2": "10.40896981,-66.88273589",
+        "point_3": "10.40904676,-66.88274567",
+        "point_4": "10.40904609,-66.88275031",
+        "point_5": null,
+        "point_6": null,
+        "extra_info": ""
+    }
+},
+{
+    "model": "sensor_network.sensornetwork",
+    "pk": 1,
+    "fields": {
+        "name": "Sensores de situaciones",
+        "location_map": 1
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 1,
+    "fields": {
+        "sn": 1,
+        "iri": "t1",
+        "name": "Temperatura 1",
+        "measure_type": "S",
+        "location": 4,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 2,
+    "fields": {
+        "sn": 1,
+        "iri": "c1",
+        "name": "Camara 1",
+        "measure_type": "S",
+        "location": 4,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 3,
+    "fields": {
+        "sn": 1,
+        "iri": "r1",
+        "name": "Ruido 1",
+        "measure_type": "S",
+        "location": 4,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 4,
+    "fields": {
+        "sn": 1,
+        "iri": "h1",
+        "name": "Humo 1",
+        "measure_type": "S",
+        "location": 4,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 5,
+    "fields": {
+        "sn": 1,
+        "iri": "c2",
+        "name": "Camara 2",
+        "measure_type": "S",
+        "location": 1,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 6,
+    "fields": {
+        "sn": 1,
+        "iri": "h2",
+        "name": "Humo 2",
+        "measure_type": "S",
+        "location": 1,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 7,
+    "fields": {
+        "sn": 1,
+        "iri": "t2",
+        "name": "Temperatura 2",
+        "measure_type": "S",
+        "location": 1,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 8,
+    "fields": {
+        "sn": 1,
+        "iri": "h3",
+        "name": "Humo 3",
+        "measure_type": "S",
+        "location": 1,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 9,
+    "fields": {
+        "sn": 1,
+        "iri": "c3",
+        "name": "Camara 3",
+        "measure_type": "S",
+        "location": 1,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 10,
+    "fields": {
+        "sn": 1,
+        "iri": "c4",
+        "name": "Camara 4",
+        "measure_type": "S",
+        "location": 2,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 11,
+    "fields": {
+        "sn": 1,
+        "iri": "h4",
+        "name": "Humo 4",
+        "measure_type": "S",
+        "location": 2,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 12,
+    "fields": {
+        "sn": 1,
+        "iri": "t3",
+        "name": "Temperatura 3",
+        "measure_type": "S",
+        "location": 2,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 13,
+    "fields": {
+        "sn": 1,
+        "iri": "h5",
+        "name": "Humo 5",
+        "measure_type": "S",
+        "location": 2,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 14,
+    "fields": {
+        "sn": 1,
+        "iri": "c5",
+        "name": "Camara 5",
+        "measure_type": "S",
+        "location": 2,
+        "is_moveable": false
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 15,
+    "fields": {
+        "sn": 1,
+        "iri": "cel1",
+        "name": "Celular Estudiante",
+        "measure_type": "C",
+        "location": null,
+        "is_moveable": true
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 16,
+    "fields": {
+        "sn": 1,
+        "iri": "cel2",
+        "name": "Celular Profesora",
+        "measure_type": "C",
+        "location": null,
+        "is_moveable": true
+    }
+},
+{
+    "model": "sensor_network.basesensor",
+    "pk": 17,
+    "fields": {
+        "sn": 1,
+        "iri": "rel1",
+        "name": "Reloj Inteligente",
+        "measure_type": "C",
+        "location": null,
+        "is_moveable": true
+    }
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 1,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 2,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 3,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 4,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 5,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 6,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 7,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 8,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 9,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 10,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 11,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 12,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 13,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 14,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 15,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 16,
+    "fields": {}
+},
+{
+    "model": "sensor_network.sensor",
+    "pk": 17,
+    "fields": {}
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 1,
+    "fields": {
+        "created": "2018-11-01T18:39:00.583Z",
+        "modified": "2018-11-01T18:39:00.599Z",
+        "sensor": 3,
+        "value": "6"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 2,
+    "fields": {
+        "created": "2018-11-01T18:39:08.196Z",
+        "modified": "2018-11-01T18:39:08.208Z",
+        "sensor": 3,
+        "value": "60"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 3,
+    "fields": {
+        "created": "2018-11-01T18:39:10.160Z",
+        "modified": "2018-11-01T18:39:10.176Z",
+        "sensor": 3,
+        "value": "40"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 4,
+    "fields": {
+        "created": "2018-11-01T18:39:10.710Z",
+        "modified": "2018-11-01T18:39:10.720Z",
+        "sensor": 3,
+        "value": "52"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 5,
+    "fields": {
+        "created": "2018-11-01T18:39:10.991Z",
+        "modified": "2018-11-01T18:39:11.004Z",
+        "sensor": 3,
+        "value": "61"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 6,
+    "fields": {
+        "created": "2018-11-01T18:39:11.212Z",
+        "modified": "2018-11-01T18:39:11.222Z",
+        "sensor": 3,
+        "value": "91"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 7,
+    "fields": {
+        "created": "2018-11-01T18:39:11.399Z",
+        "modified": "2018-11-01T18:39:11.415Z",
+        "sensor": 3,
+        "value": "90"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 8,
+    "fields": {
+        "created": "2018-11-01T18:39:11.630Z",
+        "modified": "2018-11-01T18:39:11.643Z",
+        "sensor": 3,
+        "value": "39"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 9,
+    "fields": {
+        "created": "2018-11-01T18:39:11.807Z",
+        "modified": "2018-11-01T18:39:11.818Z",
+        "sensor": 3,
+        "value": "73"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 10,
+    "fields": {
+        "created": "2018-11-01T18:39:11.986Z",
+        "modified": "2018-11-01T18:39:12.000Z",
+        "sensor": 3,
+        "value": "34"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 11,
+    "fields": {
+        "created": "2018-11-01T18:39:12.211Z",
+        "modified": "2018-11-01T18:39:12.223Z",
+        "sensor": 3,
+        "value": "29"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 12,
+    "fields": {
+        "created": "2018-11-01T18:39:12.372Z",
+        "modified": "2018-11-01T18:39:12.388Z",
+        "sensor": 3,
+        "value": "16"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 13,
+    "fields": {
+        "created": "2018-11-01T18:39:12.560Z",
+        "modified": "2018-11-01T18:39:12.585Z",
+        "sensor": 3,
+        "value": "58"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 14,
+    "fields": {
+        "created": "2018-11-01T18:39:12.971Z",
+        "modified": "2018-11-01T18:39:12.993Z",
+        "sensor": 3,
+        "value": "76"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 15,
+    "fields": {
+        "created": "2018-11-01T18:39:13.135Z",
+        "modified": "2018-11-01T18:39:13.152Z",
+        "sensor": 3,
+        "value": "68"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 16,
+    "fields": {
+        "created": "2018-11-01T18:39:13.338Z",
+        "modified": "2018-11-01T18:39:13.349Z",
+        "sensor": 3,
+        "value": "14"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 17,
+    "fields": {
+        "created": "2018-11-01T18:39:13.533Z",
+        "modified": "2018-11-01T18:39:13.547Z",
+        "sensor": 3,
+        "value": "61"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 18,
+    "fields": {
+        "created": "2018-11-01T18:39:13.780Z",
+        "modified": "2018-11-01T18:39:13.789Z",
+        "sensor": 3,
+        "value": "11"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 19,
+    "fields": {
+        "created": "2018-11-01T18:39:13.983Z",
+        "modified": "2018-11-01T18:39:13.997Z",
+        "sensor": 3,
+        "value": "46"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 20,
+    "fields": {
+        "created": "2018-11-01T18:39:14.190Z",
+        "modified": "2018-11-01T18:39:14.203Z",
+        "sensor": 3,
+        "value": "4"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 21,
+    "fields": {
+        "created": "2018-11-01T18:39:14.354Z",
+        "modified": "2018-11-01T18:39:14.368Z",
+        "sensor": 3,
+        "value": "63"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 22,
+    "fields": {
+        "created": "2018-11-01T18:39:14.572Z",
+        "modified": "2018-11-01T18:39:14.589Z",
+        "sensor": 3,
+        "value": "54"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 23,
+    "fields": {
+        "created": "2018-11-01T18:39:14.742Z",
+        "modified": "2018-11-01T18:39:14.753Z",
+        "sensor": 3,
+        "value": "33"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 24,
+    "fields": {
+        "created": "2018-11-01T18:39:14.966Z",
+        "modified": "2018-11-01T18:39:14.976Z",
+        "sensor": 3,
+        "value": "89"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 25,
+    "fields": {
+        "created": "2018-11-01T18:39:15.149Z",
+        "modified": "2018-11-01T18:39:15.163Z",
+        "sensor": 3,
+        "value": "20"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 26,
+    "fields": {
+        "created": "2018-11-01T18:39:15.369Z",
+        "modified": "2018-11-01T18:39:15.389Z",
+        "sensor": 3,
+        "value": "65"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 27,
+    "fields": {
+        "created": "2018-11-01T18:39:15.527Z",
+        "modified": "2018-11-01T18:39:15.542Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 28,
+    "fields": {
+        "created": "2018-11-01T18:39:15.766Z",
+        "modified": "2018-11-01T18:39:15.775Z",
+        "sensor": 3,
+        "value": "27"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 29,
+    "fields": {
+        "created": "2018-11-01T18:39:15.949Z",
+        "modified": "2018-11-01T18:39:15.959Z",
+        "sensor": 3,
+        "value": "67"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 30,
+    "fields": {
+        "created": "2018-11-01T18:39:16.163Z",
+        "modified": "2018-11-01T18:39:16.174Z",
+        "sensor": 3,
+        "value": "36"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 31,
+    "fields": {
+        "created": "2018-11-01T18:39:16.355Z",
+        "modified": "2018-11-01T18:39:16.368Z",
+        "sensor": 3,
+        "value": "30"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 32,
+    "fields": {
+        "created": "2018-11-01T18:39:16.523Z",
+        "modified": "2018-11-01T18:39:16.537Z",
+        "sensor": 3,
+        "value": "82"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 33,
+    "fields": {
+        "created": "2018-11-01T18:39:16.730Z",
+        "modified": "2018-11-01T18:39:16.754Z",
+        "sensor": 3,
+        "value": "84"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 34,
+    "fields": {
+        "created": "2018-11-01T18:39:16.927Z",
+        "modified": "2018-11-01T18:39:16.942Z",
+        "sensor": 3,
+        "value": "35"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 35,
+    "fields": {
+        "created": "2018-11-01T18:39:17.135Z",
+        "modified": "2018-11-01T18:39:17.149Z",
+        "sensor": 3,
+        "value": "80"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 36,
+    "fields": {
+        "created": "2018-11-01T18:39:17.276Z",
+        "modified": "2018-11-01T18:39:17.291Z",
+        "sensor": 3,
+        "value": "37"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 37,
+    "fields": {
+        "created": "2018-11-01T18:39:17.503Z",
+        "modified": "2018-11-01T18:39:17.518Z",
+        "sensor": 3,
+        "value": "71"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 38,
+    "fields": {
+        "created": "2018-11-01T18:39:17.684Z",
+        "modified": "2018-11-01T18:39:17.699Z",
+        "sensor": 3,
+        "value": "39"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 39,
+    "fields": {
+        "created": "2018-11-01T18:39:17.883Z",
+        "modified": "2018-11-01T18:39:17.893Z",
+        "sensor": 3,
+        "value": "40"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 40,
+    "fields": {
+        "created": "2018-11-01T18:39:18.053Z",
+        "modified": "2018-11-01T18:39:18.065Z",
+        "sensor": 3,
+        "value": "100"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 41,
+    "fields": {
+        "created": "2018-11-01T18:39:18.820Z",
+        "modified": "2018-11-01T18:39:18.832Z",
+        "sensor": 3,
+        "value": "89"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 42,
+    "fields": {
+        "created": "2018-11-01T18:39:28.493Z",
+        "modified": "2018-11-01T18:39:28.503Z",
+        "sensor": 3,
+        "value": "73"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 43,
+    "fields": {
+        "created": "2018-11-01T18:39:28.793Z",
+        "modified": "2018-11-01T18:39:28.803Z",
+        "sensor": 3,
+        "value": "63"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 44,
+    "fields": {
+        "created": "2018-11-01T18:39:29.016Z",
+        "modified": "2018-11-01T18:39:29.030Z",
+        "sensor": 3,
+        "value": "51"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 45,
+    "fields": {
+        "created": "2018-11-01T18:39:29.221Z",
+        "modified": "2018-11-01T18:39:29.235Z",
+        "sensor": 3,
+        "value": "29"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 46,
+    "fields": {
+        "created": "2018-11-01T18:39:29.413Z",
+        "modified": "2018-11-01T18:39:29.427Z",
+        "sensor": 3,
+        "value": "79"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 47,
+    "fields": {
+        "created": "2018-11-01T18:39:29.591Z",
+        "modified": "2018-11-01T18:39:29.606Z",
+        "sensor": 3,
+        "value": "80"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 48,
+    "fields": {
+        "created": "2018-11-01T18:39:29.798Z",
+        "modified": "2018-11-01T18:39:29.811Z",
+        "sensor": 3,
+        "value": "79"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 49,
+    "fields": {
+        "created": "2018-11-01T18:39:29.959Z",
+        "modified": "2018-11-01T18:39:29.967Z",
+        "sensor": 3,
+        "value": "11"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 50,
+    "fields": {
+        "created": "2018-11-01T18:39:30.196Z",
+        "modified": "2018-11-01T18:39:30.211Z",
+        "sensor": 3,
+        "value": "33"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 51,
+    "fields": {
+        "created": "2018-11-01T18:39:30.389Z",
+        "modified": "2018-11-01T18:39:30.404Z",
+        "sensor": 3,
+        "value": "74"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 52,
+    "fields": {
+        "created": "2018-11-01T18:39:30.542Z",
+        "modified": "2018-11-01T18:39:30.556Z",
+        "sensor": 3,
+        "value": "97"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 53,
+    "fields": {
+        "created": "2018-11-01T18:39:30.774Z",
+        "modified": "2018-11-01T18:39:30.788Z",
+        "sensor": 3,
+        "value": "68"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 54,
+    "fields": {
+        "created": "2018-11-01T18:39:30.979Z",
+        "modified": "2018-11-01T18:39:30.989Z",
+        "sensor": 3,
+        "value": "96"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 55,
+    "fields": {
+        "created": "2018-11-01T18:39:31.161Z",
+        "modified": "2018-11-01T18:39:31.170Z",
+        "sensor": 3,
+        "value": "7"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 56,
+    "fields": {
+        "created": "2018-11-01T18:39:31.360Z",
+        "modified": "2018-11-01T18:39:31.369Z",
+        "sensor": 3,
+        "value": "7"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 57,
+    "fields": {
+        "created": "2018-11-01T18:39:31.566Z",
+        "modified": "2018-11-01T18:39:31.579Z",
+        "sensor": 3,
+        "value": "27"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 58,
+    "fields": {
+        "created": "2018-11-01T18:39:31.740Z",
+        "modified": "2018-11-01T18:39:31.756Z",
+        "sensor": 3,
+        "value": "53"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 59,
+    "fields": {
+        "created": "2018-11-01T18:39:31.946Z",
+        "modified": "2018-11-01T18:39:31.959Z",
+        "sensor": 3,
+        "value": "36"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 60,
+    "fields": {
+        "created": "2018-11-01T18:39:32.146Z",
+        "modified": "2018-11-01T18:39:32.157Z",
+        "sensor": 3,
+        "value": "65"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 61,
+    "fields": {
+        "created": "2018-11-01T18:39:32.352Z",
+        "modified": "2018-11-01T18:39:32.367Z",
+        "sensor": 3,
+        "value": "98"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 62,
+    "fields": {
+        "created": "2018-11-01T18:39:32.565Z",
+        "modified": "2018-11-01T18:39:32.575Z",
+        "sensor": 3,
+        "value": "10"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 63,
+    "fields": {
+        "created": "2018-11-01T18:39:32.742Z",
+        "modified": "2018-11-01T18:39:32.755Z",
+        "sensor": 3,
+        "value": "98"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 64,
+    "fields": {
+        "created": "2018-11-01T18:39:32.974Z",
+        "modified": "2018-11-01T18:39:32.990Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 65,
+    "fields": {
+        "created": "2018-11-01T18:39:33.112Z",
+        "modified": "2018-11-01T18:39:33.122Z",
+        "sensor": 3,
+        "value": "72"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 66,
+    "fields": {
+        "created": "2018-11-01T18:39:33.378Z",
+        "modified": "2018-11-01T18:39:33.388Z",
+        "sensor": 3,
+        "value": "70"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 67,
+    "fields": {
+        "created": "2018-11-01T18:39:33.544Z",
+        "modified": "2018-11-01T18:39:33.557Z",
+        "sensor": 3,
+        "value": "48"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 68,
+    "fields": {
+        "created": "2018-11-01T18:39:33.761Z",
+        "modified": "2018-11-01T18:39:33.772Z",
+        "sensor": 3,
+        "value": "58"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 69,
+    "fields": {
+        "created": "2018-11-01T18:39:33.963Z",
+        "modified": "2018-11-01T18:39:33.972Z",
+        "sensor": 3,
+        "value": "89"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 70,
+    "fields": {
+        "created": "2018-11-01T18:39:34.181Z",
+        "modified": "2018-11-01T18:39:34.192Z",
+        "sensor": 3,
+        "value": "54"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 71,
+    "fields": {
+        "created": "2018-11-01T18:39:34.381Z",
+        "modified": "2018-11-01T18:39:34.395Z",
+        "sensor": 3,
+        "value": "38"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 72,
+    "fields": {
+        "created": "2018-11-01T18:41:30.920Z",
+        "modified": "2018-11-01T18:41:30.931Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 73,
+    "fields": {
+        "created": "2018-11-01T18:41:33.452Z",
+        "modified": "2018-11-01T18:41:33.462Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 74,
+    "fields": {
+        "created": "2018-11-01T18:41:34.334Z",
+        "modified": "2018-11-01T18:41:34.343Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 75,
+    "fields": {
+        "created": "2018-11-01T18:41:35.130Z",
+        "modified": "2018-11-01T18:41:35.145Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 76,
+    "fields": {
+        "created": "2018-11-01T18:41:35.876Z",
+        "modified": "2018-11-01T18:41:35.890Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 77,
+    "fields": {
+        "created": "2018-11-01T18:41:36.522Z",
+        "modified": "2018-11-01T18:41:36.536Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 78,
+    "fields": {
+        "created": "2018-11-01T18:41:37.156Z",
+        "modified": "2018-11-01T18:41:37.167Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 79,
+    "fields": {
+        "created": "2018-11-01T18:41:37.863Z",
+        "modified": "2018-11-01T18:41:37.877Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 80,
+    "fields": {
+        "created": "2018-11-01T18:41:38.588Z",
+        "modified": "2018-11-01T18:41:38.598Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 81,
+    "fields": {
+        "created": "2018-11-01T18:41:39.226Z",
+        "modified": "2018-11-01T18:41:39.237Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 82,
+    "fields": {
+        "created": "2018-11-01T18:41:39.951Z",
+        "modified": "2018-11-01T18:41:39.965Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 83,
+    "fields": {
+        "created": "2018-11-01T18:41:40.740Z",
+        "modified": "2018-11-01T18:41:40.751Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 84,
+    "fields": {
+        "created": "2018-11-01T18:41:41.475Z",
+        "modified": "2018-11-01T18:41:41.487Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 85,
+    "fields": {
+        "created": "2018-11-01T18:41:42.169Z",
+        "modified": "2018-11-01T18:41:42.183Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 86,
+    "fields": {
+        "created": "2018-11-01T18:41:42.785Z",
+        "modified": "2018-11-01T18:41:42.798Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 87,
+    "fields": {
+        "created": "2018-11-01T18:41:43.411Z",
+        "modified": "2018-11-01T18:41:43.422Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 88,
+    "fields": {
+        "created": "2018-11-01T18:41:43.988Z",
+        "modified": "2018-11-01T18:41:44.001Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 89,
+    "fields": {
+        "created": "2018-11-01T18:42:05.698Z",
+        "modified": "2018-11-01T18:42:05.708Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 90,
+    "fields": {
+        "created": "2018-11-01T18:46:49.429Z",
+        "modified": "2018-11-01T18:46:49.450Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 91,
+    "fields": {
+        "created": "2018-11-01T18:47:10.735Z",
+        "modified": "2018-11-01T18:47:10.748Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 92,
+    "fields": {
+        "created": "2018-11-01T18:47:10.887Z",
+        "modified": "2018-11-01T18:47:10.899Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 93,
+    "fields": {
+        "created": "2018-11-01T18:47:13.798Z",
+        "modified": "2018-11-01T18:47:13.807Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 94,
+    "fields": {
+        "created": "2018-11-01T18:47:13.946Z",
+        "modified": "2018-11-01T18:47:13.956Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 95,
+    "fields": {
+        "created": "2018-11-01T18:47:19.082Z",
+        "modified": "2018-11-01T18:47:19.093Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 96,
+    "fields": {
+        "created": "2018-11-01T18:47:19.172Z",
+        "modified": "2018-11-01T18:47:19.195Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 97,
+    "fields": {
+        "created": "2018-11-01T18:47:20.147Z",
+        "modified": "2018-11-01T18:47:20.157Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 98,
+    "fields": {
+        "created": "2018-11-01T18:47:20.208Z",
+        "modified": "2018-11-01T18:47:20.220Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 99,
+    "fields": {
+        "created": "2018-11-01T18:47:21.302Z",
+        "modified": "2018-11-01T18:47:21.313Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 100,
+    "fields": {
+        "created": "2018-11-01T18:47:21.387Z",
+        "modified": "2018-11-01T18:47:21.397Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 101,
+    "fields": {
+        "created": "2018-11-01T18:47:26.620Z",
+        "modified": "2018-11-01T18:47:26.629Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 102,
+    "fields": {
+        "created": "2018-11-01T18:47:26.689Z",
+        "modified": "2018-11-01T18:47:26.698Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 103,
+    "fields": {
+        "created": "2018-11-01T18:47:57.832Z",
+        "modified": "2018-11-01T18:47:57.841Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 104,
+    "fields": {
+        "created": "2018-11-01T18:47:57.905Z",
+        "modified": "2018-11-01T18:47:57.917Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 105,
+    "fields": {
+        "created": "2018-11-01T18:48:29.064Z",
+        "modified": "2018-11-01T18:48:29.078Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 106,
+    "fields": {
+        "created": "2018-11-01T18:48:29.183Z",
+        "modified": "2018-11-01T18:48:29.193Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 107,
+    "fields": {
+        "created": "2018-11-01T18:48:44.986Z",
+        "modified": "2018-11-01T18:48:45.001Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 108,
+    "fields": {
+        "created": "2018-11-01T18:48:45.064Z",
+        "modified": "2018-11-01T18:48:45.076Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 109,
+    "fields": {
+        "created": "2018-11-01T18:48:47.088Z",
+        "modified": "2018-11-01T18:48:47.098Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 110,
+    "fields": {
+        "created": "2018-11-01T18:48:47.180Z",
+        "modified": "2018-11-01T18:48:47.190Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 111,
+    "fields": {
+        "created": "2018-11-01T19:05:20.840Z",
+        "modified": "2018-11-01T19:05:20.850Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 112,
+    "fields": {
+        "created": "2018-11-01T19:05:20.977Z",
+        "modified": "2018-11-01T19:05:20.990Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 113,
+    "fields": {
+        "created": "2018-11-01T19:05:21.040Z",
+        "modified": "2018-11-01T19:05:21.048Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 114,
+    "fields": {
+        "created": "2018-11-01T19:05:21.144Z",
+        "modified": "2018-11-01T19:05:21.156Z",
+        "sensor": 8,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 115,
+    "fields": {
+        "created": "2018-11-01T19:05:21.206Z",
+        "modified": "2018-11-01T19:05:21.215Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 116,
+    "fields": {
+        "created": "2018-11-01T19:05:21.289Z",
+        "modified": "2018-11-01T19:05:21.297Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 117,
+    "fields": {
+        "created": "2018-11-01T19:05:21.805Z",
+        "modified": "2018-11-01T19:05:21.819Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 118,
+    "fields": {
+        "created": "2018-11-01T19:07:11.912Z",
+        "modified": "2018-11-01T19:07:11.934Z",
+        "sensor": 4,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 119,
+    "fields": {
+        "created": "2018-11-01T19:07:12.078Z",
+        "modified": "2018-11-01T19:07:12.086Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 120,
+    "fields": {
+        "created": "2018-11-01T19:07:12.215Z",
+        "modified": "2018-11-01T19:07:12.227Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 121,
+    "fields": {
+        "created": "2018-11-01T19:07:12.298Z",
+        "modified": "2018-11-01T19:07:12.307Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 122,
+    "fields": {
+        "created": "2018-11-01T19:07:12.347Z",
+        "modified": "2018-11-01T19:07:12.361Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 123,
+    "fields": {
+        "created": "2018-11-01T19:07:12.428Z",
+        "modified": "2018-11-01T19:07:12.438Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 124,
+    "fields": {
+        "created": "2018-11-01T19:07:12.754Z",
+        "modified": "2018-11-01T19:07:12.765Z",
+        "sensor": 9,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 125,
+    "fields": {
+        "created": "2018-11-01T19:07:12.810Z",
+        "modified": "2018-11-01T19:07:12.819Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 126,
+    "fields": {
+        "created": "2018-11-01T19:07:12.864Z",
+        "modified": "2018-11-01T19:07:12.874Z",
+        "sensor": 14,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 127,
+    "fields": {
+        "created": "2018-11-01T19:07:12.947Z",
+        "modified": "2018-11-01T19:07:12.960Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 128,
+    "fields": {
+        "created": "2018-11-01T19:07:13.097Z",
+        "modified": "2018-11-01T19:07:13.106Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 129,
+    "fields": {
+        "created": "2018-11-01T19:11:06.272Z",
+        "modified": "2018-11-01T19:11:06.285Z",
+        "sensor": 4,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 130,
+    "fields": {
+        "created": "2018-11-01T19:11:06.368Z",
+        "modified": "2018-11-01T19:11:06.378Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 131,
+    "fields": {
+        "created": "2018-11-01T19:11:06.421Z",
+        "modified": "2018-11-01T19:11:06.430Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 132,
+    "fields": {
+        "created": "2018-11-01T19:11:06.504Z",
+        "modified": "2018-11-01T19:11:06.513Z",
+        "sensor": 8,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 133,
+    "fields": {
+        "created": "2018-11-01T19:11:06.554Z",
+        "modified": "2018-11-01T19:11:06.562Z",
+        "sensor": 11,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 134,
+    "fields": {
+        "created": "2018-11-01T19:11:06.638Z",
+        "modified": "2018-11-01T19:11:06.648Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 135,
+    "fields": {
+        "created": "2018-11-01T19:11:06.959Z",
+        "modified": "2018-11-01T19:11:06.971Z",
+        "sensor": 9,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 136,
+    "fields": {
+        "created": "2018-11-01T19:11:07.027Z",
+        "modified": "2018-11-01T19:11:07.041Z",
+        "sensor": 10,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 137,
+    "fields": {
+        "created": "2018-11-01T19:11:07.086Z",
+        "modified": "2018-11-01T19:11:07.096Z",
+        "sensor": 14,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 138,
+    "fields": {
+        "created": "2018-11-01T19:11:07.143Z",
+        "modified": "2018-11-01T19:11:07.156Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 139,
+    "fields": {
+        "created": "2018-11-01T19:11:07.273Z",
+        "modified": "2018-11-01T19:11:07.285Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 140,
+    "fields": {
+        "created": "2018-11-01T19:12:18.526Z",
+        "modified": "2018-11-01T19:12:18.536Z",
+        "sensor": 4,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 141,
+    "fields": {
+        "created": "2018-11-01T19:12:18.692Z",
+        "modified": "2018-11-01T19:12:18.701Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 142,
+    "fields": {
+        "created": "2018-11-01T19:12:18.794Z",
+        "modified": "2018-11-01T19:12:18.810Z",
+        "sensor": 6,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 143,
+    "fields": {
+        "created": "2018-11-01T19:12:18.879Z",
+        "modified": "2018-11-01T19:12:18.891Z",
+        "sensor": 8,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 144,
+    "fields": {
+        "created": "2018-11-01T19:12:18.936Z",
+        "modified": "2018-11-01T19:12:18.946Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 145,
+    "fields": {
+        "created": "2018-11-01T19:12:19.019Z",
+        "modified": "2018-11-01T19:12:19.029Z",
+        "sensor": 13,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 146,
+    "fields": {
+        "created": "2018-11-01T19:12:19.234Z",
+        "modified": "2018-11-01T19:12:19.243Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 147,
+    "fields": {
+        "created": "2018-11-01T19:12:19.299Z",
+        "modified": "2018-11-01T19:12:19.308Z",
+        "sensor": 10,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 148,
+    "fields": {
+        "created": "2018-11-01T19:12:19.362Z",
+        "modified": "2018-11-01T19:12:19.372Z",
+        "sensor": 14,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 149,
+    "fields": {
+        "created": "2018-11-01T19:12:19.414Z",
+        "modified": "2018-11-01T19:12:19.427Z",
+        "sensor": 5,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 150,
+    "fields": {
+        "created": "2018-11-01T19:12:19.550Z",
+        "modified": "2018-11-01T19:12:19.560Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 151,
+    "fields": {
+        "created": "2018-11-01T19:33:29.866Z",
+        "modified": "2018-11-01T19:33:29.876Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 152,
+    "fields": {
+        "created": "2018-11-01T19:33:30.029Z",
+        "modified": "2018-11-01T19:33:30.041Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 153,
+    "fields": {
+        "created": "2018-11-01T19:33:30.169Z",
+        "modified": "2018-11-01T19:33:30.181Z",
+        "sensor": 6,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 154,
+    "fields": {
+        "created": "2018-11-01T19:33:30.256Z",
+        "modified": "2018-11-01T19:33:30.265Z",
+        "sensor": 8,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 155,
+    "fields": {
+        "created": "2018-11-01T19:33:30.311Z",
+        "modified": "2018-11-01T19:33:30.324Z",
+        "sensor": 11,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 156,
+    "fields": {
+        "created": "2018-11-01T19:33:30.402Z",
+        "modified": "2018-11-01T19:33:30.412Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 157,
+    "fields": {
+        "created": "2018-11-01T19:33:30.610Z",
+        "modified": "2018-11-01T19:33:30.621Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 158,
+    "fields": {
+        "created": "2018-11-01T19:33:30.673Z",
+        "modified": "2018-11-01T19:33:30.685Z",
+        "sensor": 10,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 159,
+    "fields": {
+        "created": "2018-11-01T19:33:30.731Z",
+        "modified": "2018-11-01T19:33:30.741Z",
+        "sensor": 14,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 160,
+    "fields": {
+        "created": "2018-11-01T19:33:30.790Z",
+        "modified": "2018-11-01T19:33:30.801Z",
+        "sensor": 5,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 161,
+    "fields": {
+        "created": "2018-11-01T19:33:30.919Z",
+        "modified": "2018-11-01T19:33:30.928Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 162,
+    "fields": {
+        "created": "2018-11-01T19:34:45.784Z",
+        "modified": "2018-11-01T19:34:45.795Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 163,
+    "fields": {
+        "created": "2018-11-01T19:34:45.901Z",
+        "modified": "2018-11-01T19:34:45.910Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 164,
+    "fields": {
+        "created": "2018-11-01T19:34:45.954Z",
+        "modified": "2018-11-01T19:34:45.964Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 165,
+    "fields": {
+        "created": "2018-11-01T19:34:46.032Z",
+        "modified": "2018-11-01T19:34:46.042Z",
+        "sensor": 8,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 166,
+    "fields": {
+        "created": "2018-11-01T19:34:46.085Z",
+        "modified": "2018-11-01T19:34:46.098Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 167,
+    "fields": {
+        "created": "2018-11-01T19:34:46.163Z",
+        "modified": "2018-11-01T19:34:46.175Z",
+        "sensor": 13,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 168,
+    "fields": {
+        "created": "2018-11-01T19:34:46.420Z",
+        "modified": "2018-11-01T19:34:46.429Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 169,
+    "fields": {
+        "created": "2018-11-01T19:34:46.513Z",
+        "modified": "2018-11-01T19:34:46.525Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 170,
+    "fields": {
+        "created": "2018-11-01T19:34:46.574Z",
+        "modified": "2018-11-01T19:34:46.583Z",
+        "sensor": 14,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 171,
+    "fields": {
+        "created": "2018-11-01T19:34:46.627Z",
+        "modified": "2018-11-01T19:34:46.638Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 172,
+    "fields": {
+        "created": "2018-11-01T19:34:46.759Z",
+        "modified": "2018-11-01T19:34:46.767Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 173,
+    "fields": {
+        "created": "2018-11-01T19:35:54.987Z",
+        "modified": "2018-11-01T19:35:54.997Z",
+        "sensor": 4,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 174,
+    "fields": {
+        "created": "2018-11-01T19:35:55.116Z",
+        "modified": "2018-11-01T19:35:55.125Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 175,
+    "fields": {
+        "created": "2018-11-01T19:35:55.219Z",
+        "modified": "2018-11-01T19:35:55.237Z",
+        "sensor": 6,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 176,
+    "fields": {
+        "created": "2018-11-01T19:35:55.308Z",
+        "modified": "2018-11-01T19:35:55.318Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 177,
+    "fields": {
+        "created": "2018-11-01T19:35:55.357Z",
+        "modified": "2018-11-01T19:35:55.367Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 178,
+    "fields": {
+        "created": "2018-11-01T19:35:55.441Z",
+        "modified": "2018-11-01T19:35:55.451Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 179,
+    "fields": {
+        "created": "2018-11-01T19:35:55.650Z",
+        "modified": "2018-11-01T19:35:55.661Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 180,
+    "fields": {
+        "created": "2018-11-01T19:35:55.709Z",
+        "modified": "2018-11-01T19:35:55.718Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 181,
+    "fields": {
+        "created": "2018-11-01T19:35:55.757Z",
+        "modified": "2018-11-01T19:35:55.768Z",
+        "sensor": 14,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 182,
+    "fields": {
+        "created": "2018-11-01T19:35:55.827Z",
+        "modified": "2018-11-01T19:35:55.835Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 183,
+    "fields": {
+        "created": "2018-11-01T19:35:55.962Z",
+        "modified": "2018-11-01T19:35:55.977Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 184,
+    "fields": {
+        "created": "2018-11-01T19:39:03.019Z",
+        "modified": "2018-11-01T19:39:03.029Z",
+        "sensor": 4,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 185,
+    "fields": {
+        "created": "2018-11-01T19:39:03.191Z",
+        "modified": "2018-11-01T19:39:03.203Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 186,
+    "fields": {
+        "created": "2018-11-01T19:39:03.308Z",
+        "modified": "2018-11-01T19:39:03.321Z",
+        "sensor": 6,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 187,
+    "fields": {
+        "created": "2018-11-01T19:39:03.401Z",
+        "modified": "2018-11-01T19:39:03.411Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 188,
+    "fields": {
+        "created": "2018-11-01T19:39:03.462Z",
+        "modified": "2018-11-01T19:39:03.472Z",
+        "sensor": 11,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 189,
+    "fields": {
+        "created": "2018-11-01T19:39:03.550Z",
+        "modified": "2018-11-01T19:39:03.559Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 190,
+    "fields": {
+        "created": "2018-11-01T19:39:03.758Z",
+        "modified": "2018-11-01T19:39:03.770Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 191,
+    "fields": {
+        "created": "2018-11-01T19:39:03.848Z",
+        "modified": "2018-11-01T19:39:03.865Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 192,
+    "fields": {
+        "created": "2018-11-01T19:39:03.899Z",
+        "modified": "2018-11-01T19:39:03.908Z",
+        "sensor": 14,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 193,
+    "fields": {
+        "created": "2018-11-01T19:39:03.957Z",
+        "modified": "2018-11-01T19:39:03.970Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 194,
+    "fields": {
+        "created": "2018-11-01T19:39:04.088Z",
+        "modified": "2018-11-01T19:39:04.101Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 195,
+    "fields": {
+        "created": "2018-11-01T19:39:44.526Z",
+        "modified": "2018-11-01T19:39:44.535Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 196,
+    "fields": {
+        "created": "2018-11-01T19:39:44.690Z",
+        "modified": "2018-11-01T19:39:44.701Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 197,
+    "fields": {
+        "created": "2018-11-01T19:39:44.798Z",
+        "modified": "2018-11-01T19:39:44.806Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 198,
+    "fields": {
+        "created": "2018-11-01T19:39:44.877Z",
+        "modified": "2018-11-01T19:39:44.887Z",
+        "sensor": 8,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 199,
+    "fields": {
+        "created": "2018-11-01T19:39:44.930Z",
+        "modified": "2018-11-01T19:39:44.939Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 200,
+    "fields": {
+        "created": "2018-11-01T19:39:45.012Z",
+        "modified": "2018-11-01T19:39:45.023Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 201,
+    "fields": {
+        "created": "2018-11-01T19:39:45.244Z",
+        "modified": "2018-11-01T19:39:45.253Z",
+        "sensor": 9,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 202,
+    "fields": {
+        "created": "2018-11-01T19:39:45.343Z",
+        "modified": "2018-11-01T19:39:45.353Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 203,
+    "fields": {
+        "created": "2018-11-01T19:39:45.402Z",
+        "modified": "2018-11-01T19:39:45.415Z",
+        "sensor": 14,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 204,
+    "fields": {
+        "created": "2018-11-01T19:39:45.456Z",
+        "modified": "2018-11-01T19:39:45.468Z",
+        "sensor": 5,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 205,
+    "fields": {
+        "created": "2018-11-01T19:39:45.590Z",
+        "modified": "2018-11-01T19:39:45.602Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 206,
+    "fields": {
+        "created": "2018-11-01T19:40:17.264Z",
+        "modified": "2018-11-01T19:40:17.275Z",
+        "sensor": 4,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 207,
+    "fields": {
+        "created": "2018-11-01T19:40:17.361Z",
+        "modified": "2018-11-01T19:40:17.371Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 208,
+    "fields": {
+        "created": "2018-11-01T19:40:17.423Z",
+        "modified": "2018-11-01T19:40:17.431Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 209,
+    "fields": {
+        "created": "2018-11-01T19:40:17.512Z",
+        "modified": "2018-11-01T19:40:17.522Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 210,
+    "fields": {
+        "created": "2018-11-01T19:40:17.567Z",
+        "modified": "2018-11-01T19:40:17.579Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 211,
+    "fields": {
+        "created": "2018-11-01T19:40:17.652Z",
+        "modified": "2018-11-01T19:40:17.664Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 212,
+    "fields": {
+        "created": "2018-11-01T19:40:17.711Z",
+        "modified": "2018-11-01T19:40:17.722Z",
+        "sensor": 15,
+        "value": "-53.31701953426516,23.99077342409123"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 213,
+    "fields": {
+        "created": "2018-11-01T19:40:17.760Z",
+        "modified": "2018-11-01T19:40:17.770Z",
+        "sensor": 16,
+        "value": "79.52106923208629,-155.70272965555318"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 214,
+    "fields": {
+        "created": "2018-11-01T19:40:17.810Z",
+        "modified": "2018-11-01T19:40:17.819Z",
+        "sensor": 9,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 215,
+    "fields": {
+        "created": "2018-11-01T19:40:17.862Z",
+        "modified": "2018-11-01T19:40:17.871Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 216,
+    "fields": {
+        "created": "2018-11-01T19:40:17.919Z",
+        "modified": "2018-11-01T19:40:17.931Z",
+        "sensor": 14,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 217,
+    "fields": {
+        "created": "2018-11-01T19:40:17.980Z",
+        "modified": "2018-11-01T19:40:17.990Z",
+        "sensor": 5,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 218,
+    "fields": {
+        "created": "2018-11-01T19:40:18.032Z",
+        "modified": "2018-11-01T19:40:18.044Z",
+        "sensor": 17,
+        "value": "-3.7032890209771523,-10.050741558368486"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 219,
+    "fields": {
+        "created": "2018-11-01T19:40:18.083Z",
+        "modified": "2018-11-01T19:40:18.096Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 220,
+    "fields": {
+        "created": "2018-11-01T19:40:23.285Z",
+        "modified": "2018-11-01T19:40:23.295Z",
+        "sensor": 4,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 221,
+    "fields": {
+        "created": "2018-11-01T19:40:23.388Z",
+        "modified": "2018-11-01T19:40:23.401Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 222,
+    "fields": {
+        "created": "2018-11-01T19:40:23.448Z",
+        "modified": "2018-11-01T19:40:23.461Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 223,
+    "fields": {
+        "created": "2018-11-01T19:40:23.536Z",
+        "modified": "2018-11-01T19:40:23.549Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 224,
+    "fields": {
+        "created": "2018-11-01T19:40:23.580Z",
+        "modified": "2018-11-01T19:40:23.589Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 225,
+    "fields": {
+        "created": "2018-11-01T19:40:23.661Z",
+        "modified": "2018-11-01T19:40:23.671Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 226,
+    "fields": {
+        "created": "2018-11-01T19:40:23.704Z",
+        "modified": "2018-11-01T19:40:23.718Z",
+        "sensor": 15,
+        "value": "-45.87960676570344,-137.6665364171991"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 227,
+    "fields": {
+        "created": "2018-11-01T19:40:23.763Z",
+        "modified": "2018-11-01T19:40:23.774Z",
+        "sensor": 16,
+        "value": "58.766622506672576,154.97453438582482"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 228,
+    "fields": {
+        "created": "2018-11-01T19:40:23.813Z",
+        "modified": "2018-11-01T19:40:23.822Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 229,
+    "fields": {
+        "created": "2018-11-01T19:40:23.863Z",
+        "modified": "2018-11-01T19:40:23.873Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 230,
+    "fields": {
+        "created": "2018-11-01T19:40:23.914Z",
+        "modified": "2018-11-01T19:40:23.924Z",
+        "sensor": 14,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 231,
+    "fields": {
+        "created": "2018-11-01T19:40:23.962Z",
+        "modified": "2018-11-01T19:40:23.971Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 232,
+    "fields": {
+        "created": "2018-11-01T19:40:24.003Z",
+        "modified": "2018-11-01T19:40:24.016Z",
+        "sensor": 17,
+        "value": "-65.61934796619143,53.16232889377261"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 233,
+    "fields": {
+        "created": "2018-11-01T19:40:24.049Z",
+        "modified": "2018-11-01T19:40:24.063Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 234,
+    "fields": {
+        "created": "2018-11-01T19:40:31.796Z",
+        "modified": "2018-11-01T19:40:31.804Z",
+        "sensor": 4,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 235,
+    "fields": {
+        "created": "2018-11-01T19:40:31.895Z",
+        "modified": "2018-11-01T19:40:31.906Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 236,
+    "fields": {
+        "created": "2018-11-01T19:40:31.952Z",
+        "modified": "2018-11-01T19:40:31.962Z",
+        "sensor": 6,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 237,
+    "fields": {
+        "created": "2018-11-01T19:40:32.036Z",
+        "modified": "2018-11-01T19:40:32.048Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 238,
+    "fields": {
+        "created": "2018-11-01T19:40:32.080Z",
+        "modified": "2018-11-01T19:40:32.089Z",
+        "sensor": 11,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 239,
+    "fields": {
+        "created": "2018-11-01T19:40:32.160Z",
+        "modified": "2018-11-01T19:40:32.173Z",
+        "sensor": 13,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 240,
+    "fields": {
+        "created": "2018-11-01T19:40:32.301Z",
+        "modified": "2018-11-01T19:40:32.317Z",
+        "sensor": 15,
+        "value": "60.53740967080674,152.38411525852467"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 241,
+    "fields": {
+        "created": "2018-11-01T19:40:32.384Z",
+        "modified": "2018-11-01T19:40:32.399Z",
+        "sensor": 16,
+        "value": "-29.868039608153843,-95.64671600390975"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 242,
+    "fields": {
+        "created": "2018-11-01T19:40:32.441Z",
+        "modified": "2018-11-01T19:40:32.454Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 243,
+    "fields": {
+        "created": "2018-11-01T19:40:32.499Z",
+        "modified": "2018-11-01T19:40:32.507Z",
+        "sensor": 10,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 244,
+    "fields": {
+        "created": "2018-11-01T19:40:32.554Z",
+        "modified": "2018-11-01T19:40:32.566Z",
+        "sensor": 14,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 245,
+    "fields": {
+        "created": "2018-11-01T19:40:32.604Z",
+        "modified": "2018-11-01T19:40:32.617Z",
+        "sensor": 5,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 246,
+    "fields": {
+        "created": "2018-11-01T19:40:32.682Z",
+        "modified": "2018-11-01T19:40:32.692Z",
+        "sensor": 17,
+        "value": "-58.86330657143229,126.48855104724805"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 247,
+    "fields": {
+        "created": "2018-11-01T19:40:32.731Z",
+        "modified": "2018-11-01T19:40:32.740Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 248,
+    "fields": {
+        "created": "2018-11-01T19:41:01.829Z",
+        "modified": "2018-11-01T19:41:01.839Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 249,
+    "fields": {
+        "created": "2018-11-01T19:41:01.951Z",
+        "modified": "2018-11-01T19:41:01.961Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 250,
+    "fields": {
+        "created": "2018-11-01T19:41:02.017Z",
+        "modified": "2018-11-01T19:41:02.031Z",
+        "sensor": 6,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 251,
+    "fields": {
+        "created": "2018-11-01T19:41:02.108Z",
+        "modified": "2018-11-01T19:41:02.119Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 252,
+    "fields": {
+        "created": "2018-11-01T19:41:02.194Z",
+        "modified": "2018-11-01T19:41:02.208Z",
+        "sensor": 11,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 253,
+    "fields": {
+        "created": "2018-11-01T19:41:02.279Z",
+        "modified": "2018-11-01T19:41:02.287Z",
+        "sensor": 13,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 254,
+    "fields": {
+        "created": "2018-11-01T19:41:02.330Z",
+        "modified": "2018-11-01T19:41:02.343Z",
+        "sensor": 15,
+        "value": "-1.7926232021901853,16.790481753892294"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 255,
+    "fields": {
+        "created": "2018-11-01T19:41:02.387Z",
+        "modified": "2018-11-01T19:41:02.403Z",
+        "sensor": 16,
+        "value": "58.94542989390192,84.62603116546398"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 256,
+    "fields": {
+        "created": "2018-11-01T19:41:02.441Z",
+        "modified": "2018-11-01T19:41:02.449Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 257,
+    "fields": {
+        "created": "2018-11-01T19:41:02.496Z",
+        "modified": "2018-11-01T19:41:02.505Z",
+        "sensor": 10,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 258,
+    "fields": {
+        "created": "2018-11-01T19:41:02.548Z",
+        "modified": "2018-11-01T19:41:02.560Z",
+        "sensor": 14,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 259,
+    "fields": {
+        "created": "2018-11-01T19:41:02.627Z",
+        "modified": "2018-11-01T19:41:02.636Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 260,
+    "fields": {
+        "created": "2018-11-01T19:41:02.682Z",
+        "modified": "2018-11-01T19:41:02.696Z",
+        "sensor": 17,
+        "value": "70.95282672206639,-96.75097777196173"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 261,
+    "fields": {
+        "created": "2018-11-01T19:41:02.737Z",
+        "modified": "2018-11-01T19:41:02.749Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 262,
+    "fields": {
+        "created": "2018-11-01T19:41:27.051Z",
+        "modified": "2018-11-01T19:41:27.060Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 263,
+    "fields": {
+        "created": "2018-11-01T19:41:27.131Z",
+        "modified": "2018-11-01T19:41:27.144Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 264,
+    "fields": {
+        "created": "2018-11-01T19:41:27.182Z",
+        "modified": "2018-11-01T19:41:27.191Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 265,
+    "fields": {
+        "created": "2018-11-01T19:41:27.264Z",
+        "modified": "2018-11-01T19:41:27.276Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 266,
+    "fields": {
+        "created": "2018-11-01T19:41:27.327Z",
+        "modified": "2018-11-01T19:41:27.338Z",
+        "sensor": 11,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 267,
+    "fields": {
+        "created": "2018-11-01T19:41:27.415Z",
+        "modified": "2018-11-01T19:41:27.426Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 268,
+    "fields": {
+        "created": "2018-11-01T19:41:27.476Z",
+        "modified": "2018-11-01T19:41:27.491Z",
+        "sensor": 15,
+        "value": "-54.13951836870384,-101.80623506337078"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 269,
+    "fields": {
+        "created": "2018-11-01T19:41:27.533Z",
+        "modified": "2018-11-01T19:41:27.542Z",
+        "sensor": 16,
+        "value": "72.40888343432417,-151.188951231459"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 270,
+    "fields": {
+        "created": "2018-11-01T19:41:27.591Z",
+        "modified": "2018-11-01T19:41:27.600Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 271,
+    "fields": {
+        "created": "2018-11-01T19:41:27.636Z",
+        "modified": "2018-11-01T19:41:27.645Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 272,
+    "fields": {
+        "created": "2018-11-01T19:41:27.686Z",
+        "modified": "2018-11-01T19:41:27.694Z",
+        "sensor": 14,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 273,
+    "fields": {
+        "created": "2018-11-01T19:41:27.736Z",
+        "modified": "2018-11-01T19:41:27.744Z",
+        "sensor": 5,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 274,
+    "fields": {
+        "created": "2018-11-01T19:41:27.788Z",
+        "modified": "2018-11-01T19:41:27.799Z",
+        "sensor": 17,
+        "value": "-87.37919931584486,-64.72657728703619"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 275,
+    "fields": {
+        "created": "2018-11-01T19:41:27.862Z",
+        "modified": "2018-11-01T19:41:27.872Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 276,
+    "fields": {
+        "created": "2018-11-01T19:47:19.674Z",
+        "modified": "2018-11-01T19:47:19.684Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 277,
+    "fields": {
+        "created": "2018-11-01T19:47:19.823Z",
+        "modified": "2018-11-01T19:47:19.833Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 278,
+    "fields": {
+        "created": "2018-11-01T19:47:19.939Z",
+        "modified": "2018-11-01T19:47:19.951Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 279,
+    "fields": {
+        "created": "2018-11-01T19:47:20.029Z",
+        "modified": "2018-11-01T19:47:20.038Z",
+        "sensor": 8,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 280,
+    "fields": {
+        "created": "2018-11-01T19:47:20.079Z",
+        "modified": "2018-11-01T19:47:20.089Z",
+        "sensor": 11,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 281,
+    "fields": {
+        "created": "2018-11-01T19:47:20.184Z",
+        "modified": "2018-11-01T19:47:20.196Z",
+        "sensor": 13,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 282,
+    "fields": {
+        "created": "2018-11-01T19:47:20.231Z",
+        "modified": "2018-11-01T19:47:20.241Z",
+        "sensor": 15,
+        "value": "-83.28618922380724,-14.24344380403511"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 283,
+    "fields": {
+        "created": "2018-11-01T19:47:20.289Z",
+        "modified": "2018-11-01T19:47:20.301Z",
+        "sensor": 16,
+        "value": "-80.47685861061679,-160.83427444547243"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 284,
+    "fields": {
+        "created": "2018-11-01T19:47:20.347Z",
+        "modified": "2018-11-01T19:47:20.360Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 285,
+    "fields": {
+        "created": "2018-11-01T19:47:20.399Z",
+        "modified": "2018-11-01T19:47:20.409Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 286,
+    "fields": {
+        "created": "2018-11-01T19:47:20.456Z",
+        "modified": "2018-11-01T19:47:20.468Z",
+        "sensor": 14,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 287,
+    "fields": {
+        "created": "2018-11-01T19:47:20.516Z",
+        "modified": "2018-11-01T19:47:20.528Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 288,
+    "fields": {
+        "created": "2018-11-01T19:47:20.567Z",
+        "modified": "2018-11-01T19:47:20.580Z",
+        "sensor": 17,
+        "value": "-10.365987403348143,26.377574659117585"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 289,
+    "fields": {
+        "created": "2018-11-01T19:47:20.624Z",
+        "modified": "2018-11-01T19:47:20.633Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 290,
+    "fields": {
+        "created": "2018-11-01T19:49:34.731Z",
+        "modified": "2018-11-01T19:49:34.740Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 291,
+    "fields": {
+        "created": "2018-11-01T19:49:34.868Z",
+        "modified": "2018-11-01T19:49:34.877Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 292,
+    "fields": {
+        "created": "2018-11-01T19:49:34.979Z",
+        "modified": "2018-11-01T19:49:34.989Z",
+        "sensor": 6,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 293,
+    "fields": {
+        "created": "2018-11-01T19:49:35.055Z",
+        "modified": "2018-11-01T19:49:35.065Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 294,
+    "fields": {
+        "created": "2018-11-01T19:49:35.103Z",
+        "modified": "2018-11-01T19:49:35.113Z",
+        "sensor": 11,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 295,
+    "fields": {
+        "created": "2018-11-01T19:49:35.179Z",
+        "modified": "2018-11-01T19:49:35.191Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 296,
+    "fields": {
+        "created": "2018-11-01T19:49:35.226Z",
+        "modified": "2018-11-01T19:49:35.236Z",
+        "sensor": 15,
+        "value": "-31.475452329160532,91.9547807026097"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 297,
+    "fields": {
+        "created": "2018-11-01T19:49:35.276Z",
+        "modified": "2018-11-01T19:49:35.285Z",
+        "sensor": 16,
+        "value": "-58.55865655120901,68.64222185274258"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 298,
+    "fields": {
+        "created": "2018-11-01T19:49:35.327Z",
+        "modified": "2018-11-01T19:49:35.335Z",
+        "sensor": 9,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 299,
+    "fields": {
+        "created": "2018-11-01T19:49:35.381Z",
+        "modified": "2018-11-01T19:49:35.394Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 300,
+    "fields": {
+        "created": "2018-11-01T19:49:35.437Z",
+        "modified": "2018-11-01T19:49:35.446Z",
+        "sensor": 14,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 301,
+    "fields": {
+        "created": "2018-11-01T19:49:35.491Z",
+        "modified": "2018-11-01T19:49:35.501Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 302,
+    "fields": {
+        "created": "2018-11-01T19:49:35.537Z",
+        "modified": "2018-11-01T19:49:35.548Z",
+        "sensor": 17,
+        "value": "-48.621197996452956,6.58212619242687"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 303,
+    "fields": {
+        "created": "2018-11-01T19:49:35.610Z",
+        "modified": "2018-11-01T19:49:35.618Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 304,
+    "fields": {
+        "created": "2018-11-01T19:49:40.816Z",
+        "modified": "2018-11-01T19:49:40.824Z",
+        "sensor": 4,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 305,
+    "fields": {
+        "created": "2018-11-01T19:49:40.906Z",
+        "modified": "2018-11-01T19:49:40.918Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 306,
+    "fields": {
+        "created": "2018-11-01T19:49:40.960Z",
+        "modified": "2018-11-01T19:49:40.972Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 307,
+    "fields": {
+        "created": "2018-11-01T19:49:41.066Z",
+        "modified": "2018-11-01T19:49:41.074Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 308,
+    "fields": {
+        "created": "2018-11-01T19:49:41.162Z",
+        "modified": "2018-11-01T19:49:41.171Z",
+        "sensor": 11,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 309,
+    "fields": {
+        "created": "2018-11-01T19:49:41.245Z",
+        "modified": "2018-11-01T19:49:41.255Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 310,
+    "fields": {
+        "created": "2018-11-01T19:49:41.373Z",
+        "modified": "2018-11-01T19:49:41.389Z",
+        "sensor": 15,
+        "value": "-28.59865939836601,59.81045996158517"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 311,
+    "fields": {
+        "created": "2018-11-01T19:49:41.424Z",
+        "modified": "2018-11-01T19:49:41.437Z",
+        "sensor": 16,
+        "value": "-75.98186851207345,-57.408332211268245"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 312,
+    "fields": {
+        "created": "2018-11-01T19:49:41.467Z",
+        "modified": "2018-11-01T19:49:41.483Z",
+        "sensor": 9,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 313,
+    "fields": {
+        "created": "2018-11-01T19:49:41.525Z",
+        "modified": "2018-11-01T19:49:41.537Z",
+        "sensor": 10,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 314,
+    "fields": {
+        "created": "2018-11-01T19:49:41.579Z",
+        "modified": "2018-11-01T19:49:41.588Z",
+        "sensor": 14,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 315,
+    "fields": {
+        "created": "2018-11-01T19:49:41.624Z",
+        "modified": "2018-11-01T19:49:41.635Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 316,
+    "fields": {
+        "created": "2018-11-01T19:49:41.668Z",
+        "modified": "2018-11-01T19:49:41.680Z",
+        "sensor": 17,
+        "value": "-2.5043257034268294,5.774586457111695"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 317,
+    "fields": {
+        "created": "2018-11-01T19:49:41.714Z",
+        "modified": "2018-11-01T19:49:41.724Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 318,
+    "fields": {
+        "created": "2018-11-01T19:49:42.686Z",
+        "modified": "2018-11-01T19:49:42.694Z",
+        "sensor": 4,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 319,
+    "fields": {
+        "created": "2018-11-01T19:49:42.776Z",
+        "modified": "2018-11-01T19:49:42.789Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 320,
+    "fields": {
+        "created": "2018-11-01T19:49:42.840Z",
+        "modified": "2018-11-01T19:49:42.852Z",
+        "sensor": 6,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 321,
+    "fields": {
+        "created": "2018-11-01T19:49:42.918Z",
+        "modified": "2018-11-01T19:49:42.930Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 322,
+    "fields": {
+        "created": "2018-11-01T19:49:42.968Z",
+        "modified": "2018-11-01T19:49:42.980Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 323,
+    "fields": {
+        "created": "2018-11-01T19:49:43.045Z",
+        "modified": "2018-11-01T19:49:43.055Z",
+        "sensor": 13,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 324,
+    "fields": {
+        "created": "2018-11-01T19:49:43.089Z",
+        "modified": "2018-11-01T19:49:43.101Z",
+        "sensor": 15,
+        "value": "-86.553109055012,-15.069268341988874"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 325,
+    "fields": {
+        "created": "2018-11-01T19:49:43.137Z",
+        "modified": "2018-11-01T19:49:43.150Z",
+        "sensor": 16,
+        "value": "22.977031095088705,119.40849711009446"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 326,
+    "fields": {
+        "created": "2018-11-01T19:49:43.188Z",
+        "modified": "2018-11-01T19:49:43.201Z",
+        "sensor": 9,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 327,
+    "fields": {
+        "created": "2018-11-01T19:49:43.241Z",
+        "modified": "2018-11-01T19:49:43.253Z",
+        "sensor": 10,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 328,
+    "fields": {
+        "created": "2018-11-01T19:49:43.289Z",
+        "modified": "2018-11-01T19:49:43.300Z",
+        "sensor": 14,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 329,
+    "fields": {
+        "created": "2018-11-01T19:49:43.340Z",
+        "modified": "2018-11-01T19:49:43.352Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 330,
+    "fields": {
+        "created": "2018-11-01T19:49:43.391Z",
+        "modified": "2018-11-01T19:49:43.401Z",
+        "sensor": 17,
+        "value": "-39.596348140905995,-39.42693694020198"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 331,
+    "fields": {
+        "created": "2018-11-01T19:49:43.441Z",
+        "modified": "2018-11-01T19:49:43.452Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 332,
+    "fields": {
+        "created": "2018-11-01T19:49:45.043Z",
+        "modified": "2018-11-01T19:49:45.052Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 333,
+    "fields": {
+        "created": "2018-11-01T19:49:45.133Z",
+        "modified": "2018-11-01T19:49:45.144Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 334,
+    "fields": {
+        "created": "2018-11-01T19:49:45.192Z",
+        "modified": "2018-11-01T19:49:45.204Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 335,
+    "fields": {
+        "created": "2018-11-01T19:49:45.303Z",
+        "modified": "2018-11-01T19:49:45.313Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 336,
+    "fields": {
+        "created": "2018-11-01T19:49:45.369Z",
+        "modified": "2018-11-01T19:49:45.381Z",
+        "sensor": 11,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 337,
+    "fields": {
+        "created": "2018-11-01T19:49:45.499Z",
+        "modified": "2018-11-01T19:49:45.508Z",
+        "sensor": 13,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 338,
+    "fields": {
+        "created": "2018-11-01T19:49:45.557Z",
+        "modified": "2018-11-01T19:49:45.569Z",
+        "sensor": 15,
+        "value": "-23.830493520113393,12.972221596919354"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 339,
+    "fields": {
+        "created": "2018-11-01T19:49:45.609Z",
+        "modified": "2018-11-01T19:49:45.623Z",
+        "sensor": 16,
+        "value": "-14.159033153341198,-143.4019293102113"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 340,
+    "fields": {
+        "created": "2018-11-01T19:49:45.656Z",
+        "modified": "2018-11-01T19:49:45.668Z",
+        "sensor": 9,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 341,
+    "fields": {
+        "created": "2018-11-01T19:49:45.703Z",
+        "modified": "2018-11-01T19:49:45.715Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 342,
+    "fields": {
+        "created": "2018-11-01T19:49:45.744Z",
+        "modified": "2018-11-01T19:49:45.753Z",
+        "sensor": 14,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 343,
+    "fields": {
+        "created": "2018-11-01T19:49:45.812Z",
+        "modified": "2018-11-01T19:49:45.824Z",
+        "sensor": 5,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 344,
+    "fields": {
+        "created": "2018-11-01T19:49:45.857Z",
+        "modified": "2018-11-01T19:49:45.868Z",
+        "sensor": 17,
+        "value": "-40.29014360624382,44.38625401097775"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 345,
+    "fields": {
+        "created": "2018-11-01T19:49:45.898Z",
+        "modified": "2018-11-01T19:49:45.907Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 346,
+    "fields": {
+        "created": "2018-11-01T19:49:47.101Z",
+        "modified": "2018-11-01T19:49:47.109Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 347,
+    "fields": {
+        "created": "2018-11-01T19:49:47.200Z",
+        "modified": "2018-11-01T19:49:47.211Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 348,
+    "fields": {
+        "created": "2018-11-01T19:49:47.255Z",
+        "modified": "2018-11-01T19:49:47.267Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 349,
+    "fields": {
+        "created": "2018-11-01T19:49:47.347Z",
+        "modified": "2018-11-01T19:49:47.357Z",
+        "sensor": 8,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 350,
+    "fields": {
+        "created": "2018-11-01T19:49:47.390Z",
+        "modified": "2018-11-01T19:49:47.401Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 351,
+    "fields": {
+        "created": "2018-11-01T19:49:47.464Z",
+        "modified": "2018-11-01T19:49:47.475Z",
+        "sensor": 13,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 352,
+    "fields": {
+        "created": "2018-11-01T19:49:47.510Z",
+        "modified": "2018-11-01T19:49:47.523Z",
+        "sensor": 15,
+        "value": "-81.19739264932711,77.95699166147296"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 353,
+    "fields": {
+        "created": "2018-11-01T19:49:47.558Z",
+        "modified": "2018-11-01T19:49:47.571Z",
+        "sensor": 16,
+        "value": "0.7973550503063649,-7.944164461634443"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 354,
+    "fields": {
+        "created": "2018-11-01T19:49:47.613Z",
+        "modified": "2018-11-01T19:49:47.623Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 355,
+    "fields": {
+        "created": "2018-11-01T19:49:47.660Z",
+        "modified": "2018-11-01T19:49:47.674Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 356,
+    "fields": {
+        "created": "2018-11-01T19:49:47.720Z",
+        "modified": "2018-11-01T19:49:47.732Z",
+        "sensor": 14,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 357,
+    "fields": {
+        "created": "2018-11-01T19:49:47.772Z",
+        "modified": "2018-11-01T19:49:47.784Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 358,
+    "fields": {
+        "created": "2018-11-01T19:49:47.823Z",
+        "modified": "2018-11-01T19:49:47.836Z",
+        "sensor": 17,
+        "value": "-68.77362787066407,36.64302249551889"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 359,
+    "fields": {
+        "created": "2018-11-01T19:49:47.875Z",
+        "modified": "2018-11-01T19:49:47.887Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 360,
+    "fields": {
+        "created": "2018-11-01T19:49:48.904Z",
+        "modified": "2018-11-01T19:49:48.912Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 361,
+    "fields": {
+        "created": "2018-11-01T19:49:49.003Z",
+        "modified": "2018-11-01T19:49:49.012Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 362,
+    "fields": {
+        "created": "2018-11-01T19:49:49.048Z",
+        "modified": "2018-11-01T19:49:49.057Z",
+        "sensor": 6,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 363,
+    "fields": {
+        "created": "2018-11-01T19:49:49.121Z",
+        "modified": "2018-11-01T19:49:49.131Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 364,
+    "fields": {
+        "created": "2018-11-01T19:49:49.172Z",
+        "modified": "2018-11-01T19:49:49.183Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 365,
+    "fields": {
+        "created": "2018-11-01T19:49:49.252Z",
+        "modified": "2018-11-01T19:49:49.260Z",
+        "sensor": 13,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 366,
+    "fields": {
+        "created": "2018-11-01T19:49:49.304Z",
+        "modified": "2018-11-01T19:49:49.315Z",
+        "sensor": 15,
+        "value": "65.62207875484336,-35.004152308347784"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 367,
+    "fields": {
+        "created": "2018-11-01T19:49:49.344Z",
+        "modified": "2018-11-01T19:49:49.356Z",
+        "sensor": 16,
+        "value": "70.08471504627431,-105.84304230492728"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 368,
+    "fields": {
+        "created": "2018-11-01T19:49:49.392Z",
+        "modified": "2018-11-01T19:49:49.404Z",
+        "sensor": 9,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 369,
+    "fields": {
+        "created": "2018-11-01T19:49:49.435Z",
+        "modified": "2018-11-01T19:49:49.444Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 370,
+    "fields": {
+        "created": "2018-11-01T19:49:49.497Z",
+        "modified": "2018-11-01T19:49:49.506Z",
+        "sensor": 14,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 371,
+    "fields": {
+        "created": "2018-11-01T19:49:49.552Z",
+        "modified": "2018-11-01T19:49:49.561Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 372,
+    "fields": {
+        "created": "2018-11-01T19:49:49.600Z",
+        "modified": "2018-11-01T19:49:49.610Z",
+        "sensor": 17,
+        "value": "73.32990110914554,-123.06326998630112"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 373,
+    "fields": {
+        "created": "2018-11-01T19:49:49.648Z",
+        "modified": "2018-11-01T19:49:49.657Z",
+        "sensor": 2,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 374,
+    "fields": {
+        "created": "2018-11-01T19:49:50.528Z",
+        "modified": "2018-11-01T19:49:50.538Z",
+        "sensor": 4,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 375,
+    "fields": {
+        "created": "2018-11-01T19:49:50.634Z",
+        "modified": "2018-11-01T19:49:50.644Z",
+        "sensor": 3,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 376,
+    "fields": {
+        "created": "2018-11-01T19:49:50.691Z",
+        "modified": "2018-11-01T19:49:50.705Z",
+        "sensor": 6,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 377,
+    "fields": {
+        "created": "2018-11-01T19:49:50.784Z",
+        "modified": "2018-11-01T19:49:50.794Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 378,
+    "fields": {
+        "created": "2018-11-01T19:49:50.836Z",
+        "modified": "2018-11-01T19:49:50.844Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 379,
+    "fields": {
+        "created": "2018-11-01T19:49:50.908Z",
+        "modified": "2018-11-01T19:49:50.948Z",
+        "sensor": 13,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 380,
+    "fields": {
+        "created": "2018-11-01T19:49:51.006Z",
+        "modified": "2018-11-01T19:49:51.022Z",
+        "sensor": 15,
+        "value": "64.4608370304436,165.29154709215493"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 381,
+    "fields": {
+        "created": "2018-11-01T19:49:51.057Z",
+        "modified": "2018-11-01T19:49:51.070Z",
+        "sensor": 16,
+        "value": "40.84408240300027,-176.25557561782736"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 382,
+    "fields": {
+        "created": "2018-11-01T19:49:51.105Z",
+        "modified": "2018-11-01T19:49:51.117Z",
+        "sensor": 9,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 383,
+    "fields": {
+        "created": "2018-11-01T19:49:51.162Z",
+        "modified": "2018-11-01T19:49:51.173Z",
+        "sensor": 10,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 384,
+    "fields": {
+        "created": "2018-11-01T19:49:51.213Z",
+        "modified": "2018-11-01T19:49:51.221Z",
+        "sensor": 14,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 385,
+    "fields": {
+        "created": "2018-11-01T19:49:51.269Z",
+        "modified": "2018-11-01T19:49:51.278Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 386,
+    "fields": {
+        "created": "2018-11-01T19:49:51.311Z",
+        "modified": "2018-11-01T19:49:51.322Z",
+        "sensor": 17,
+        "value": "-22.522461302928107,-129.3809770352666"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 387,
+    "fields": {
+        "created": "2018-11-01T19:49:51.357Z",
+        "modified": "2018-11-01T19:49:51.369Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 388,
+    "fields": {
+        "created": "2018-11-01T19:49:52.041Z",
+        "modified": "2018-11-01T19:49:52.049Z",
+        "sensor": 4,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 389,
+    "fields": {
+        "created": "2018-11-01T19:49:52.132Z",
+        "modified": "2018-11-01T19:49:52.144Z",
+        "sensor": 3,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 390,
+    "fields": {
+        "created": "2018-11-01T19:49:52.192Z",
+        "modified": "2018-11-01T19:49:52.204Z",
+        "sensor": 6,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 391,
+    "fields": {
+        "created": "2018-11-01T19:49:52.290Z",
+        "modified": "2018-11-01T19:49:52.299Z",
+        "sensor": 8,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 392,
+    "fields": {
+        "created": "2018-11-01T19:49:52.340Z",
+        "modified": "2018-11-01T19:49:52.352Z",
+        "sensor": 11,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 393,
+    "fields": {
+        "created": "2018-11-01T19:49:52.426Z",
+        "modified": "2018-11-01T19:49:52.436Z",
+        "sensor": 13,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 394,
+    "fields": {
+        "created": "2018-11-01T19:49:52.470Z",
+        "modified": "2018-11-01T19:49:52.483Z",
+        "sensor": 15,
+        "value": "58.18466369928976,-60.027317092604335"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 395,
+    "fields": {
+        "created": "2018-11-01T19:49:52.523Z",
+        "modified": "2018-11-01T19:49:52.534Z",
+        "sensor": 16,
+        "value": "-33.18588200528055,147.4358968366443"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 396,
+    "fields": {
+        "created": "2018-11-01T19:49:52.568Z",
+        "modified": "2018-11-01T19:49:52.578Z",
+        "sensor": 9,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 397,
+    "fields": {
+        "created": "2018-11-01T19:49:52.622Z",
+        "modified": "2018-11-01T19:49:52.633Z",
+        "sensor": 10,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 398,
+    "fields": {
+        "created": "2018-11-01T19:49:52.672Z",
+        "modified": "2018-11-01T19:49:52.683Z",
+        "sensor": 14,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 399,
+    "fields": {
+        "created": "2018-11-01T19:49:52.725Z",
+        "modified": "2018-11-01T19:49:52.735Z",
+        "sensor": 5,
+        "value": "0"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 400,
+    "fields": {
+        "created": "2018-11-01T19:49:52.772Z",
+        "modified": "2018-11-01T19:49:52.785Z",
+        "sensor": 17,
+        "value": "-86.00245858823739,-125.41550774893925"
+    }
+},
+{
+    "model": "sensor_network.measurelog",
+    "pk": 401,
+    "fields": {
+        "created": "2018-11-01T19:49:52.826Z",
+        "modified": "2018-11-01T19:49:52.838Z",
+        "sensor": 2,
+        "value": "1"
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 1,
+    "fields": {
+        "created": "2018-10-26T21:20:47.262Z",
+        "modified": "2018-10-26T21:20:47.272Z",
+        "sn": 1,
+        "name": "Humo1",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 2,
+    "fields": {
+        "created": "2018-10-26T21:21:41.599Z",
+        "modified": "2018-10-26T22:10:45.524Z",
+        "sn": 1,
+        "name": "Unknown_face1",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 3,
+    "fields": {
+        "created": "2018-10-26T21:22:42.658Z",
+        "modified": "2018-10-26T21:22:42.666Z",
+        "sn": 1,
+        "name": "Alta_temperatura1",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 4,
+    "fields": {
+        "created": "2018-10-26T21:26:03.947Z",
+        "modified": "2018-10-26T21:26:03.955Z",
+        "sn": 1,
+        "name": "Ruido1",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 5,
+    "fields": {
+        "created": "2018-10-26T21:26:42.648Z",
+        "modified": "2018-10-26T22:08:40.371Z",
+        "sn": 1,
+        "name": "Unknown_face2",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 6,
+    "fields": {
+        "created": "2018-10-26T21:27:08.898Z",
+        "modified": "2018-10-26T21:27:08.904Z",
+        "sn": 1,
+        "name": "Humo2",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 7,
+    "fields": {
+        "created": "2018-10-26T21:27:37.637Z",
+        "modified": "2018-10-26T21:31:08.286Z",
+        "sn": 1,
+        "name": "Alta_temperatura2",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 8,
+    "fields": {
+        "created": "2018-10-26T21:28:00.278Z",
+        "modified": "2018-10-26T21:28:03.941Z",
+        "sn": 1,
+        "name": "Humo3",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 9,
+    "fields": {
+        "created": "2018-10-26T21:28:39.869Z",
+        "modified": "2018-10-26T22:07:59.098Z",
+        "sn": 1,
+        "name": "Unknown_face3",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 10,
+    "fields": {
+        "created": "2018-10-26T21:29:19.521Z",
+        "modified": "2018-10-26T22:08:16.349Z",
+        "sn": 1,
+        "name": "Unknown_face4",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 11,
+    "fields": {
+        "created": "2018-10-26T21:30:07.049Z",
+        "modified": "2018-10-26T21:30:07.056Z",
+        "sn": 1,
+        "name": "Humo4",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 12,
+    "fields": {
+        "created": "2018-10-26T21:30:28.619Z",
+        "modified": "2018-10-26T21:31:00.806Z",
+        "sn": 1,
+        "name": "Alta_temperatura3",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 13,
+    "fields": {
+        "created": "2018-10-26T21:30:46.312Z",
+        "modified": "2018-10-26T21:31:27.480Z",
+        "sn": 1,
+        "name": "Humo5",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 14,
+    "fields": {
+        "created": "2018-10-26T21:31:40.741Z",
+        "modified": "2018-10-26T22:08:28.346Z",
+        "sn": 1,
+        "name": "Unknown_face5",
+        "duration": 5,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 15,
+    "fields": {
+        "created": "2018-10-26T21:46:51.367Z",
+        "modified": "2018-10-26T22:09:11.077Z",
+        "sn": 1,
+        "name": "caida_detectada",
+        "duration": 10,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 16,
+    "fields": {
+        "created": "2018-10-26T21:47:23.917Z",
+        "modified": "2018-10-26T21:47:23.935Z",
+        "sn": 1,
+        "name": "Llamada_emergencia1",
+        "duration": 10,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 17,
+    "fields": {
+        "created": "2018-10-26T21:47:47.225Z",
+        "modified": "2018-10-26T21:47:47.241Z",
+        "sn": 1,
+        "name": "Llamada_emergencia2",
+        "duration": 10,
+        "is_complex": false
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 18,
+    "fields": {
+        "created": "2018-10-26T22:06:41.716Z",
+        "modified": "2018-10-26T22:13:17.115Z",
+        "sn": 1,
+        "name": "ruido_intruso",
+        "duration": 15,
+        "is_complex": true
+    }
+},
+{
+    "model": "sensor_network.event",
+    "pk": 19,
+    "fields": {
+        "created": "2018-11-01T18:16:51.289Z",
+        "modified": "2018-11-01T18:16:51.307Z",
+        "sn": 1,
+        "name": "intruso_avistado",
+        "duration": 10,
+        "is_complex": true
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 1,
+    "fields": {
+        "cause": 4,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 2,
+    "fields": {
+        "cause": 2,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 3,
+    "fields": {
+        "cause": 1,
+        "measure_limit": 40,
+        "function": "great_than_equal"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 4,
+    "fields": {
+        "cause": 3,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 5,
+    "fields": {
+        "cause": 5,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 6,
+    "fields": {
+        "cause": 6,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 7,
+    "fields": {
+        "cause": 7,
+        "measure_limit": 40,
+        "function": "great_than_equal"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 8,
+    "fields": {
+        "cause": 8,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 9,
+    "fields": {
+        "cause": 9,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 10,
+    "fields": {
+        "cause": 10,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 11,
+    "fields": {
+        "cause": 11,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 12,
+    "fields": {
+        "cause": 12,
+        "measure_limit": 40,
+        "function": "great_than_equal"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 13,
+    "fields": {
+        "cause": 13,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 14,
+    "fields": {
+        "cause": 14,
+        "measure_limit": 0,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 15,
+    "fields": {
+        "cause": 17,
+        "measure_limit": null,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 16,
+    "fields": {
+        "cause": 15,
+        "measure_limit": null,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.atomicevent",
+    "pk": 17,
+    "fields": {
+        "cause": 16,
+        "measure_limit": null,
+        "function": "true"
+    }
+},
+{
+    "model": "sensor_network.complexevent",
+    "pk": 18,
+    "fields": {
+        "first_event": 4,
+        "second_event": 2,
+        "function": "overlaps"
+    }
+},
+{
+    "model": "sensor_network.complexevent",
+    "pk": 19,
+    "fields": {
+        "first_event": 18,
+        "second_event": 16,
+        "function": "overlaps"
+    }
+}
+]
