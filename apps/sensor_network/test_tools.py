@@ -6,7 +6,7 @@ import time
 
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
-from apps.sensor_network.models import SensorNetwork, BaseSensor, MeasureLog, AtomicEvent, Event
+from apps.sensor_network.models import SensorNetwork, BaseSensor, MeasureLog, AtomicEvent, Event, Sensor
 
 def get_measures(url, sn, sensor):
     return requests.get(
@@ -60,21 +60,21 @@ def sensorGenerator(sn, sensor_number=0, moveable_number=0, start_index=0):
   count = start_index
   limit = start_index + sensor_number
   while count < limit:
-  	sensor = Sensor(
-		sn = sn,
-		iri = "sensor_" + str(count),
-		name = "s_" + str(count),
-		measure_type = 'S',
-		location = sn.location_map.locations.all(random.randint(0, len(sn.location_map.locations.all()) - 1))
-	)
+    sensor = Sensor(
+        sn = sn,
+        iri = "sensor_" + str(count),
+        name = "s_" + str(count),
+        measure_type = 'S',
+        location = sn.location_map.locations.all()[random.randint(0, len(sn.location_map.locations.all()) - 1)]
+    )
 
-  	if(count < start_index + moveable_number):
-	    sensor.is_moveable = True
-	    sensor.iri = "moveable_" + sensor.iri
-	    sensor.name = "ms_" + str(count)
+    if(count < start_index + moveable_number):
+        sensor.is_moveable = True
+        sensor.iri = "moveable_" + sensor.iri
+        sensor.name = "ms_" + str(count)
 
     sensor.save()
-    count++;
+    count += 1;
 
-# for testing import apps.sensor_network.test_tools
+# for testing import apps.sensor_network.test_tools as ttools
 # apps.sensor_network.test_tools.send_concurrent_requests(SensorNetwork.objects.first(), BaseSensor.objects.get(iri='cel2'))
