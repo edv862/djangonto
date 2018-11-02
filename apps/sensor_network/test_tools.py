@@ -54,5 +54,27 @@ def send_concurrent_requests(sn, times=1, low_limit=0, high_limit=1):
     all_sensors = len(sensors)
     print('took {:.3f} ms total, media: {:.3f}'.format(total_time, total_time/all_sensors))
 
+# Function to create n sensors callet 'sensor' + index related to the sensor network sn
+# with 'moveable_number' of them been moveable
+def sensorGenerator(sn, sensor_number=0, moveable_number=0, start_index=0):
+  count = start_index
+  limit = start_index + sensor_number
+  while count < limit:
+  	sensor = Sensor(
+		sn = sn,
+		iri = "sensor_" + str(count),
+		name = "s_" + str(count),
+		measure_type = 'S',
+		location = sn.location_map.locations.all(random.randint(0, len(sn.location_map.locations.all()) - 1))
+	)
+
+  	if(count < start_index + moveable_number):
+	    sensor.is_moveable = True
+	    sensor.iri = "moveable_" + sensor.iri
+	    sensor.name = "ms_" + str(count)
+
+    sensor.save()
+    count++;
+
 # for testing import apps.sensor_network.test_tools
 # apps.sensor_network.test_tools.send_concurrent_requests(SensorNetwork.objects.first(), BaseSensor.objects.get(iri='cel2'))
