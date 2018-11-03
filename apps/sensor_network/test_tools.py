@@ -74,7 +74,7 @@ def sensorGenerator(sn, sensor_number=0, moveable_number=0, start_index=0):
         sensor.name = "moveable_" + str(count)
 
     sensor.save()
-    count += 1;
+    count += 1
 
 # for testing import apps.sensor_network.test_tools as ttools
 # apps.sensor_network.test_tools.send_concurrent_requests(SensorNetwork.objects.first(), BaseSensor.objects.get(iri='cel2'))
