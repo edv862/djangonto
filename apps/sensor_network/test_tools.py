@@ -112,7 +112,6 @@ def sensorWithEventGenerator(sn, sensor_number=0, moveable_number=0, start_index
         last_event = atomico
         count += 1
 
-
 # for testing import apps.sensor_network.test_tools as ttools
 # apps.sensor_network.test_tools.send_concurrent_requests(SensorNetwork.objects.first(), BaseSensor.objects.get(iri='cel2'))
 # import apps.sensor_network.test_tools as ttools
