@@ -115,7 +115,7 @@ def sensorWithEventGenerator(sn, sensor_number=0, moveable_number=0, start_index
         count += 1
 
 
-def running_tests(filename, last_one):
+def running_tests(filename, last_one, request_per_sensor=1):
     sn = SensorNetwork.objects.all()[0]
 
     data_total = []
@@ -131,14 +131,22 @@ def running_tests(filename, last_one):
         for j, m in enumerate(range(1, last_one+1, 99)):
             print("sub-prueba "+str(j+m))
             sensorWithEventGenerator(sn, n + i, n + i, 0, j + m, j + m)
-            total, average = send_concurrent_requests(sn)
+            total, average = send_concurrent_requests(sn, times=request_per_sensor)
             data_total.append((total, average, n + i, n + i, j + m, j + m))
 
     file = open(os.path.join(os.getcwd(), filename),"w+")
 
-    file.write("tiempo total, promedio   , sensores atomicos, sensores movibles, eventos atomicos, eventos complejos\n")
+    file.write("{:>20} {:>20} {:>18} {:>18} {:>18} {:>18} {:>25}\n".format(
+            "tiempo total", "promedio", "sensores atomicos", "sensores movibles",
+            "eventos atomicos", "eventos complejos", "request a sensor/prueba"
+        )
+    )
     for d in data_total:
-        file.write("{:12s} {:12s} {:17s} {:18s} {:17s} {:18s}\n".format(str(d[0]), str(d[1]), str(d[2]), str(d[3]), str(d[4]), str(d[5])))
+        file.write("{:>20} {:>20} {:>18} {:>18} {:>18} {:>18} {:>25}\n".format(
+                str(d[0]), str(d[1]), str(d[2]), str(d[3]), str(d[4]),
+                str(d[5]), str(request_per_sensor)
+            )
+        )
 
     file.close()
 
