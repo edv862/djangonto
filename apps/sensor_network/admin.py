@@ -12,4 +12,5 @@ admin.site.register(MultimediaSensor)
 admin.site.register(SensorNetwork)
 admin.site.register(Sensor)
 
+admin.site.register(MeasureLog)
 

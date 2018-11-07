@@ -61,7 +61,8 @@ def send_concurrent_requests(sn, times=1, low_limit=0, high_limit=1):
     time2 = time.time()
     total_time = (time2 - time1) * 1000.0
     all_sensors = len(sensors)
-    print('took {:.3f} ms total, media: {:.3f}'.format(total_time, total_time/all_sensors))
+    # print('took {:f} ms total, media: {:f} ms.'.format(total_time, total_time/all_sensors))
+    return total_time, (total_time / all_sensors)
 
 
 # Function to create n sensors callet 'sensor' + index related to the sensor network sn
@@ -84,6 +85,7 @@ def sensorWithEventGenerator(sn, sensor_number=0, moveable_number=0, start_index
         if(count < start_index + moveable_number):
             sensor.is_moveable = True
             sensor.iri = "ms_" + sensor.iri
+            sensor.measure_type = "C"
             sensor.name = "moveable_" + str(count)
 
         sensor.save()
@@ -112,8 +114,38 @@ def sensorWithEventGenerator(sn, sensor_number=0, moveable_number=0, start_index
         last_event = atomico
         count += 1
 
+
+def running_tests(filename, last_one):
+    sn = SensorNetwork.objects.all()[0]
+
+    data_total = []
+    for i, n in enumerate(range(1, last_one+1, 99)):
+        print("prueba "+str(n+i))
+        # Pruebas n+1 sensores: 1, 100, 200...500.
+        sensorWithEventGenerator(sn, n + i, n + i, 0, 10, 10)
+        total, average = send_concurrent_requests(sn)
+        # Append tiempo total, promedio, numero de sensores atomico
+        # numero de sensores movibles, numero de eventos atomicos, numero de eventos complejos.
+        data_total.append((total, average, n + i, n + i, 10, 10))
+
+        for j, m in enumerate(range(1, last_one+1, 99)):
+            print("sub-prueba "+str(j+m))
+            sensorWithEventGenerator(sn, n + i, n + i, 0, j + m, j + m)
+            total, average = send_concurrent_requests(sn)
+            data_total.append((total, average, n + i, n + i, j + m, j + m))
+
+    file = open(filename, "r+")
+
+    for d in data_total:
+        file.write(str(d) + "\n")
+
+    file.close()
+
+
 # for testing import apps.sensor_network.test_tools as ttools
 # apps.sensor_network.test_tools.send_concurrent_requests(SensorNetwork.objects.first(), BaseSensor.objects.get(iri='cel2'))
 # import apps.sensor_network.test_tools as ttools
 # from apps.sensor_network.models import *
 # sensor_network = SensorNetwork.objects.all()[0]
+# ttools.running_tests('/home/edgar/Tesis/django-onto/django_mssn/apps/sensor_network/archivo.txt', 300)
+

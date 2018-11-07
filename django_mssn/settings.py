@@ -25,7 +25,7 @@ PROJECT_ROOT = BASE_DIR.child(os.environ.get('ROOT_DIR'))
 SECRET_KEY = '!l&7p$mp4!cb%l2u&k8f4lcf1@-&208i%hwy0%esfqkx*+ec+z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '*',

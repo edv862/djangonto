@@ -1,6 +1,9 @@
 import functools
 import math
-import matplotlib.path as mpltPath
+import numpy as np
+
+from shapely.geometry import Point
+from shapely.geometry.polygon import Polygon
 
 from django.core.cache import cache
 from django.db import models
@@ -19,9 +22,19 @@ class LocationMap(models.Model):
     def location_contains_point(self, vertices, point):
         # Check if a coordinate is inside a location
         if vertices:
-            vertices.append(vertices[0])
-            path = mpltPath.Path(vertices)
-            return path.contains_point(point, radius=-0.1)
+            vertices[0].append(vertices[0][0])
+            vertices[1].append(vertices[1][0])
+
+            # # print(point)
+
+            lons_lats_vect = np.column_stack((vertices[0], vertices[1])) # Reshape coordinates
+            polygon = Polygon(lons_lats_vect) # create polygon
+            p_point = Point(point[0], point[1]) # create point
+
+            # # print(polygon.contains(p_point)) # check if polygon contains point
+            # # print(p_point.within(polygon)) # check if a point is in the polygon
+
+            return (p_point.within(polygon) or polygon.contains(p_point))
         else:
             return None
 
@@ -45,6 +58,7 @@ class LocationMap(models.Model):
 
         loc = None
         for location in self.locations.all():
+            # # print(location.name)
             in_location = self.location_contains_point(location.get_vertices(), point)
 
             if in_location:
@@ -73,31 +87,31 @@ class Location(models.Model):
         """
         Returns value as tuple (lat,lon).
         """
+        lon = [
+            self.get_coordinates(self.point_1)[0],
+            self.get_coordinates(self.point_2)[0],
+            self.get_coordinates(self.point_3)[0],
+            self.get_coordinates(self.point_4)[0]
+        ]
+
+        lat = [
+            self.get_coordinates(self.point_1)[1],
+            self.get_coordinates(self.point_2)[1],
+            self.get_coordinates(self.point_3)[1],
+            self.get_coordinates(self.point_4)[1]
+        ]
+
         if self.point_6 is not None:
-            return [
-                self.get_coordinates(self.point_1),
-                self.get_coordinates(self.point_2),
-                self.get_coordinates(self.point_3),
-                self.get_coordinates(self.point_4),
-                self.get_coordinates(self.point_5),
-                self.get_coordinates(self.point_6)
-            ]
+            lon.append(self.get_coordinates(self.point_5)[0])
+            lon.append(self.get_coordinates(self.point_6)[0])
+            lat.append(self.get_coordinates(self.point_5)[1])
+            lat.append(self.get_coordinates(self.point_6)[1])
         if self.point_6 is None:
             if self.point_5 is not None:
-                return [
-                    self.get_coordinates(self.point_1),
-                    self.get_coordinates(self.point_2),
-                    self.get_coordinates(self.point_3),
-                    self.get_coordinates(self.point_4),
-                    self.get_coordinates(self.point_5)
-                ]
+                lon.append(self.get_coordinates(self.point_5)[0])
+                lat.append(self.get_coordinates(self.point_5)[1])
 
-        return [
-            self.get_coordinates(self.point_1),
-            self.get_coordinates(self.point_2),
-            self.get_coordinates(self.point_3),
-            self.get_coordinates(self.point_4)
-        ]
+        return [lon, lat]
 
     def get_coordinates(self, point):
         if point == "":
@@ -105,7 +119,8 @@ class Location(models.Model):
         aux = point.replace(" ", "").split(',')
         lat = float(aux[0])
         lon = float(aux[1])
-        return (lat, lon)
+        #return (lat, lon)
+        return [lon, lat]
 
 
 class SensorNetwork(models.Model):
@@ -217,10 +232,12 @@ class MeasureLog(TimeStampedModel):
         """
         Returns value as tuple (lat,lon).
         """
+        # print(self.value)
         aux = self.value.replace(" ", "").split(',')
         lat = float(aux[0])
         lon = float(aux[1])
-        return (lat, lon)
+        # return (lat, lon)
+        return [lon, lat]
 
     def integer(self):
         """
