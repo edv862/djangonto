@@ -1,7 +1,7 @@
 import requests
 import random
 import concurrent.futures
-
+import os
 import time
 
 from django.shortcuts import get_object_or_404
@@ -134,7 +134,7 @@ def running_tests(filename, last_one):
             total, average = send_concurrent_requests(sn)
             data_total.append((total, average, n + i, n + i, j + m, j + m))
 
-    file = open(filename, "r+")
+    file = open(os.path.join(OUTPUT_DIR, filename),"r+")
 
     for d in data_total:
         file.write(str(d) + "\n")
@@ -147,5 +147,5 @@ def running_tests(filename, last_one):
 # import apps.sensor_network.test_tools as ttools
 # from apps.sensor_network.models import *
 # sensor_network = SensorNetwork.objects.all()[0]
-# ttools.running_tests('/home/edgar/Tesis/django-onto/django_mssn/apps/sensor_network/archivo.txt', 300)
+# ttools.running_tests('nombre_archivo.ext', 300)
 
