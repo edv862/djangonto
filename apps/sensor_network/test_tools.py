@@ -54,10 +54,11 @@ def send_concurrent_requests(sn, times=1, low_limit=0, high_limit=1):
 
     time1 = time.time()
     for sensor in sensors:
-        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as excecutor:
-            future = excecutor.submit(
-                send_random_measures, url, sn, sensor, times, low_limit, high_limit
-            )
+        with concurrent.futures.ThreadPoolExecutor() as excecutor:
+            for i in range(times):
+                future = excecutor.submit(
+                    send_random_measures, url, sn, sensor, times, low_limit, high_limit
+                )
     time2 = time.time()
     total_time = (time2 - time1) * 1000.0
     all_sensors = len(sensors)
@@ -143,7 +144,7 @@ def running_tests(filename, last_one, request_per_sensor=1):
     )
     for d in data_total:
         file.write("{:>20} {:>20} {:>18} {:>18} {:>18} {:>18} {:>25}\n".format(
-                str(d[0]), str(d[1]), str(d[2]), str(d[3]), str(d[4]),
+                str(d[0]), str(d[1]/request_per_sensor), str(d[2]), str(d[3]), str(d[4]),
                 str(d[5]), str(request_per_sensor)
             )
         )
@@ -152,9 +153,5 @@ def running_tests(filename, last_one, request_per_sensor=1):
 
 
 # for testing import apps.sensor_network.test_tools as ttools
-# apps.sensor_network.test_tools.send_concurrent_requests(SensorNetwork.objects.first(), BaseSensor.objects.get(iri='cel2'))
-# import apps.sensor_network.test_tools as ttools
-# from apps.sensor_network.models import *
-# sensor_network = SensorNetwork.objects.all()[0]
 # ttools.running_tests('nombre_archivo.ext', 300)
 
