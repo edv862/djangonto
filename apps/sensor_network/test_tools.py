@@ -136,8 +136,8 @@ def running_tests(filename, last_one, request_per_sensor=1):
     file = open(os.path.join(os.getcwd(), filename),"w+")
 
     file.write("{:>20} {:>20} {:>18} {:>18} {:>18} {:>18} {:>25}\n".format(
-            "tiempo total", "promedio", "sensores atomicos", "sensores movibles",
-            "eventos atomicos", "eventos complejos", "request a sensor/prueba"
+            "Tiempo total(ms)", "Promedio(ms)", "Sensores", "Sensores movibles",
+            "Eventos Atomicos", "Eventos Complejos", "Request a Sensor por Prueba"
         )
     )
     for d in data_total:
