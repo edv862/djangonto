@@ -134,10 +134,11 @@ def running_tests(filename, last_one):
             total, average = send_concurrent_requests(sn)
             data_total.append((total, average, n + i, n + i, j + m, j + m))
 
-    file = open(os.path.join(OUTPUT_DIR, filename),"r+")
+    file = open(os.path.join(os.getcwd(), filename),"w+")
 
+    file.write("tiempo total, promedio   , sensores atomicos, sensores movibles, eventos atomicos, eventos complejos\n")
     for d in data_total:
-        file.write(str(d) + "\n")
+        file.write("{:5.6f} {:5.6f} {:17s} {:18s} {:17s} {:18s}\n".format(d[0], d[1], d[2], d[3], d[4], d[5]))
 
     file.close()
 
