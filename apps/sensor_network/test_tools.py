@@ -27,21 +27,18 @@ def send_measures(url, sn, sensor, measure):
     )
 
 
-def send_random_measures(url, sn, sensor, times=1, low_limit=0, high_limit=1, event=None):
+def send_random_measures(url, sn, sensor, low_limit=0, high_limit=1, event=None):
     if event:
         high_limit = event.measure_limit * 2
 
-    count = 0
-    while count < times:
-        if sensor.measure_type == 'S':
-            measure = {'measure': random.randint(low_limit, high_limit)}
-        elif sensor.measure_type == 'C':
-            measure = {'lat': random.uniform(-90, 90),'lon': random.uniform(-180, 180)}
-        else:
-            measure = {'measure': random.uniform(low_limit, high_limit)}
+    if sensor.measure_type == 'S':
+        measure = {'measure': random.randint(low_limit, high_limit)}
+    elif sensor.measure_type == 'C':
+        measure = {'lat': random.uniform(-90, 90),'lon': random.uniform(-180, 180)}
+    else:
+        measure = {'measure': random.uniform(low_limit, high_limit)}
 
-        send_measures(url, sn, sensor, measure)
-        count += 1
+    send_measures(url, sn, sensor, measure)
 
 
 def send_concurrent_requests(sn, times=1, low_limit=0, high_limit=1):
@@ -57,8 +54,9 @@ def send_concurrent_requests(sn, times=1, low_limit=0, high_limit=1):
         with concurrent.futures.ThreadPoolExecutor() as excecutor:
             for i in range(times):
                 future = excecutor.submit(
-                    send_random_measures, url, sn, sensor, times, low_limit, high_limit
+                    send_random_measures, url, sn, sensor, 1, low_limit, high_limit
                 )
+
     time2 = time.time()
     total_time = (time2 - time1) * 1000.0
     all_sensors = len(sensors)
