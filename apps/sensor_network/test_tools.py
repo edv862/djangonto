@@ -215,12 +215,20 @@ def plot_test_files(filenames, opt='tot'):
 
     plt.show()
 
-def points_in_polygon(points):
-    a = np.array([[2,6],[4,6],[4,8],[2,8],[2,6]]) 
+def graph_points_in_polygon(points=[]):
+    a = np.array([
+        [10.40904638,-66.8827488],
+        [10.40912903,-66.88272294],
+        [10.40904601,-66.88274932],
+        [10.40904596,-66.88274947],
+        [10.40904638,-66.8827488]
+    ]) 
     poly = patches.Polygon(a)
+    point = (10.40925013,-66.88345245)
 
     fig,ax = plt.subplots()
     ax.add_patch(poly)
+    ax.scatter(point[0],point[1], color="green", zorder=6)
 
     for point in points:
         if poly.contains_point(ax.transData.transform(point)):
