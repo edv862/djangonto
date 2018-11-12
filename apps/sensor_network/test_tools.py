@@ -215,31 +215,23 @@ def plot_test_files(filenames, opt='tot'):
 
     plt.show()
 
-def points_in_polygon():
-    a = np.array([[2,6],[4,6],[4,8],[2,8],[2,6]])  
-
+def points_in_polygon(points):
+    a = np.array([[2,6],[4,6],[4,8],[2,8],[2,6]]) 
     poly = patches.Polygon(a)
-    point = (3,7)
-
-    cp1 = poly.contains_point(point)  
-    print (cp1)                                               # prints True
-
 
     fig,ax = plt.subplots()
     ax.add_patch(poly)
 
-    cp2 = poly.contains_point(ax.transData.transform(point))
-    print(cp2)                                                # prints True 
-    cp3 = poly.get_path().contains_point(point)
-    print(cp3)                                                # prints True
-
-    if poly.contains_point(ax.transData.transform(point)):
-        ax.scatter(point[0],point[1], color="green", zorder=6)
-    
-    ax.scatter(point[1],point[0], color="crimson", zorder=6)
+    for point in points:
+        if poly.contains_point(ax.transData.transform(point)):
+            ax.scatter(point[0],point[1], color="green", zorder=6)
+        else:
+            ax.scatter(point[1],point[0], color="crimson", zorder=6)
+        
     plt.show()
 
 # for testing purposes
 # import apps.sensor_network.test_tools as ttools
 # ttools.running_tests('test_data.csv', 10, 0, 100, [10, 100], 1)
 # ttools.plot_test_files(['local_tests.dat'])
+# ttools.points_in_polygon()
