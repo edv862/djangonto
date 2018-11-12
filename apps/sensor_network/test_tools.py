@@ -3,6 +3,10 @@ import random
 import concurrent.futures
 import os
 import time
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+import numpy as np
+import csv
 
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
@@ -113,43 +117,129 @@ def sensorWithEventGenerator(sn, sensor_number=0, moveable_number=0, start_index
         last_event = atomico
         count += 1
 
-
-def running_tests(filename, last_one, request_per_sensor=1):
+# Sensor number
+# Sensor frequency
+def running_tests(
+        filename, tests_number, sensors_number_from, sensors_number_to,
+        events_number_array=[], request_per_sensor=1
+    ):
     sn = SensorNetwork.objects.all()[0]
-
     data_total = []
-    for i, n in enumerate(range(1, last_one+1, 99)):
-        print("prueba "+str(n+i))
-        # Pruebas n+1 sensores: 1, 100, 200...500.
-        sensorWithEventGenerator(sn, n + i, n + i, 0, 10, 10)
-        total, average = send_concurrent_requests(sn)
-        # Append tiempo total, promedio, numero de sensores atomico
-        # numero de sensores movibles, numero de eventos atomicos, numero de eventos complejos.
-        data_total.append((total, average, n + i, n + i, 10, 10))
+    
+    print("Inicializando RSM para Pruebas")
+    
+    for event_number in events_number_array:
+        for i in range(0, sensors_number_to + 1, 10):
+            # To make sure is not hung
+            if i % 100 == 0:
+                if i == 0:
+                    i = 1
 
-        for j, m in enumerate(range(1, last_one+1, 99)):
-            print("sub-prueba "+str(j+m))
-            sensorWithEventGenerator(sn, n + i, n + i, 0, j + m, j + m)
-            total, average = send_concurrent_requests(sn, times=request_per_sensor)
-            data_total.append((total, average, n + i, n + i, j + m, j + m))
+                print(
+                    "Prueba numero " + str(i) + " con " + str(event_number) + " Eventos " +
+                    str(sensors_number_from + i) + " Sensores")
 
-    file = open(os.path.join(os.getcwd(), filename),"w+")
+            if sensors_number_from == 0 and i == 0:
+                i = 1
 
-    file.write("{:>20} {:>20} {:>18} {:>18} {:>18} {:>18} {:>25}\n".format(
-            "Tiempo total(ms)", "Promedio(ms)", "Sensores", "Sensores movibles",
-            "Eventos Atomicos", "Eventos Complejos", "Request a Sensor por Prueba"
-        )
-    )
-    for d in data_total:
-        file.write("{:>20} {:>20} {:>18} {:>18} {:>18} {:>18} {:>25}\n".format(
-                str(d[0]), str(d[1]/request_per_sensor), str(d[2]), str(d[3]), str(d[4]),
-                str(d[5]), str(request_per_sensor)
+            sensorWithEventGenerator(
+                sn, -(-(sensors_number_from + i) // 2), -(-(sensors_number_from + i) // 2),
+                0, event_number, event_number
             )
-        )
+            
+            total = 0
+            average = 0
+            for j in range(0, tests_number, 10):
+                aux_total, aux_average = send_concurrent_requests(sn, times=request_per_sensor)
+                total += aux_total
+                average += aux_average
 
-    file.close()
+            # Append tiempo total, promedio, numero de sensores atomico
+            # numero de sensores movibles, numero de eventos atomicos, numero de eventos complejos.
+            data_total.append(
+                (
+                    total/tests_number, average/tests_number,
+                    (sensors_number_from + i), event_number*2
+                )
+            )
+
+    print("Iniciando escritura en archivo.")
+    with open(filename, 'w', newline='') as csvfile:
+        fieldnames = ["Tiempo total(ms)", "Promedio(ms)", "Sensores", "Eventos", "Request a Sensor por Prueba"]
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
+
+        for d in data_total:
+            writer.writerow(
+                {
+                  'Tiempo total(ms)': str(d[0]*1000),
+                  'Promedio(ms)': str(d[1]*1000/request_per_sensor),
+                  'Sensores': str(d[2]),
+                  'Eventos': str(d[3]),
+                  'Request a Sensor por Prueba': str(request_per_sensor)
+                }
+            )
+
+    print("Finalizado proceso de pruebas.")
+
+def plot_test_files(filenames, opt='tot'):
+    request_number = [1, 10, 100]
+    total_time = []
+    avg_sensor_time = [] # Time for the system to answer a sensor per request
+
+    count = 0
+    for filename in filenames:
+        first = True
+        total_time.append([])
+        avg_sensor_time.append([])
+        
+        with open(os.path.join(os.getcwd(), filename), 'r') as f:
+            for line in f:
+                if not first:
+                    line_data = line.split()
+                    total_time[count].append(float(line_data[0]))
+                    avg_sensor_time[count].append(float(line_data[1]))
+                
+                first = False
+            
+            count += 1
+
+    ax = plt.subplot(111)
+
+    if opt == 'tot':
+        for count in range(len(total_time)):
+            plt.plot(range(len(total_time[count])), total_time[count])
+    else:
+        for count in range(len(avg_sensor_time)):
+            plt.plot(range(len(avg_sensor_time[count])), avg_sensor_time[count])
+
+    plt.show()
+
+def points_in_polygon():
+    a = np.array([[2,6],[4,6],[4,8],[2,8],[2,6]])  
+
+    poly = patches.Polygon(a)
+    point = (3,7)
+
+    cp1 = poly.contains_point(point)  
+    print (cp1)                                               # prints True
 
 
-# for testing import apps.sensor_network.test_tools as ttools
-# ttools.running_tests('nombre_archivo.ext', 300)
+    fig,ax = plt.subplots()
+    ax.add_patch(poly)
 
+    cp2 = poly.contains_point(ax.transData.transform(point))
+    print(cp2)                                                # prints True 
+    cp3 = poly.get_path().contains_point(point)
+    print(cp3)                                                # prints True
+
+    if poly.contains_point(ax.transData.transform(point)):
+        ax.scatter(point[0],point[1], color="green", zorder=6)
+    
+    ax.scatter(point[1],point[0], color="crimson", zorder=6)
+    plt.show()
+
+# for testing purposes
+# import apps.sensor_network.test_tools as ttools
+# ttools.running_tests('test_data.csv', 10, 0, 100, [10, 100], 1)
+# ttools.plot_test_files(['local_tests.dat'])
