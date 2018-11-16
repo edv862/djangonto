@@ -93,17 +93,30 @@ def sensorWithEventGenerator(sn, sensor_number=0, moveable_number=0, start_index
             sensor.name = "moveable_" + str(count)
 
         sensor.save()
+        count += 1
 
-        atomico = AtomicEvent(
-            sn=sn,
-            name=("atomic_" + str(count)),
-            cause=sensor,
-            function="true",
-            duration=0,
-        )
-        atomico.save()
+    count = 0
+    while count < limit:
+        if count < sensor_number:
+            atomico = AtomicEvent(
+                sn=sn,
+                name=("atomic_" + str(count)),
+                cause=sensor,
+                function="true",
+                duration=0,
+            )
+            atomico.save()
+        else:
+            atomico = AtomicEvent(
+                sn=sn,
+                name=("atomic_" + str(count)),
+                cause=BaseSensor.objects.filter(sn=sn)[random.randint(0, sensor_number - 1)],
+                function="true",
+                duration=0,
+            )
+            atomico.save()
 
-        if count > start_index + 1:
+        if if count > 1:
             complejo = ComplexEvent(
                 sn=sn,
                 name=("complex_" + str(count)),
@@ -150,7 +163,7 @@ def running_tests(
             
             total = 0
             average = 0
-            for j in range(0, tests_number, 10):
+            for j in range(0, tests_number):
                 aux_total, aux_average = send_concurrent_requests(sn, times=request_per_sensor)
                 total += aux_total
                 average += aux_average
