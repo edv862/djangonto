@@ -5,6 +5,7 @@ import os
 import time
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+from matplotlib.collections import PatchCollection
 import numpy as np
 import csv
 
@@ -182,7 +183,7 @@ def running_tests(
 
     print("Finalizado proceso de pruebas.")
 
-def plot_test_files(filenames, opt='tot'):
+def plot_test_files(filenames, delimiter=','):
     request_number = [1, 10, 100]
     total_time = []
     avg_sensor_time = [] # Time for the system to answer a sensor per request
@@ -196,7 +197,7 @@ def plot_test_files(filenames, opt='tot'):
         with open(os.path.join(os.getcwd(), filename), 'r') as f:
             for line in f:
                 if not first:
-                    line_data = line.split()
+                    line_data = line.split(delimiter)
                     total_time[count].append(float(line_data[0]))
                     avg_sensor_time[count].append(float(line_data[1]))
                 
@@ -205,41 +206,73 @@ def plot_test_files(filenames, opt='tot'):
             count += 1
 
     ax = plt.subplot(111)
-
-    if opt == 'tot':
-        for count in range(len(total_time)):
-            plt.plot(range(len(total_time[count])), total_time[count])
-    else:
-        for count in range(len(avg_sensor_time)):
-            plt.plot(range(len(avg_sensor_time[count])), avg_sensor_time[count])
+    
+    for count in range(len(avg_sensor_time)):
+        plt.plot(range(len(avg_sensor_time[count])), avg_sensor_time[count])
 
     plt.show()
 
-def graph_points_in_polygon(points=[]):
-    a = np.array([
-        [10.40904638,-66.8827488],
-        [10.40912903,-66.88272294],
-        [10.40904601,-66.88274932],
-        [10.40904596,-66.88274947],
-        [10.40904638,-66.8827488]
-    ]) 
-    poly = patches.Polygon(a)
-    point = (10.40925013,-66.88346245)
+# Graph if points inside an array of polygos
+# radius < 0 indicates if the points are in clockwise orders or not (radius > 0)
+def graph_points_in_polygon(points=[], polygons=[], radius=-0.1):
+    sala = patches.Polygon(
+        np.array([
+            [1,1],
+            [1,2],
+            [3,2],
+            [3,1],
+            [1,1]
+        ]), True, color='blue')
+    pas1 = patches.Polygon(
+        np.array([
+            [2,2],
+            [2,5],
+            [3,5],
+            [3,3],
+            [7,3],
+            [7,2],
+            [2,2]
+        ]), True, color='green')
+    pas2 = patches.Polygon(
+        np.array([
+            [2,5],
+            [2,6],
+            [7,6],
+            [7,3],
+            [6,3],
+            [6,5],
+            [2,5]
+        ]), True, color='grey')
+    points = [
+        (1,1), (1,4,1,3), (1.8,2), (0.8, 0.8), (3.5, 3.4), (4,2.4), (6.5, 3), (6.6, 6.3), (1.7, 2.3), (5.3, 5.2), (2.5, 5.3), (5.4, 2.5),
+        (6.8, 4.2), (2.8, 1.6), (3.5, 2.5), (4.6, 6.7), (3, 2.7), (3.9, 6), (5.2, 6.7), (2.5, 3.8), (2, 1.5), (4, 5.5), (6.5, 5.5)
+    ]
 
     fig,ax = plt.subplots()
-    ax.add_patch(poly)
-    ax.scatter(point[0],point[1], color="green", zorder=6)
+
+    for polygon in polygons:
+        polygons.append(patches.Polygon(np.array(polygon)))
+
+    polygons.append(sala)
+    polygons.append(pas1)
+    polygons.append(pas2)
+
+    colors = 100*np.random.rand(len(polygons))
+    p = PatchCollection(polygons)
+    ax.add_collection(p)
 
     for point in points:
-        if poly.contains_point(ax.transData.transform(point)):
+        if any([polygon.contains_point(point, radius=radius) for polygon in polygons]):
             ax.scatter(point[0],point[1], color="green", zorder=6)
         else:
-            ax.scatter(point[1],point[0], color="crimson", zorder=6)
-        
+            ax.scatter(point[0],point[1], color="crimson", zorder=6)
+
+    p.set_array(np.array(colors))
     plt.show()
+
 
 # for testing purposes
 # import apps.sensor_network.test_tools as ttools
 # ttools.running_tests('test_data.csv', 10, 0, 100, [10, 100], 1)
-# ttools.plot_test_files(['local_tests.dat'])
+# ttools.plot_test_files(['tests_results/events_number_1000ev.csv'])
 # ttools.graph_points_in_polygon()
