@@ -116,7 +116,7 @@ def sensorWithEventGenerator(sn, sensor_number=0, moveable_number=0, start_index
             )
             atomico.save()
 
-        if if count > 1:
+        if count > 1:
             complejo = ComplexEvent(
                 sn=sn,
                 name=("complex_" + str(count)),
