@@ -135,47 +135,45 @@ def sensorWithEventGenerator(sn, sensor_number=0, moveable_number=0, start_index
 # Sensor frequency
 def running_tests(
         filename, tests_number, sensors_number_from, sensors_number_to,
-        events_number_array=[], request_per_sensor=1
+        events_number, request_per_sensor=1
     ):
     sn = SensorNetwork.objects.all()[0]
     data_total = []
     
     print("Inicializando RSM para Pruebas")
-    
-    for event_number in events_number_array:
-        for i in range(0, sensors_number_to + 1, 10):
-            # To make sure is not hung
-            if i % 100 == 0:
-                if i == 0:
-                    i = 1
-
-                print(
-                    "Prueba numero " + str(i) + " con " + str(event_number) + " Eventos " +
-                    str(sensors_number_from + i) + " Sensores")
-
-            if sensors_number_from == 0 and i == 0:
+    for i in range(sensors_number_from, sensors_number_to + 1, 10):
+        # To make sure is not hung
+        if i % 100 == 0:
+            if i == 0:
                 i = 1
 
-            sensorWithEventGenerator(
-                sn, -(-(sensors_number_from + i) // 2), -(-(sensors_number_from + i) // 2),
-                0, event_number, event_number
-            )
-            
-            total = 0
-            average = 0
-            for j in range(0, tests_number):
-                aux_total, aux_average = send_concurrent_requests(sn, times=request_per_sensor)
-                total += aux_total
-                average += aux_average
+            print(
+                "Prueba numero " + str(i) + " con " + str(events_number) + " Eventos " +
+                str(sensors_number_from + i) + " Sensores")
 
-            # Append tiempo total, promedio, numero de sensores atomico
-            # numero de sensores movibles, numero de eventos atomicos, numero de eventos complejos.
-            data_total.append(
-                (
-                    total/tests_number, average/tests_number,
-                    (sensors_number_from + i), event_number*2
-                )
+        if sensors_number_from == 0 and i == 0:
+            i = 1
+
+        sensorWithEventGenerator(
+            sn, -(-(sensors_number_from + i) // 2), -(-(sensors_number_from + i) // 2),
+            0, events_number, events_number
+        )
+        
+        total = 0
+        average = 0
+        for j in range(0, tests_number):
+            aux_total, aux_average = send_concurrent_requests(sn, times=request_per_sensor)
+            total += aux_total
+            average += aux_average
+
+        # Append tiempo total, promedio, numero de sensores atomico
+        # numero de sensores movibles, numero de eventos atomicos, numero de eventos complejos.
+        data_total.append(
+            (
+                total/tests_number, average/tests_number,
+                (sensors_number_from + i), events_number*2
             )
+        )
 
     print("Iniciando escritura en archivo.")
     with open(filename, 'w', newline='') as csvfile:
@@ -286,6 +284,6 @@ def graph_points_in_polygon(points=[], polygons=[], radius=-0.1):
 
 # for testing purposes
 # import apps.sensor_network.test_tools as ttools
-# ttools.running_tests('test_data.csv', 10, 0, 100, [10, 100], 1)
+# ttools.running_tests('test_data.csv', 10, 0, 100, 100, 1)
 # ttools.plot_test_files(['tests_results/events_number_1000ev.csv'])
 # ttools.graph_points_in_polygon()
