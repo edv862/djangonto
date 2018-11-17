@@ -21,7 +21,7 @@ class LocationMap(models.Model):
 
     def location_contains_point(self, vertices, point):
         # Check if a coordinate is inside a location
-        if vertices:
+        if vertices and point:
             vertices[0].append(vertices[0][0])
             vertices[1].append(vertices[1][0])
 
@@ -39,6 +39,7 @@ class LocationMap(models.Model):
             return None
 
     def get_location(self, sensor=None, measure=None):
+        in_location = False
         if sensor.is_moveable:
             if sensor and measure:
                 point = measure.get_coordinates()
@@ -58,8 +59,8 @@ class LocationMap(models.Model):
 
         loc = None
         for location in self.locations.all():
-            # # print(location.name)
-            in_location = self.location_contains_point(location.get_vertices(), point)
+            if location.get_vertices:
+                in_location = self.location_contains_point(location.get_vertices(), point)
 
             if in_location:
                 loc = location
@@ -87,31 +88,34 @@ class Location(models.Model):
         """
         Returns value as tuple (lat,lon).
         """
-        lon = [
-            self.get_coordinates(self.point_1)[0],
-            self.get_coordinates(self.point_2)[0],
-            self.get_coordinates(self.point_3)[0],
-            self.get_coordinates(self.point_4)[0]
-        ]
+        if self.point_1:
+            lon = [
+                self.get_coordinates(self.point_1)[0],
+                self.get_coordinates(self.point_2)[0],
+                self.get_coordinates(self.point_3)[0],
+                self.get_coordinates(self.point_4)[0]
+            ]
 
-        lat = [
-            self.get_coordinates(self.point_1)[1],
-            self.get_coordinates(self.point_2)[1],
-            self.get_coordinates(self.point_3)[1],
-            self.get_coordinates(self.point_4)[1]
-        ]
+            lat = [
+                self.get_coordinates(self.point_1)[1],
+                self.get_coordinates(self.point_2)[1],
+                self.get_coordinates(self.point_3)[1],
+                self.get_coordinates(self.point_4)[1]
+            ]
 
-        if self.point_6 is not None:
-            lon.append(self.get_coordinates(self.point_5)[0])
-            lon.append(self.get_coordinates(self.point_6)[0])
-            lat.append(self.get_coordinates(self.point_5)[1])
-            lat.append(self.get_coordinates(self.point_6)[1])
-        if self.point_6 is None:
-            if self.point_5 is not None:
+            if self.point_6 is not None:
                 lon.append(self.get_coordinates(self.point_5)[0])
+                lon.append(self.get_coordinates(self.point_6)[0])
                 lat.append(self.get_coordinates(self.point_5)[1])
+                lat.append(self.get_coordinates(self.point_6)[1])
+            if self.point_6 is None:
+                if self.point_5 is not None:
+                    lon.append(self.get_coordinates(self.point_5)[0])
+                    lat.append(self.get_coordinates(self.point_5)[1])
 
-        return [lon, lat]
+            return [lon, lat]
+        else:
+            return None
 
     def get_coordinates(self, point):
         if point == "":
@@ -234,10 +238,13 @@ class MeasureLog(TimeStampedModel):
         """
         # print(self.value)
         aux = self.value.replace(" ", "").split(',')
-        lat = float(aux[0])
-        lon = float(aux[1])
-        # return (lat, lon)
-        return [lon, lat]
+        if len(aux) > 1:
+            lat = float(aux[0])
+            lon = float(aux[1])
+            # return (lat, lon)
+            return [lon, lat]
+        else:
+            return None
 
     def integer(self):
         """

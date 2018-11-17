@@ -43,7 +43,7 @@ def send_random_measures(url, sn, sensor, low_limit=0, high_limit=1, event=None)
     else:
         measure = {'measure': random.uniform(low_limit, high_limit)}
 
-    send_measures(url, sn, sensor, measure)
+    return send_measures(url, sn, sensor, measure)
 
 
 def send_concurrent_requests(sn, times=1, low_limit=0, high_limit=1):
@@ -56,10 +56,10 @@ def send_concurrent_requests(sn, times=1, low_limit=0, high_limit=1):
 
     time1 = time.time()
     for sensor in sensors:
-        with concurrent.futures.ThreadPoolExecutor() as excecutor:
+        with concurrent.futures.ThreadPoolExecutor() as executor:
             for i in range(times):
-                future = excecutor.submit(
-                    send_random_measures, url, sn, sensor, 1, low_limit, high_limit
+                future = executor.submit(
+                    send_random_measures, url, sn, sensor, low_limit, high_limit
                 )
 
     time2 = time.time()
@@ -89,7 +89,6 @@ def sensorWithEventGenerator(sn, sensor_number=0, moveable_number=0, start_index
         if(count < start_index + moveable_number):
             sensor.is_moveable = True
             sensor.iri = "ms_" + sensor.iri
-            sensor.measure_type = "C"
             sensor.name = "moveable_" + str(count)
 
         sensor.save()
@@ -284,6 +283,6 @@ def graph_points_in_polygon(points=[], polygons=[], radius=-0.1):
 
 # for testing purposes
 # import apps.sensor_network.test_tools as ttools
-# ttools.running_tests('test_data.csv', 10, 0, 100, 100, 1)
+# ttools.running_tests('test_data.csv', 10, 0, 1, 1, 1)
 # ttools.plot_test_files(['tests_results/events_number_1000ev.csv'])
 # ttools.graph_points_in_polygon()
