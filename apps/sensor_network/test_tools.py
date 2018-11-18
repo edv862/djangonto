@@ -55,12 +55,11 @@ def send_concurrent_requests(sn, times=1, low_limit=0, high_limit=1):
         sensors.append(e.cause)
 
     time1 = time.time()
-    for sensor in sensors:
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            for i in range(times):
-                future = executor.submit(
-                    send_random_measures, url, sn, sensor, low_limit, high_limit
-                )
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        for sensor in sensors:
+            future = executor.map(
+                send_random_measures, ((url, sn, sensor, low_limit, high_limit) for i in range(times))
+            )
 
     time2 = time.time()
     total_time = (time2 - time1) * 1000.0
@@ -148,13 +147,14 @@ def running_tests(
 
             print(
                 "Prueba numero " + str(i) + " con " + str(events_number) + " Eventos " +
-                str(sensors_number_from + i) + " Sensores")
+                str(i - sensors_number_from) + " Sensores"
+            )
 
         if sensors_number_from == 0 and i == 0:
             i = 1
 
         sensorWithEventGenerator(
-            sn, -(-(sensors_number_from + i) // 2), -(-(sensors_number_from + i) // 2),
+            sn, -(-i // 2), -(-i // 2),
             0, events_number, events_number
         )
         
@@ -170,7 +170,7 @@ def running_tests(
         data_total.append(
             (
                 total/tests_number, average/tests_number,
-                (sensors_number_from + i), events_number*2
+                i, events_number*2
             )
         )
 
@@ -183,8 +183,8 @@ def running_tests(
         for d in data_total:
             writer.writerow(
                 {
-                  'Tiempo total(ms)': str(d[0]*1000),
-                  'Promedio(ms)': str(d[1]*1000/request_per_sensor),
+                  'Tiempo total(ms)': str(d[0]),
+                  'Promedio(ms)': str(d[1]/request_per_sensor),
                   'Sensores': str(d[2]),
                   'Eventos': str(d[3]),
                   'Request a Sensor por Prueba': str(request_per_sensor)
@@ -283,6 +283,6 @@ def graph_points_in_polygon(points=[], polygons=[], radius=-0.1):
 
 # for testing purposes
 # import apps.sensor_network.test_tools as ttools
-# ttools.running_tests('test_data.csv', 10, 0, 1, 1, 1)
+# ttools.running_tests('test_data.csv', 5, 300, 310, 500, 1)
 # ttools.plot_test_files(['tests_results/events_number_1000ev.csv'])
 # ttools.graph_points_in_polygon()
