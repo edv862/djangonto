@@ -6,6 +6,7 @@ import time
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from matplotlib.collections import PatchCollection
+from itertools import chain
 import numpy as np
 import csv
 
@@ -54,18 +55,22 @@ def send_concurrent_requests(sn, times=1, low_limit=0, high_limit=1):
     for e in atomic_events:
         sensors.append(e.cause)
 
+    all_sensors = len(sensors)
     time1 = time.time()
-    with concurrent.futures.ThreadPoolExecutor() as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
         for sensor in sensors:
-            future = executor.map(
-                send_random_measures, ((url, sn, sensor, low_limit, high_limit) for i in range(times))
-            )
+            futures = executor.map(
+                send_random_measures,
+                    (url for i in range(times)),
+                    (sn for i in range(times)),
+                    (sensor for i in range(times))
+                )
+            list(chain.from_iterable(futures))
 
     time2 = time.time()
     total_time = (time2 - time1) * 1000.0
-    all_sensors = len(sensors)
     # print('took {:f} ms total, media: {:f} ms.'.format(total_time, total_time/all_sensors))
-    return total_time, (total_time / all_sensors)
+    return total_time, (total_time / all_sensors * times)
 
 
 # Function to create n sensors callet 'sensor' + index related to the sensor network sn
@@ -146,8 +151,8 @@ def running_tests(
                 i = 1
 
             print(
-                "Prueba numero " + str(i) + " con " + str(events_number) + " Eventos " +
-                str(i - sensors_number_from) + " Sensores"
+                "Prueba numero " + str(i - sensors_number_from) + " con " + str(events_number) + " Eventos " +
+                str(i) + " Sensores"
             )
 
         if sensors_number_from == 0 and i == 0:
@@ -161,6 +166,7 @@ def running_tests(
         total = 0
         average = 0
         for j in range(0, tests_number):
+            print('outside ' + str(j))
             aux_total, aux_average = send_concurrent_requests(sn, times=request_per_sensor)
             total += aux_total
             average += aux_average
@@ -184,7 +190,7 @@ def running_tests(
             writer.writerow(
                 {
                   'Tiempo total(ms)': str(d[0]),
-                  'Promedio(ms)': str(d[1]/request_per_sensor),
+                  'Promedio(ms)': str(d[1]),
                   'Sensores': str(d[2]),
                   'Eventos': str(d[3]),
                   'Request a Sensor por Prueba': str(request_per_sensor)
@@ -193,38 +199,34 @@ def running_tests(
 
     print("Finalizado proceso de pruebas.")
 
-def plot_test_files(filenames, delimiter=','):
-    request_number = [1, 10, 100]
-    total_time = []
-    avg_sensor_time = [] # Time for the system to answer a sensor per request
+def plot_test_files(filenames, y_column=1, x_column=-1, delimiter=','):
+    # x == -1 indicates to count the xs axis to fill the y axis
+    xs = [] # x axis
+    ys = [] # y axis
 
-    count = 0
-    for filename in filenames:
+    for filename in filenames: 
         first = True
-        total_time.append([])
-        avg_sensor_time.append([])
-        
         with open(os.path.join(os.getcwd(), filename), 'r') as f:
             for line in f:
                 if not first:
                     line_data = line.split(delimiter)
-                    total_time[count].append(float(line_data[0]))
-                    avg_sensor_time[count].append(float(line_data[1]))
+                    xs.append(float(line_data[x_column]))
+                    ys.append(float(line_data[y_column]))
                 
                 first = False
-            
-            count += 1
 
     ax = plt.subplot(111)
-    
-    for count in range(len(avg_sensor_time)):
-        plt.plot(range(len(avg_sensor_time[count])), avg_sensor_time[count])
+    if x_column != -1:
+        plt.plot(xs, ys)
+    else:
+        plt.plot(range(len(ys)), ys)
 
     plt.show()
 
 # Graph if points inside an array of polygos
 # radius < 0 indicates if the points are in clockwise orders or not (radius > 0)
 def graph_points_in_polygon(points=[], polygons=[], radius=-0.1):
+# Example of usage
     sala = patches.Polygon(
         np.array([
             [1,1],
@@ -255,7 +257,7 @@ def graph_points_in_polygon(points=[], polygons=[], radius=-0.1):
         ]), True, color='grey')
     points = [
         (1,1), (1,4,1,3), (1.8,2), (0.8, 0.8), (3.5, 3.4), (4,2.4), (6.5, 3), (6.6, 6.3), (1.7, 2.3), (5.3, 5.2), (2.5, 5.3), (5.4, 2.5),
-        (6.8, 4.2), (2.8, 1.6), (3.5, 2.5), (4.6, 6.7), (3, 2.7), (3.9, 6), (5.2, 6.7), (2.5, 3.8), (2, 1.5), (4, 5.5), (6.5, 5.5)
+        (6.8, 4.2), (2.8, 1.6), (3.5, 2.5), (2.6, 4.7), (3, 2.7), (3.9, 6), (5.2, 6.7), (2.5, 3.8), (2, 1.5), (4, 5.5), (6.5, 5.5)
     ]
 
     fig,ax = plt.subplots()
@@ -277,12 +279,17 @@ def graph_points_in_polygon(points=[], polygons=[], radius=-0.1):
         else:
             ax.scatter(point[0],point[1], color="crimson", zorder=6)
 
+    ax.scatter(4.2, 5.3, color="crimson", zorder=6)
+    ax.scatter(2.5, 1.8, color="crimson", zorder=6)
+
     p.set_array(np.array(colors))
     plt.show()
 
 
 # for testing purposes
 # import apps.sensor_network.test_tools as ttools
-# ttools.running_tests('test_data.csv', 5, 300, 310, 500, 1)
-# ttools.plot_test_files(['tests_results/events_number_1000ev.csv'])
+# for i in range(1, 11):
+#  ttools.running_tests('tests_results/1000s_1000ev_' + str(1000*i) + 'req.csv', 10, 500, 500, 500, 1000*i)
+# ttools.running_tests('tests_results/test_data.csv', 5, 300, 310, 500, 1)
+# ttools.plot_test_files(['tests_results/1000ev_1000s_1req.csv'])
 # ttools.graph_points_in_polygon()
